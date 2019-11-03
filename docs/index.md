@@ -297,7 +297,7 @@ Now the isotope <sup>137</sup>Cs is chosen as source for the box. What remains i
 
     * The value and unit is displayed.
 
-!!! warning "Causion"
+!!! warning "Caution"
     The decay scheme of an isotope is that of a nucleus in its ground     state. Currently you cannot directly specify an excited state of an isotope. Thus <sup>99</sup>Tc will not yield the dose rate of the common metastable state of <sup>99m</sup>Tc. Selecting <sup>137</sup>Cs will however yield the expected dose rate since the Cs nucleus will decay to the metastable state <sup>137m</sup>Ba.
 
 We also have an option to simulate the entire decay chain of an isotope. In this case the decay products of the primary isotope will be tracked during simulation and will undergo decay if they are unstable. Note however that the half-life of a decay product of the primary isotope will not be considered. Every unstable decay product of the primary *will* decay during the simulation. From a purely physical point of view this is only meaningful if the half-lives of the decay products are much shorter than that of the primary isotope. It is up to the user to evaluate if this is option should be used.
@@ -337,7 +337,7 @@ A dose map share properties with a solid of box type. It has dimensions, a posit
 
 In a general situation the rotational geometry is probably the most meaningful setting. Alternatively, the isotropic geometry could be used.
 
-!!! warning "Causion"
+!!! warning "Caution"
     The user is responsible for setting meaningful properties of a dose map.     Examples of less meaningful settings could, but does not need to, be:
 
     * Exposing a dose map to radiation fields that is highly non-homogeneous over a surface of the does map. The concept of effective dose (measured over the whole body) might lose its meaning in this case.
