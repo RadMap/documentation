@@ -1,6 +1,6 @@
 # Installation instruction
 
-This document guides you though the installation of the RadMap software. To run the software you need to run both installers enclosed in this installer package. The software will be automatically installed on your C drive under a folder named RadMap. There must be no such folder present on your device prior installing RadMap
+This document guides you though the installation of the RadMap software. To run the software you need to run both installers enclosed in the installer package. The software will be automatically installed on your C drive under a folder named RadMap. There must be no such folder present on your device prior installing RadMap
 
 ## Install the RadMap user interface application
 
