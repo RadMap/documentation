@@ -1,0 +1,39 @@
+.md-header {
+    background-color: #303030;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+}
+
+h2::after {
+    width: 150px;
+    height: 1px;
+    border-bottom: 3px solid #e85a4f;
+    margin-bottom: 5px;
+    margin-top: 0px;
+    content: ' ';
+    display: block;
+}
+
+.md-nav__list a:hover {
+    color: #e85a4f;
+}
+
+.md-nav__link--active {
+    color: #e85a4f;
+}
+
+.md-typeset .admonition, .md-typeset details {
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    border-left: 0.2rem solid #e85a4f;
+}
+
+html .md-nav--primary .md-nav__title--site {
+    background-color: #303030;
+}
+
+.md-sidebar__scrollwrap::-webkit-scrollbar-thumb:hover {
+    background-color: #e85a4f;
+}
+
