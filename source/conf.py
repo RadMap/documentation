@@ -108,6 +108,7 @@ htmlhelp_basename = 'RadMapdoc'
 latex_engine = 'xelatex'
 
 latex_elements = {
+
     # The paper size ('letterpaper' or 'a4paper').
     #
     # 'papersize': 'letterpaper',
@@ -126,9 +127,13 @@ latex_elements = {
         'preamble': r'''
             \usepackage{charter}
             \usepackage[defaultsans]{lato}
-            \usepackage{pxfonts}
+            \usepackage{inconsolata}
         ''',
-    #\usepackage{inconsolata}
+        'fontpkg': r'''
+            \setmainfont{lato Serif}
+            \setsansfont{lato Sans}
+            \setmonofont{lato Sans Mono}
+        ''',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
