@@ -105,7 +105,7 @@ htmlhelp_basename = 'RadMapdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
-latex_engine = 'xelatex'
+#latex_engine = 'xelatex'
 
 latex_elements = {
 
@@ -126,9 +126,9 @@ latex_elements = {
     # 'figure_align': 'htbp',
     
         'preamble': r'''
-            \usepackage{fontspec}
             \usepackage{charter}
             \usepackage[defaultsans]{lato}
+            \usepackage{inconsolata}
         ''',
     #                \usepackage{newtxmath}
     #        \usepackage{fontspec}
