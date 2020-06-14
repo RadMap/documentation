@@ -127,12 +127,11 @@ latex_elements = {
         'preamble': r'''
             \usepackage{charter}
             \usepackage[defaultsans]{lato}
-            \usepackage{inconsolata}
+            \usepackage{newtxmath}
         ''',
         'fontpkg': r'''
             \setmainfont{lato Serif}
             \setsansfont{lato Sans}
-            \setmonofont{lato Sans Mono}
         ''',
 }
 
