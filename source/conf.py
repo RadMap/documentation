@@ -47,8 +47,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Radmap Documentation'
-copyright = '2019, Klas'
-author = 'Klas'
+copyright = '2020, RadMap'
+author = 'RadMap'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -101,10 +101,11 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'SphinxTestdoc'
+htmlhelp_basename = 'RadMapdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
+latex_engine = 'xelatex'
 
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
@@ -128,8 +129,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'SphinxTest.tex', 'SphinxTest Documentation',
-     'Klas', 'manual'),
+    (master_doc, 'RadMap.tex', 'RadMap Documentation',
+     'RadMap', 'howto'),
 ]
 
 
@@ -138,7 +139,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'sphinxtest', 'SphinxTest Documentation',
+    (master_doc, 'sphinxtest', 'RadMap Documentation',
      [author], 1)
 ]
 
