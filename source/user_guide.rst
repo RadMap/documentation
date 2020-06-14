@@ -81,7 +81,7 @@ and dose maps must be contained in the world volume.
 
 .. admonition:: *Interact*
     
-    **Menu bar ➞ File ➞ New project**
+    **Menu bar > File > New project**
     
     * An entry "World" is shown in the Geometry tree. This is the name of this solid.
     * Widgets are activated and ready for input in tabs in the Property panel.
@@ -95,7 +95,7 @@ the dimensions in x, y and z direction in the Properties panel.
 
 .. admonition:: *Interact*
 
-    **Property panel ➞ Dimensions**
+    **Property panel > Dimensions**
 
     Set length X-side to 100. Set unit to cm.
 
@@ -143,7 +143,7 @@ can reset the view.
 
 .. admonition:: *Interact*
 
-    **Geometry tree ➞ Right-click entry ➞ Focus and fit to view**
+    **Geometry tree > Right-click entry > Focus and fit to view**
 
     Right-click the solid you wish to display in the geometry view (in this case "World"). In the drop-down menu that appears, select "Focus and fit to view".
 
@@ -157,7 +157,7 @@ material through a drop down menu under the general tab.
 
 .. admonition:: *Interact*
     
-    **Property panel ➞ General tab ➞ Material drop down menu**
+    **Property panel > General tab > Material drop down menu**
 
     Set material to Air
 
@@ -176,7 +176,7 @@ entry in the geometry tree.
 
 .. admonition:: *Interact*
     
-    **Geometry tree ➞ Right-click entry ➞ New sub solid ➞ Tube**
+    **Geometry tree > Right-click entry > New sub solid > Tube**
 
     * The general tab in the properties panel will display properties for the newly created tube
 
@@ -190,7 +190,7 @@ of letters, the entry will not be registered.
 
 .. admonition:: *Interact*
     
-    **Properties panel ➞ General tab ➞ Solid ➞ Name**
+    **Properties panel > General tab > Solid > Name**
 
     Change the solid name by clicking in the field that reads "tube_1" and enter a new name. For example "lead_shielding"
 
@@ -210,7 +210,7 @@ wrong volume).
 
 .. admonition:: *Interact*
 
-    **Properties panel ➞ Dimensions ➞ Tube dimensions**
+    **Properties panel > Dimensions > Tube dimensions**
 
     Set Inner radius to 10 cm
 
@@ -234,7 +234,7 @@ to the parent volume (the World in this case).
 
 .. admonition:: *Interact*
 
-    **Properties panel ➞ Position ➞ Local position**
+    **Properties panel > Position > Local position**
 
     Set X to 5 cm
 
@@ -261,7 +261,7 @@ the geometry view.
 
 .. admonition:: *Interact*
 
-    **Geometry tree ➞ Right click tube ➞ Show coordinate system**
+    **Geometry tree > Right click tube > Show coordinate system**
 
     * Rotating the geometry view should reveal three lines emerging from the centre of the tube. The lines are red, green and blue and represents the x, y and z axes of the tube system.
 
@@ -270,7 +270,7 @@ the tube transparent by drawing it in wire-frame mode.
 
 .. admonition:: *Interact*
     
-    **Geometry tree ➞ Right click tube ➞ Draw wireframe**
+    **Geometry tree > Right click tube > Draw wireframe**
 
     * The Contours of the tube are visible but the surfaces are transparent.
 
@@ -279,7 +279,7 @@ enable the coordinate system for the world as well
 
 .. admonition:: *Interact* 
     
-    **Geometry tree ➞ Right click the world ➞ Show coordinate system**
+    **Geometry tree > Right click the world > Show coordinate system**
     
     * The coordinate system axis of the world volume is shown.
 
@@ -293,9 +293,9 @@ then the Y-axis and last the Z-axis.
 
 .. admonition:: *Interact*
 
-    **Geometry tree ➞ Select tube**
+    **Geometry tree > Select tube**
 
-    **Properties panel ➞ Rotation tab ➞ Sequential rotation**
+    **Properties panel > Rotation tab > Sequential rotation**
 
     Set the X rotation to 45 degrees.
 
@@ -318,9 +318,9 @@ source.
 
 .. admonition:: *Interact*
 
-    **Geometry tree ➞ Right-click world ➞ New sub solid ➞ Box**
+    **Geometry tree > Right-click world > New sub solid > Box**
 
-    **Properties panel ➞ Dimensions ➞ Box dimensions** 
+    **Properties panel > Dimensions > Box dimensions** 
 
     Set Length X-side to 2 cm
 
@@ -328,7 +328,7 @@ source.
 
     Set Length Z-side to 2 cm
 
-    **Properties panel ➞ Position ➞ Local position**
+    **Properties panel > Position > Local position**
 
     Set X position to 5 cm
 
@@ -343,7 +343,7 @@ changed under the general tab.
 
 .. admonition:: *Interact*
 
-    **General tab ➞ Appearance ➞ Left-click colour box**
+    **General tab > Appearance > Left-click colour box**
 
     In the dialog that appears, chose a nice green colour to contrast to the red and click OK.
 
@@ -353,7 +353,7 @@ As before we need to select a material for the solid.
 
 .. admonition:: *Interact*
     
-    **Property panel ➞ General Tab ➞ Material**
+    **Property panel > General Tab > Material**
 
     Set the material of the box to iron by selecting "Fe" as material.
 
@@ -370,7 +370,7 @@ in the geometry tree.
 
 .. admonition:: *Interact*
 
-    **Geometry tree ➞ Right-click box ➞ Attach source**
+    **Geometry tree > Right-click box > Attach source**
 
     * An entry "source_1" is shown in the "Sources" panel.
     * Properties for the source is shown in the general tab in the properties panel.
@@ -379,12 +379,12 @@ Now we can select the properties for the source.
 
 .. admonition:: *Interact*
     
-    **Properties panel ➞ General tab ➞ General**
+    **Properties panel > General tab > General**
 
     Give the source a suitable name, for example "Cs_contamination".
     * Name is set to "Cs_contamination"
 
-    **Properties panel ➞ General tab ➞ Radioactive source**
+    **Properties panel > General tab > Radioactive source**
 
     Set the "Element" to Caesium in the element drop down menu. The drop down list contains most elements in the predict table.
     The three columns in the list shows the atomic number, the element identifier (as shown in a periodic table) and the full element name.
@@ -405,7 +405,7 @@ to set the activity of the source.
 
 .. admonition:: *Interact*
 
-    **Properties panel ➞ General ➞ Radioactive source**
+    **Properties panel > General > Radioactive source**
 
     In the activity field, set the value to 100 and the unit to GBq (100 Giga Becquerel)
 
@@ -438,7 +438,7 @@ To select/deselect full chain simulation, do as follows
 
 .. admonition:: *Interact*
 
-    **Properties panel ➞ General ➞ Radioactive source**
+    **Properties panel > General > Radioactive source**
 
     Click the check-box field labeled "Full chain"
 
@@ -469,7 +469,7 @@ the associated dose maps.
 
 .. admonition:: *Interact*
 
-    **Geometry tree ➞ Right click the tube entry ➞ Attache dose map**
+    **Geometry tree > Right click the tube entry > Attache dose map**
 
     * A new entry "dose_map_1" is shown in the Dose Map panel.
     * Properties for the dose map is shown under the General tab in the properties panel.
@@ -514,19 +514,19 @@ meaningful setting. Alternatively, the isotropic geometry could be used.
 
 .. admonition:: *Interact*
 
-    **Properties panel ➞ General tab ➞ General ➞ Name**
+    **Properties panel > General tab > General > Name**
 
     Set the name of the dose map to "unshielded"
 
     * Name is changed
 
-    **Properties panel ➞ General tab ➞ Dose ➞ Geometry**
+    **Properties panel > General tab > Dose > Geometry**
 
     Set the Geometry to ROT
 
     * ROT is shown in the drop down list
 
-    **Properties panel ➞ Dimensions tab ➞ Box dimensions**
+    **Properties panel > Dimensions tab > Box dimensions**
 
     Set the dimensions as follows:
 
@@ -538,11 +538,11 @@ meaningful setting. Alternatively, the isotropic geometry could be used.
 
     * A transparent box with black contours is shown in the centre of the tube. This is the dose map.
 
-    **Properties panel ➞ Rotation tab ➞ Sequential rotation**
+    **Properties panel > Rotation tab > Sequential rotation**
 
     Set Z-rotation to 45 degrees
 
-    **Properties panel ➞ Position tab ➞ Local position**
+    **Properties panel > Position tab > Local position**
 
     Set the position to:
 
@@ -586,7 +586,7 @@ menu bar.
 
 .. admonition:: *Interact*
 
-    **Menu bar ➞ Simulation ➞ Simulation settings**
+    **Menu bar > Simulation > Simulation settings**
 
     * A dialog is opened
 
@@ -649,7 +649,7 @@ done from the File menu
 
 .. admonition:: *Interact*
 
-    **Menu bar ➞ File ➞ Delete results**
+    **Menu bar > File > Delete results**
 
     * The results are deleted. The [Locked] label is removed. It is possible to change the properties of all the project items.
 
@@ -660,7 +660,7 @@ You can export the simulation results to a pdf file.
 
 .. admonition:: *Interact*
 
-    **Menu bar ➞ Report ➞ Create PDF report**
+    **Menu bar > Report > Create PDF report**
 
     * You will be prompted to select a location and a name for saving the report PDF file.
     * When saved, the file is opened by your default pdf viewer. If no default viewer is found you will have to open the file manually from where you saved it.
@@ -675,6 +675,6 @@ from the RadMap interface.
 
 .. admonition:: *Interact*
 
-    **Menu bar ➞ Help ➞ License**
+    **Menu bar > Help > License**
 
     * Follow the instructions in the dialogues. These will let you know where to find the generated file and how to send it to us.
