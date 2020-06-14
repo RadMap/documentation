@@ -129,10 +129,6 @@ latex_elements = {
             \usepackage[defaultsans]{lato}
             \usepackage{newtxmath}
         ''',
-        'fontpkg': r'''
-            \setmainfont{lato Serif}
-            \setsansfont{lato Sans}
-        ''',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
