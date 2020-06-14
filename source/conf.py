@@ -128,6 +128,8 @@ latex_elements = {
             \usepackage{charter}
             \usepackage[defaultsans]{lato}
             \usepackage{newtxmath}
+            \usepackage{fontspec}
+            \setmonofont{Inconsolatazi4}
         ''',
 }
 
