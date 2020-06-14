@@ -127,10 +127,10 @@ latex_elements = {
         'preamble': r'''
             \usepackage{charter}
             \usepackage[defaultsans]{lato}
-            \usepackage{newtxmath}
-            \usepackage{fontspec}
-            \setmonofont{Inconsolatazi4}
         ''',
+    #                \usepackage{newtxmath}
+    #        \usepackage{fontspec}
+    #        \setmonofont{Inconsolatazi4}
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
