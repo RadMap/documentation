@@ -138,7 +138,7 @@ You can use the mouse an the keyboard to change the geometry view.
 
     * The view is rotated up, down, left and right.
 
-If you ever loose the an object in the view and you cannot find it, you
+If you ever loose an object in the view and you cannot find it, you
 can reset the view.
 
 .. admonition:: *Interact*
