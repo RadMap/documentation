@@ -126,8 +126,9 @@ latex_elements = {
         'preamble': r'''
             \usepackage{charter}
             \usepackage[defaultsans]{lato}
-            \usepackage{inconsolata}
+            \usepackage{pxfonts}
         ''',
+    #\usepackage{inconsolata}
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
