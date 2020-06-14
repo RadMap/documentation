@@ -124,10 +124,15 @@ latex_elements = {
     # Latex figure (float) alignment
     #
     # 'figure_align': 'htbp',
-        'preamble': r'''
-            \usepackage{charter}
-            \usepackage[defaultsans]{lato}
-        ''',
+        'fontpkg': r'''
+            \setmainfont{DejaVu Serif}
+            \setsansfont{DejaVu Sans}
+            \setmonofont{DejaVu Sans Mono}
+        '''
+        #'preamble': r'''
+        #    \usepackage{charter}
+        #    \usepackage[defaultsans]{lato}
+        #''',
     #                \usepackage{newtxmath}
     #        \usepackage{fontspec}
     #        \setmonofont{Inconsolatazi4}
