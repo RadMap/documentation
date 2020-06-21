@@ -45,7 +45,8 @@ Warranty
 
 The Software is provided without any warranty; Licensor hereby disclaims any warranty that The Software shall be error free, without defects or code which may cause damage to Licensee’s computers or to Licensee, and that Software shall be functional. Licensee shall be solely liable to any damage, defect or loss incurred as a result of operating software and undertake the risks contained in running The Software.
 
-## Intellectual Property and Ownership
+Intellectual Property and Ownership
+-----------------------------------
 
 **The Licensor** shall at all times retain ownership of The Software as originally downloaded by you and all subsequent downloads of the Software by you. The Software (and the copyright, and other intellectual property rights of whatever nature in the Software, including any modifications made thereto) are and shall remain the property of **The Licensor**.
 
