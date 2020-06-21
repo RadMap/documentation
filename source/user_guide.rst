@@ -665,6 +665,8 @@ You can export the simulation results to a pdf file.
     * You will be prompted to select a location and a name for saving the report PDF file.
     * When saved, the file is opened by your default pdf viewer. If no default viewer is found you will have to open the file manually from where you saved it.
 
+.. _acquire a time limited license:
+
 Acquire a time limited license
 ------------------------------
 

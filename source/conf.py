@@ -47,8 +47,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Radmap Documentation'
-copyright = '2020, RadMap'
-author = ''
+copyright = '2019, Klas'
+author = 'Klas'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

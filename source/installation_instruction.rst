@@ -1,52 +1,25 @@
 Installation instruction
 ========================
 
-This document guides you though the installation of the RadMap software.
-To run the software you need to run both installers enclosed in the
-installer package. The software will be automatically installed on your
-C drive under a folder named RadMap. There must be no such folder
-present on your device prior installing RadMap
+This document guides you though the installation of the RadMap software. To installe the software you need to run the installer. The software will be automatically installed on your C drive under a folder named RadMap. There must be no such folder present on your device prior installing RadMap.
+The installer installs a calculation server and an interface application. The server should start running as soon as it is installed. Every time the user who installs RadMap logs in, the server is started as a scheduled service.
 
-Install the RadMap user interface application
----------------------------------------------
+Install the RadMap user interface application and calculation server
+--------------------------------------------------------------------
 
 #. Run the installer RadMap_setup.exe
 #. Read the license agreement and accept it.
-#. Finnish the installation and start the application.
-#. RadMap starts. Since the server is not installed, the application
-   will complain about missing server configurations.
-#. Close the Application
+#. Finnish the installation.
 
-Install the RadMap Server
--------------------------
-
-If the RadMap user interface application starts without errors, follow
-the steps below to install the RadMap client server. The server is
-responsible for performing the computations of RadMap and must be
-installed if you want to perform any calculations.
-
-#. Run the installer RadMapServer_setup.exe.
-#. Read the license agreement and accept it.
-#. Finnish the installation and start the RadMap client server
-   application. If you choose to not start the server application at
-   this time, you must restart you device to start the server. After
-   installation the server will be automatically started every time you
-   boot your computer.
+The calculation server should be running. It should also automatically restart every time you log in on your machine. 
 
 **You should now be able to use RadMap under the free license!**
 
 Time limited full license
 -------------------------
-
-If you want to try out the full power of RadMap, you can request a time
-limited full license. To do this, you must send the RadMap team an
-installation specific license seed that can be generated from the RadMap
-interface. See the user manual for specific instructions of how to do
-this.
+If you want to try out the full power of RadMap, you can request a time limited full license. To do this, you must send the RadMap team an installation specific license seed that can be generated from the RadMap interface. See the user manual for specific instructions of how to :ref:`acquire a time limited license<acquire a time limited license>`.
 
 Uninstall RadMap
 ----------------
+To uninstall RadMap, locate the RadMap application under the Control Panel/Uninstall and uninstall.
 
-To uninstall RadMap, locate the RadMap and RadMapServer applications
-under the Control Panel/Uninstall program and uninstall both
-applications.

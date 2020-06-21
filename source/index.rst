@@ -1,3 +1,4 @@
+
 RadMap Documentation
 ====================
 
@@ -6,4 +7,5 @@ RadMap Documentation
 
    installation_instruction.rst
    user_guide.rst
+   RadMapLicense.rst
 
