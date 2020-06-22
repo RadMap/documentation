@@ -415,7 +415,7 @@ to set the activity of the source.
     
     The decay scheme of an isotope is that of a
     nucleus in its ground state. Currently you cannot directly specify an
-    excited state of an isotope. Thus :sup:`99` Tc will not yield the dose rate of
+    excited state of an isotope. Thus :sup:`99`\ Tc will not yield the dose rate of
     the common metastable state of :sup:`99m`\ Tc. Selecting :sup:`137`\ Cs will however yield
     the expected dose rate since the Cs nucleus will decay to the metastable
     state :sup:`137m`\ Ba.
