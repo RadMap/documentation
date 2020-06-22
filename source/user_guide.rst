@@ -508,9 +508,9 @@ meaningful setting. Alternatively, the isotropic geometry could be used.
     properties of a dose map. Examples of less meaningful settings could,
     but does not need to, be:
 
-    * Exposing a dose map to radiation fields that is highly non-homogeneous over a surface of the does map. The concept of effective dose (measured over the whole body) might lose its meaning in this case.
+    * Exposing a dose map to radiation fields that are highly non-homogeneous over parts of the does map. The concept of effective dose (measured over the whole body) might lose its meaning in this case.
 
-    * Exposing a dose map to fields form several sources and using geometry settings like AP or PA. In an exposure situation with several sources, a single exposed person cannot have her or his back side/front side facing each source. ROT or ISO would be more meaningful settings in this case.
+    * Exposing a dose map to fields from several sources and using geometry settings like AP or PA. In an exposure situation with several sources, a single exposed person cannot have her or his back side/front side facing each source. ROT or ISO would be more meaningful settings in this case.
 
 .. admonition:: *Interact*
 
