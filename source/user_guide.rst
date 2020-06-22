@@ -400,7 +400,7 @@ Now we can select the properties for the source.
 
     * 137 is selected.
 
-Now the isotope 137Cs is chosen as source for the box. What remains is
+Now the isotope :sup:`137`\ Cs is chosen as source for the box. What remains is
 to set the activity of the source.
 
 .. admonition:: *Interact*
@@ -415,10 +415,10 @@ to set the activity of the source.
     
     The decay scheme of an isotope is that of a
     nucleus in its ground state. Currently you cannot directly specify an
-    excited state of an isotope. Thus 99Tc will not yield the dose rate of
-    the common metastable state of 99mTc. Selecting 137Cs will however yield
+    excited state of an isotope. Thus :sup:`99` Tc will not yield the dose rate of
+    the common metastable state of :sup:`99m`\ Tc. Selecting :sup:`137`\ Cs will however yield
     the expected dose rate since the Cs nucleus will decay to the metastable
-    state 137mBa.
+    state :sup:`137m`\ Ba.
 
 We also have an option to simulate the entire decay chain of an isotope.
 In this case the decay products of the primary isotope will be tracked
