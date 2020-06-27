@@ -1,1 +1,1 @@
-mkdocs-material==4.4.3
+sphinx-press-theme==0.5.1
