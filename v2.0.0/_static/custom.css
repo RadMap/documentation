@@ -214,12 +214,17 @@ article.bd-article a:hover,
     border-bottom-color: #e85a4f !important;
 }
 
-/* Icon links (GitHub etc.) use html .pst-navbar-icon — override directly */
-.bd-header .pst-navbar-icon:hover {
+/* Icon links (GitHub etc.) — coral on hover/focus/active (mobile uses :active) */
+.bd-header .pst-navbar-icon:hover,
+.bd-header .pst-navbar-icon:focus,
+.bd-header .pst-navbar-icon:active {
     color: #e85a4f !important;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.bd-header .pst-navbar-icon:hover::before {
+.bd-header .pst-navbar-icon:hover::before,
+.bd-header .pst-navbar-icon:focus::before,
+.bd-header .pst-navbar-icon:active::before {
     border-bottom: max(3px, .1875rem, .12em) solid #e85a4f !important;
 }
 
