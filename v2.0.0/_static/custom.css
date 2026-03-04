@@ -214,12 +214,18 @@ article.bd-article a:hover,
     border-bottom-color: #e85a4f !important;
 }
 
-/* Icon links (GitHub etc.) — coral on hover/focus/active (mobile uses :active) */
+/* Icon links (GitHub etc.) — suppress browser tap highlight on mobile */
+.bd-header .pst-navbar-icon {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Coral on hover/focus/active (:active fires on mobile tap) */
 .bd-header .pst-navbar-icon:hover,
 .bd-header .pst-navbar-icon:focus,
-.bd-header .pst-navbar-icon:active {
+.bd-header .pst-navbar-icon:active,
+.bd-header .pst-navbar-icon:focus-visible {
     color: #e85a4f !important;
-    -webkit-tap-highlight-color: transparent;
+    outline-color: #e85a4f !important;
 }
 
 .bd-header .pst-navbar-icon:hover::before,
