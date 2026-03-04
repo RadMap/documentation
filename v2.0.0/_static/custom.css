@@ -215,22 +215,23 @@ article.bd-article a:hover,
 }
 
 /* Icon links (GitHub etc.) — suppress browser tap highlight on mobile */
-.bd-header .pst-navbar-icon {
+html .pst-navbar-icon {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Coral on hover/focus/active (:active fires on mobile tap) */
-.bd-header .pst-navbar-icon:hover,
-.bd-header .pst-navbar-icon:focus,
-.bd-header .pst-navbar-icon:active,
-.bd-header .pst-navbar-icon:focus-visible {
+/* Coral on hover/focus/active — use html prefix to match theme specificity
+   and cover mobile layouts where the icon moves outside .bd-header */
+html .pst-navbar-icon:hover,
+html .pst-navbar-icon:focus,
+html .pst-navbar-icon:active,
+html .pst-navbar-icon:focus-visible {
     color: #e85a4f !important;
     outline-color: #e85a4f !important;
 }
 
-.bd-header .pst-navbar-icon:hover::before,
-.bd-header .pst-navbar-icon:focus::before,
-.bd-header .pst-navbar-icon:active::before {
+html .pst-navbar-icon:hover::before,
+html .pst-navbar-icon:focus::before,
+html .pst-navbar-icon:active::before {
     border-bottom: max(3px, .1875rem, .12em) solid #e85a4f !important;
 }
 
