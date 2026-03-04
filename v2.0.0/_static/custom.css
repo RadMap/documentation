@@ -1,0 +1,339 @@
+/*
+ * The left sidebar has two extra sections that are empty for our flat doc
+ * structure (no nested toctree children, no ReadTheDocs ad server):
+ *
+ *  - sidebar-primary-items__start  — "Section Navigation" (always empty)
+ *  - ethical-ad-placement          — RTD ad slot (never loads locally)
+ *
+ * Hide both unconditionally so they leave no blank space.
+ */
+.sidebar-primary-items__start {
+    display: none;
+}
+
+#ethical-ad-placement {
+    display: none;
+}
+
+/* ---------------------------------------------------------------------------
+ * Colour scheme — matches radmap.tech
+ *
+ *  Primary accent  : #e85a4f  (coral/salmon — buttons, links, hover)
+ *  Navbar bg       : #303030  (dark charcoal — same as site nav bar)
+ *  Page background : #eae7dc  (warm eggshell — site header overlay colour)
+ *  Body text       : #000000  (black — same as site body text on eggshell)
+ * ---------------------------------------------------------------------------
+ */
+
+/* CSS custom properties — override pydata-sphinx-theme defaults.
+ * pydata defines its palette in html[data-theme=light] (specificity 0,1,1),
+ * which beats :root and [data-bs-theme=light] (both 0,1,0).
+ * All three selectors are needed to guarantee our values win. */
+:root,
+[data-bs-theme=light],
+html[data-theme=light] {
+    --pst-color-primary:           #e85a4f;
+    --pst-color-primary-highlight: #c94040;
+    --pst-color-secondary:         #e85a4f;
+    --pst-color-link:              #e85a4f;
+    --pst-color-link-hover:        #c94040;
+    --pst-color-accent:            #e85a4f;
+    --pst-color-text-base:         #000000;
+    --pst-color-text-muted:        #505050;
+    --pst-color-border:            #c8c4b8;
+    --pst-color-shadow:            #c8c4b8;
+    /* surface / on-background — used for kbd chips, cards, search field */
+    --pst-color-surface:           #d6d2c6;
+    --pst-color-on-background:     #eae7dc;
+    --pst-color-on-surface:        #000000;
+    /* inline code — charcoal text on warm-gray chip, coral when inside a link */
+    --pst-color-inline-code:       #303030;
+    --pst-color-inline-code-links: #e85a4f;
+    /* admonitions — note: charcoal, caution/warning: coral */
+    --pst-color-info:              #303030;
+    --pst-color-info-bg:           #ddd8d0;
+    --pst-color-warning:           #e85a4f;
+    --pst-color-warning-bg:        #ddd8d0;
+    --pst-color-attention:         #e85a4f;
+    --pst-color-attention-bg:      #ddd8d0;
+}
+
+/* Admonitions — direct overrides */
+.admonition,
+div.admonition {
+    background-color: #eae7dc !important;
+    border-color:     #303030 !important;
+}
+
+.admonition > .admonition-title,
+div.admonition > .admonition-title {
+    background-color: #ddd8d0 !important;
+    color:            #000000 !important;
+}
+
+.admonition > .admonition-title::after,
+div.admonition > .admonition-title::after {
+    color: #303030 !important;
+}
+
+/* Caution / warning — coral accent */
+.admonition.caution,
+div.admonition.caution,
+.admonition.warning,
+div.admonition.warning {
+    border-color: #e85a4f !important;
+}
+
+.admonition.caution > .admonition-title,
+div.admonition.caution > .admonition-title,
+.admonition.warning > .admonition-title,
+div.admonition.warning > .admonition-title {
+    background-color: #ddd8d0 !important;
+}
+
+.admonition.caution > .admonition-title::after,
+div.admonition.caution > .admonition-title::after,
+.admonition.warning > .admonition-title::after,
+div.admonition.warning > .admonition-title::after {
+    color: #e85a4f !important;
+}
+
+/* Inline code — direct override, bypasses variable resolution issues */
+code.docutils.literal,
+code.literal {
+    color:            #303030 !important;
+    background-color: #d6d2c6 !important;
+    border-color:     #c8c4b8 !important;
+}
+
+a code.docutils.literal,
+a code.literal {
+    color: #e85a4f !important;
+}
+
+/* Navbar active-page indicator — 3px border-bottom on ::before pseudo-element */
+.bd-header ul.navbar-nav > li.nav-item.current > .nav-link::before {
+    border-bottom-color: #e85a4f !important;
+}
+
+/* Right sidebar TOC active indicator — inset box-shadow acting as left bar */
+.toc-entry a.nav-link.active {
+    box-shadow: inset max(3px, .1875rem, .12em) 0 0 #e85a4f !important;
+    color: #e85a4f !important;
+}
+
+/* Page background — warm eggshell on content areas only (not the navbar) */
+body,
+.bd-main,
+.bd-content,
+.bd-article-container,
+article.bd-article,
+.bd-sidebar-secondary,
+.bd-sidebar-secondary .sidebar-secondary-items,
+.tocsidebar,
+.bd-toc {
+    background-color: #eae7dc !important;
+}
+
+/* Body text — black on eggshell */
+body,
+article.bd-article,
+.bd-article-container {
+    color: #000000;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.bd-article h1,
+.bd-article h2,
+.bd-article h3 {
+    color: #000000;
+}
+
+/* Body content links — coral, no underline; underline appears on hover */
+article.bd-article a,
+.bd-article-container a {
+    color: #e85a4f !important;
+    text-decoration: none !important;
+}
+
+article.bd-article a:hover,
+.bd-article-container a:hover {
+    color: #e85a4f !important;
+    text-decoration: underline !important;
+}
+
+/* Right-sidebar TOC links — black, coral + underline on hover */
+.bd-sidebar-secondary a,
+.bd-toc a {
+    color: #000000 !important;
+    text-decoration: none !important;
+}
+
+.bd-sidebar-secondary a:hover,
+.bd-toc a:hover,
+.bd-sidebar-secondary a.active,
+.bd-toc a.active {
+    color: #e85a4f !important;
+    text-decoration: underline !important;
+}
+
+/* Navbar — dark charcoal background matching the site header */
+.bd-header {
+    background-color: #303030 !important;
+}
+
+/* Navbar text and icon links — force white so they're readable on dark bg */
+.bd-header .navbar-nav .nav-link,
+.bd-header .navbar-brand,
+.bd-header .version-switcher__button,
+.bd-header a {
+    color: #ffffff !important;
+}
+
+/* Hover state for navbar links — coral accent */
+.bd-header .navbar-nav .nav-link:hover,
+.bd-header a:hover {
+    color: #e85a4f !important;
+}
+
+/* Active page indicator in navbar — coral underline, no blue/lilac */
+.bd-header .navbar-nav .nav-link.active,
+.bd-header .navbar-nav .nav-item.active > .nav-link {
+    color: #e85a4f !important;
+    border-bottom-color: #e85a4f !important;
+    text-decoration-color: #e85a4f !important;
+}
+
+/* Navbar hover — coral underline (::before pseudo-element) */
+.bd-header ul.navbar-nav > li.nav-item > .nav-link:hover {
+    color: #e85a4f !important;
+}
+
+.bd-header ul.navbar-nav > li.nav-item > .nav-link:hover::before {
+    border-bottom-color: #e85a4f !important;
+}
+
+/* Icon links (GitHub etc.) use html .pst-navbar-icon — override directly */
+.bd-header .pst-navbar-icon:hover {
+    color: #e85a4f !important;
+}
+
+.bd-header .pst-navbar-icon:hover::before {
+    border-bottom: max(3px, .1875rem, .12em) solid #e85a4f !important;
+}
+
+/* Suppress any remaining blue/lilac focus outlines in the navbar */
+.bd-header a:focus,
+.bd-header .nav-link:focus {
+    outline-color: #e85a4f !important;
+    box-shadow: none !important;
+}
+
+/* Right-sidebar active section indicator bar — coral not blue */
+.bd-sidebar-secondary .nav-link.active,
+.bd-toc .nav-link.active {
+    border-left-color: #e85a4f !important;
+    color: #e85a4f !important;
+    text-decoration: none !important;
+}
+
+/* Version-switcher button — white-ish border on dark navbar, coral ring on hover */
+button.btn.version-switcher__button {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+}
+
+button.btn.version-switcher__button:hover {
+    box-shadow: 0 0 0 .1875rem #e85a4f !important;
+}
+
+button.btn.version-switcher__button:focus-visible {
+    box-shadow: 0 0 0 .1875rem #e85a4f !important;
+    outline-color: #e85a4f !important;
+}
+
+/* Search button field in navbar — semi-transparent on dark background */
+.search-button-field {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color:     rgba(255, 255, 255, 0.35) !important;
+    color:            rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Ctrl / K kbd chips inside the navbar search button */
+.search-button-field kbd,
+.search-button__kbd-shortcut kbd {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color:            rgba(255, 255, 255, 0.85) !important;
+    border-color:     rgba(255, 255, 255, 0.3) !important;
+    box-shadow:       1px 1px 1px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Search bar — coral focus ring, eggshell background */
+.bd-search:focus-within {
+    box-shadow: 0 0 0 .1875rem #e85a4f !important;
+}
+
+.search-button-field:hover {
+    box-shadow: 0 0 0 .1875rem #e85a4f !important;
+}
+
+/* Back-to-top button — coral background, white text */
+#pst-back-to-top {
+    background-color: #e85a4f !important;
+    color: #ffffff !important;
+}
+
+#pst-back-to-top:hover {
+    background-color: #c94040 !important;
+    color: #ffffff !important;
+}
+
+#pst-back-to-top:focus-visible {
+    outline-color: #e85a4f !important;
+    box-shadow: none !important;
+}
+
+/* Previous / Next navigation links at page bottom */
+.prev-next-area a {
+    color: #e85a4f !important;
+    text-decoration: none !important;
+}
+
+.prev-next-area a:hover {
+    color: #c94040 !important;
+    text-decoration: underline !important;
+}
+
+.prev-next-area .prev-next-title {
+    color: #e85a4f !important;
+}
+
+/* Footer links — Sphinx, PyData Sphinx Theme credits */
+.bd-footer a,
+footer a {
+    color: #e85a4f !important;
+    text-decoration: none !important;
+}
+
+.bd-footer a:hover,
+footer a:hover {
+    color: #c94040 !important;
+    text-decoration: underline !important;
+}
+
+/* Version-switcher dropdown — keep it readable */
+.version-switcher__menu {
+    background-color: #3a3a3a;
+    border-color: #e85a4f;
+}
+
+.version-switcher__menu a {
+    color: #ffffff !important;
+}
+
+.version-switcher__menu a:hover,
+.version-switcher__menu a.active {
+    background-color: #e85a4f !important;
+    color: #ffffff !important;
+}

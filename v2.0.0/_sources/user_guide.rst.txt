@@ -1,0 +1,244 @@
+User guide
+==========
+
+About RadMap
+------------
+
+RadMap is a software that allows you to simulate how radiation interacts
+with matter. With RadMap you describe an environment in terms of
+geometrical objects and sources of radiation. RadMap then uses a full
+Monte Carlo algorithm to calculate the effects of radiation in desired
+points of your environment.
+
+With RadMap you can
+
+- calculate external gamma dose due to a large number of radioactive
+  isotopes in complex geometries
+- define new materials if the many predefined materials do not suit
+  your needs
+- save your geometries and sources for later use and sharing
+
+Starting RadMap
+---------------
+
+Starting RadMap brings up a program window divided in five principal
+parts: the **Geometry tree**, the **Geometry view**, **Dose maps**,
+**Sources**, and **Properties**.  There is also a menu bar at the top.
+
+**Geometry tree** — shows the geometrical objects in a tree structure.
+Depending on shape, material, density and position, each object affects
+radiation transport differently.
+
+**Geometry view** — displays the objects you create in the geometry tree
+visually.
+
+**Dose maps** — a list of dose maps.  Each dose map is a box-shaped
+region that registers particle flux and converts it to dose.
+
+**Sources** — a list of radiation sources.  Each source is associated
+with a solid in the geometry tree, making that object the source of
+radiation.
+
+**Properties** — shows and edits the properties of whatever is selected
+in the geometry tree, dose maps, or sources.
+
+A simple case — walk-through
+-----------------------------
+
+Create a world volume
+~~~~~~~~~~~~~~~~~~~~~
+
+The first thing you need is a world volume — a box-shaped region in
+which particles are transported.  Particles that leave the world volume
+are lost and no longer affect the simulation.  All other solids and dose
+maps must be contained within it.
+
+Choose **File → New Project**.  An entry *World* appears in the
+Geometry tree, and the Property panel becomes active.
+
+Set the dimensions
+~~~~~~~~~~~~~~~~~~
+
+The world volume is not yet visible because it has no size.  Open the
+**Dimensions** tab in the Property panel and set the X, Y and Z side
+lengths (for example 100 cm each).  The outline of the box appears in
+the geometry view.
+
+Note that the rotation and position tabs are disabled for the world
+volume — it cannot be moved or rotated.
+
+Navigate the geometry view
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use the mouse and keyboard to explore the 3-D view:
+
+- **Left-click and drag** — rotate the view.
+- **Up/Down arrow** — zoom in and out.
+- **Shift + arrow keys** — pan the view.
+- **Ctrl + arrow keys** — rotate the view.
+
+If you lose an object, right-click it in the Geometry tree and choose
+**Focus and fit to view** to centre it on screen.
+
+Set the material
+~~~~~~~~~~~~~~~~
+
+Every solid must have a material.  Select the world volume in the
+Geometry tree, open the **General** tab in the Property panel, and
+choose *Air* from the Material drop-down.  The **Edit Material** button
+opens a panel for creating custom materials.
+
+Add a child solid
+~~~~~~~~~~~~~~~~~
+
+Right-click an entry in the Geometry tree and choose
+**New sub solid → Tube** to add a tube inside the world.  The new solid
+appears in the tree and in the 3-D view.  Give it a descriptive name
+(e.g. *lead_shielding*) and assign a material as before.
+
+.. note::
+   Only normal letters, numbers and underscores are accepted in solid
+   names.  Forbidden characters are silently rejected.
+
+Set tube dimensions and position
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **Dimensions** tab for a tube exposes inner radius, outer radius,
+length, start angle and opening angle.  Try, for example:
+inner radius 10 cm, outer radius 20 cm, length 30 cm, delta phi 270°.
+Varying start phi and delta phi changes how much of the tube wall is
+present — useful for modelling a shielding container with an opening.
+
+Under the **Position** tab, set the position relative to the parent
+volume (e.g. X 5 cm, Y 10 cm, Z 15 cm).
+
+.. note::
+   No volume may overlap another, and every volume must be fully
+   contained by its parent.  RadMap checks for overlaps at the start of
+   a simulation by sampling random points on each surface.  Because only
+   a finite number of points are sampled, very small overlaps may
+   occasionally go undetected.
+
+Coordinate systems and rotation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To understand how a solid is oriented, right-click it in the Geometry
+tree and choose **Show coordinate system** — three coloured axes appear
+at the solid's centre.  If the axes are hidden by the solid surface,
+choose **Draw wireframe** to make the solid transparent.
+
+Set the rotation of a solid from the **Rotation** tab.  The rotation is
+sequential: first around X, then Y, then Z.  Setting X or Y after Z has
+been changed can produce unexpected results, so it is easiest to always
+set rotations in the order X, Y, Z.
+
+Add a source
+~~~~~~~~~~~~
+
+Sources are attached to solids.  First add a small solid to act as
+the source (e.g. a 2 cm box, material *Fe*, inside the tube at
+X 5 cm, Y 10 cm, Z 15 cm).
+
+Right-click the solid in the Geometry tree and choose **Attach source**.
+An entry *source_1* appears in the Sources panel.  In the Property
+panel, set the element (e.g. *Caesium*) and isotope (e.g. *137*), then
+enter the activity (e.g. 100 GBq).
+
+.. caution::
+   The decay scheme used is that of the ground state nucleus.  You
+   cannot directly specify an excited state.  :sup:`99`\ Tc therefore
+   does not yield the dose rate of :sup:`99m`\ Tc.  Selecting
+   :sup:`137`\ Cs does give the expected result because the Cs nucleus
+   decays to the metastable :sup:`137m`\ Ba.
+
+The **Full chain** checkbox controls whether the entire decay chain is
+followed.  When enabled, unstable decay products are themselves decayed
+during the simulation — their half-lives are not considered.  This is
+physically meaningful only when the half-lives of the decay products are
+much shorter than that of the primary isotope.  When disabled, the
+simulation follows one decay to the ground state of the first product.
+
+Adding dose maps
+~~~~~~~~~~~~~~~~
+
+A dose map registers particle flux entering a box-shaped region and
+converts it to dose using the ICRP 116 conversion tables.  Dose maps do
+not interfere with radiation transport and may overlap solids or other
+dose maps.
+
+Right-click a solid in the Geometry tree and choose **Attach dose map**.
+The dose map's coordinate system is defined relative to that parent
+solid, but otherwise the two are independent.
+
+Set the dose map dimensions, position and rotation as you would for a
+solid.  You can also configure the **exposure geometry**:
+
+- **AP / PA** — parallel beam incident on the front or back of the body.
+- **RLAT / LLAT** — beam from the right or left side.
+- **ROT** — body rotating in a broad beam; generally the most meaningful
+  choice for a single-source scenario.
+- **ISO** — isotropic radiation field, independent of direction.
+
+.. caution::
+   The concept of effective dose assumes whole-body exposure.  Using AP
+   or PA with multiple sources at different angles is not physically
+   meaningful; prefer ROT or ISO in such cases.
+
+For this example, create two dose maps attached to the tube, one on each
+side.  Place one at X 15 cm, Y −15 cm (facing the open side of the
+tube) and a second at X −15 cm, Y 15 cm (shielded by the tube wall).
+Set the geometry to *ROT* for both.
+
+Run the simulation
+~~~~~~~~~~~~~~~~~~
+
+Open **Simulation → Simulation settings**.  Set the number of primary
+particles to simulate.  More particles give better precision, but
+computation time scales linearly while precision improves only with the
+square root of particle count — ten times more particles takes ten times
+longer but reduces the standard deviation by a factor of roughly three.
+
+The free license caps each run at 50,000 primary particles.
+
+Click **Start simulation**.  You will be prompted to save the project
+first.  A progress bar shows the simulation progress; you can cancel at
+any time.  When finished, the dose rate and its uncertainty appear in
+the Property panel for each dose map.
+
+After a simulation the project is **locked** — most properties of
+solids, sources and dose maps cannot be changed while results are
+attached.  The title bar shows *[LOCKED]* as a reminder.  To make
+further edits, choose **File → Delete results** to discard the current
+results and unlock the project.
+
+Create a report file
+~~~~~~~~~~~~~~~~~~~~
+
+Choose **Report → Create PDF report** to export the simulation results
+to a PDF file.  You will be prompted for a save location; the file is
+then opened by your default PDF viewer.
+
+.. _license-tiers:
+
+Licensing
+---------
+
+RadMap operates in one of two modes depending on your license.
+
+**Free license** — no action required.  RadMap starts in free mode
+automatically.  Each simulation run is capped at 50,000 primary
+particles, which is sufficient for most screening calculations.
+
+**Full license** — removes the particle cap.  To obtain one:
+
+1. Open RadMap and choose **Help → License**.
+   The dialog shows your machine ID and copies it to the clipboard
+   automatically.
+2. Send that machine ID to the RadMap team to request a license file.
+3. When you receive the ``.lic`` file, open **Help → License** again
+   and click **Install License File...**.
+4. Browse to the ``.lic`` file and click **Open**.
+   The license takes effect immediately — no restart required.
+
+The license is tied to the machine it was issued for and is not
+transferable to another machine.

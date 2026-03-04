@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User guide &#8212; RadMap Documentation v2.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=e62213d7" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=aa039f9c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://radmap.github.io/documentation/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v2.0.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            true;
+        </script>
+    <link rel="icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="RadMapLicense.html" />
+    <link rel="prev" title="Installation" href="installation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="2.0.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="RadMap Documentation v2.0.0 documentation - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="RadMap Documentation v2.0.0 documentation - Home"/>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="RadMapLicense.html">
+    <no title>
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    User guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="RadMapLicense.html">
+    <no title>
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">User guide</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="user-guide">
+<h1>User guide</h1>
+<section id="about-radmap">
+<h2>About RadMap</h2>
+<p>RadMap is a software that allows you to simulate how radiation interacts
+with matter. With RadMap you describe an environment in terms of
+geometrical objects and sources of radiation. RadMap then uses a full
+Monte Carlo algorithm to calculate the effects of radiation in desired
+points of your environment.</p>
+<p>With RadMap you can</p>
+<ul class="simple">
+<li><p>calculate external gamma dose due to a large number of radioactive
+isotopes in complex geometries</p></li>
+<li><p>define new materials if the many predefined materials do not suit
+your needs</p></li>
+<li><p>save your geometries and sources for later use and sharing</p></li>
+</ul>
+</section>
+<section id="starting-radmap">
+<h2>Starting RadMap</h2>
+<p>Starting RadMap brings up a program window divided in five principal
+parts: the <strong>Geometry tree</strong>, the <strong>Geometry view</strong>, <strong>Dose maps</strong>,
+<strong>Sources</strong>, and <strong>Properties</strong>.  There is also a menu bar at the top.</p>
+<p><strong>Geometry tree</strong> — shows the geometrical objects in a tree structure.
+Depending on shape, material, density and position, each object affects
+radiation transport differently.</p>
+<p><strong>Geometry view</strong> — displays the objects you create in the geometry tree
+visually.</p>
+<p><strong>Dose maps</strong> — a list of dose maps.  Each dose map is a box-shaped
+region that registers particle flux and converts it to dose.</p>
+<p><strong>Sources</strong> — a list of radiation sources.  Each source is associated
+with a solid in the geometry tree, making that object the source of
+radiation.</p>
+<p><strong>Properties</strong> — shows and edits the properties of whatever is selected
+in the geometry tree, dose maps, or sources.</p>
+</section>
+<section id="a-simple-case-walk-through">
+<h2>A simple case — walk-through</h2>
+<section id="create-a-world-volume">
+<h3>Create a world volume</h3>
+<p>The first thing you need is a world volume — a box-shaped region in
+which particles are transported.  Particles that leave the world volume
+are lost and no longer affect the simulation.  All other solids and dose
+maps must be contained within it.</p>
+<p>Choose <strong>File → New Project</strong>.  An entry <em>World</em> appears in the
+Geometry tree, and the Property panel becomes active.</p>
+</section>
+<section id="set-the-dimensions">
+<h3>Set the dimensions</h3>
+<p>The world volume is not yet visible because it has no size.  Open the
+<strong>Dimensions</strong> tab in the Property panel and set the X, Y and Z side
+lengths (for example 100 cm each).  The outline of the box appears in
+the geometry view.</p>
+<p>Note that the rotation and position tabs are disabled for the world
+volume — it cannot be moved or rotated.</p>
+</section>
+<section id="navigate-the-geometry-view">
+<h3>Navigate the geometry view</h3>
+<p>Use the mouse and keyboard to explore the 3-D view:</p>
+<ul class="simple">
+<li><p><strong>Left-click and drag</strong> — rotate the view.</p></li>
+<li><p><strong>Up/Down arrow</strong> — zoom in and out.</p></li>
+<li><p><strong>Shift + arrow keys</strong> — pan the view.</p></li>
+<li><p><strong>Ctrl + arrow keys</strong> — rotate the view.</p></li>
+</ul>
+<p>If you lose an object, right-click it in the Geometry tree and choose
+<strong>Focus and fit to view</strong> to centre it on screen.</p>
+</section>
+<section id="set-the-material">
+<h3>Set the material</h3>
+<p>Every solid must have a material.  Select the world volume in the
+Geometry tree, open the <strong>General</strong> tab in the Property panel, and
+choose <em>Air</em> from the Material drop-down.  The <strong>Edit Material</strong> button
+opens a panel for creating custom materials.</p>
+</section>
+<section id="add-a-child-solid">
+<h3>Add a child solid</h3>
+<p>Right-click an entry in the Geometry tree and choose
+<strong>New sub solid → Tube</strong> to add a tube inside the world.  The new solid
+appears in the tree and in the 3-D view.  Give it a descriptive name
+(e.g. <em>lead_shielding</em>) and assign a material as before.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only normal letters, numbers and underscores are accepted in solid
+names.  Forbidden characters are silently rejected.</p>
+</div>
+</section>
+<section id="set-tube-dimensions-and-position">
+<h3>Set tube dimensions and position</h3>
+<p>The <strong>Dimensions</strong> tab for a tube exposes inner radius, outer radius,
+length, start angle and opening angle.  Try, for example:
+inner radius 10 cm, outer radius 20 cm, length 30 cm, delta phi 270°.
+Varying start phi and delta phi changes how much of the tube wall is
+present — useful for modelling a shielding container with an opening.</p>
+<p>Under the <strong>Position</strong> tab, set the position relative to the parent
+volume (e.g. X 5 cm, Y 10 cm, Z 15 cm).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No volume may overlap another, and every volume must be fully
+contained by its parent.  RadMap checks for overlaps at the start of
+a simulation by sampling random points on each surface.  Because only
+a finite number of points are sampled, very small overlaps may
+occasionally go undetected.</p>
+</div>
+</section>
+<section id="coordinate-systems-and-rotation">
+<h3>Coordinate systems and rotation</h3>
+<p>To understand how a solid is oriented, right-click it in the Geometry
+tree and choose <strong>Show coordinate system</strong> — three coloured axes appear
+at the solid’s centre.  If the axes are hidden by the solid surface,
+choose <strong>Draw wireframe</strong> to make the solid transparent.</p>
+<p>Set the rotation of a solid from the <strong>Rotation</strong> tab.  The rotation is
+sequential: first around X, then Y, then Z.  Setting X or Y after Z has
+been changed can produce unexpected results, so it is easiest to always
+set rotations in the order X, Y, Z.</p>
+</section>
+<section id="add-a-source">
+<h3>Add a source</h3>
+<p>Sources are attached to solids.  First add a small solid to act as
+the source (e.g. a 2 cm box, material <em>Fe</em>, inside the tube at
+X 5 cm, Y 10 cm, Z 15 cm).</p>
+<p>Right-click the solid in the Geometry tree and choose <strong>Attach source</strong>.
+An entry <em>source_1</em> appears in the Sources panel.  In the Property
+panel, set the element (e.g. <em>Caesium</em>) and isotope (e.g. <em>137</em>), then
+enter the activity (e.g. 100 GBq).</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The decay scheme used is that of the ground state nucleus.  You
+cannot directly specify an excited state.  <sup>99</sup>Tc therefore
+does not yield the dose rate of <sup>99m</sup>Tc.  Selecting
+<sup>137</sup>Cs does give the expected result because the Cs nucleus
+decays to the metastable <sup>137m</sup>Ba.</p>
+</div>
+<p>The <strong>Full chain</strong> checkbox controls whether the entire decay chain is
+followed.  When enabled, unstable decay products are themselves decayed
+during the simulation — their half-lives are not considered.  This is
+physically meaningful only when the half-lives of the decay products are
+much shorter than that of the primary isotope.  When disabled, the
+simulation follows one decay to the ground state of the first product.</p>
+</section>
+<section id="adding-dose-maps">
+<h3>Adding dose maps</h3>
+<p>A dose map registers particle flux entering a box-shaped region and
+converts it to dose using the ICRP 116 conversion tables.  Dose maps do
+not interfere with radiation transport and may overlap solids or other
+dose maps.</p>
+<p>Right-click a solid in the Geometry tree and choose <strong>Attach dose map</strong>.
+The dose map’s coordinate system is defined relative to that parent
+solid, but otherwise the two are independent.</p>
+<p>Set the dose map dimensions, position and rotation as you would for a
+solid.  You can also configure the <strong>exposure geometry</strong>:</p>
+<ul class="simple">
+<li><p><strong>AP / PA</strong> — parallel beam incident on the front or back of the body.</p></li>
+<li><p><strong>RLAT / LLAT</strong> — beam from the right or left side.</p></li>
+<li><p><strong>ROT</strong> — body rotating in a broad beam; generally the most meaningful
+choice for a single-source scenario.</p></li>
+<li><p><strong>ISO</strong> — isotropic radiation field, independent of direction.</p></li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The concept of effective dose assumes whole-body exposure.  Using AP
+or PA with multiple sources at different angles is not physically
+meaningful; prefer ROT or ISO in such cases.</p>
+</div>
+<p>For this example, create two dose maps attached to the tube, one on each
+side.  Place one at X 15 cm, Y −15 cm (facing the open side of the
+tube) and a second at X −15 cm, Y 15 cm (shielded by the tube wall).
+Set the geometry to <em>ROT</em> for both.</p>
+</section>
+<section id="run-the-simulation">
+<h3>Run the simulation</h3>
+<p>Open <strong>Simulation → Simulation settings</strong>.  Set the number of primary
+particles to simulate.  More particles give better precision, but
+computation time scales linearly while precision improves only with the
+square root of particle count — ten times more particles takes ten times
+longer but reduces the standard deviation by a factor of roughly three.</p>
+<p>The free license caps each run at 50,000 primary particles.</p>
+<p>Click <strong>Start simulation</strong>.  You will be prompted to save the project
+first.  A progress bar shows the simulation progress; you can cancel at
+any time.  When finished, the dose rate and its uncertainty appear in
+the Property panel for each dose map.</p>
+<p>After a simulation the project is <strong>locked</strong> — most properties of
+solids, sources and dose maps cannot be changed while results are
+attached.  The title bar shows <em>[LOCKED]</em> as a reminder.  To make
+further edits, choose <strong>File → Delete results</strong> to discard the current
+results and unlock the project.</p>
+</section>
+<section id="create-a-report-file">
+<h3>Create a report file</h3>
+<p>Choose <strong>Report → Create PDF report</strong> to export the simulation results
+to a PDF file.  You will be prompted for a save location; the file is
+then opened by your default PDF viewer.</p>
+</section>
+</section>
+<section id="licensing">
+<span id="license-tiers"></span><h2>Licensing</h2>
+<p>RadMap operates in one of two modes depending on your license.</p>
+<p><strong>Free license</strong> — no action required.  RadMap starts in free mode
+automatically.  Each simulation run is capped at 50,000 primary
+particles, which is sufficient for most screening calculations.</p>
+<p><strong>Full license</strong> — removes the particle cap.  To obtain one:</p>
+<ol class="arabic simple">
+<li><p>Open RadMap and choose <strong>Help → License</strong>.
+The dialog shows your machine ID and copies it to the clipboard
+automatically.</p></li>
+<li><p>Send that machine ID to the RadMap team to request a license file.</p></li>
+<li><p>When you receive the <code class="docutils literal notranslate"><span class="pre">.lic</span></code> file, open <strong>Help → License</strong> again
+and click <strong>Install License File…</strong>.</p></li>
+<li><p>Browse to the <code class="docutils literal notranslate"><span class="pre">.lic</span></code> file and click <strong>Open</strong>.
+The license takes effect immediately — no restart required.</p></li>
+</ol>
+<p>The license is tied to the machine it was issued for and is not
+transferable to another machine.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="installation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Installation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="RadMapLicense.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-radmap">About RadMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-radmap">Starting RadMap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-case-walk-through">A simple case — walk-through</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-world-volume">Create a world volume</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-dimensions">Set the dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate-the-geometry-view">Navigate the geometry view</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-material">Set the material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-child-solid">Add a child solid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-tube-dimensions-and-position">Set tube dimensions and position</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-systems-and-rotation">Coordinate systems and rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-source">Add a source</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-dose-maps">Adding dose maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-simulation">Run the simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-report-file">Create a report file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licensing">Licensing</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/user_guide.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2018–2026, Klas Marcks von Würtemberg.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

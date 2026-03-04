@@ -1,0 +1,67 @@
+Installation
+============
+
+This document guides you through installing and licensing RadMap on Windows.
+
+System requirements
+-------------------
+
+* Windows 10 or Windows 11 (64-bit)
+* Administrator account for installation
+* Approximately 3 GB of free disk space (Geant4 data sets are included)
+
+Install RadMap
+--------------
+
+1. Download ``RadMap_setup.exe`` from the RadMap release page.
+2. Run the installer.  Windows may show a User Account Control prompt — click
+   **Yes** to allow the installer to run with administrator privileges.
+3. Read the license agreement and accept it.
+4. Choose an installation directory.  The default is
+   ``C:\Program Files (x86)\RadMap``.
+   You may change this to any path you prefer.  The installer creates the
+   directory if it does not already exist.
+5. Click **Install** and wait for the Geant4 data sets to be extracted.
+   This step takes a minute or two depending on your hardware.
+6. When the installer finishes you can optionally launch RadMap immediately
+   by leaving the **Launch RadMap** checkbox checked.
+
+You can now use RadMap under the **free license**.  The free license limits
+each simulation run to **50,000 primary particles**.  For most screening
+calculations this is sufficient; for high-statistics results you need a full
+license (see :ref:`licensing`).
+
+.. _licensing:
+
+Licensing
+---------
+
+Free license
+~~~~~~~~~~~~
+
+No action is required.  RadMap starts in free mode automatically.  Each
+simulation run is capped at 50,000 primary particles.
+
+Full license
+~~~~~~~~~~~~
+
+A full license removes the particle limit.  To obtain one:
+
+1. Open RadMap and choose **Help → License**.
+   The dialog shows your machine ID and copies it to the clipboard automatically.
+2. Send that machine ID to the RadMap team to request a license file.
+3. When you receive the ``.lic`` file, open **Help → License** again
+   and click **Install License File...**.
+4. Browse to the ``.lic`` file and click **Open**.
+   The license takes effect immediately — no restart required.
+
+The license is tied to the machine it was issued for and is not
+transferable to another machine.
+
+Uninstall RadMap
+----------------
+
+Open **Control Panel → Programs → Uninstall a program**, locate **RadMap**,
+and click **Uninstall**.  The uninstaller removes the application and all
+installed files.  Your own project files (``.rma``) and results are not
+deleted.
