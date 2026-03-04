@@ -1,2 +1,2 @@
-.. include:: ../../../RadMapLicense.txt
+.. include:: _RadMapLicense.txt
    :parser: myst_parser.sphinx_
