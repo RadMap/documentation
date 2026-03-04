@@ -314,6 +314,11 @@ button.btn.version-switcher__button:focus-visible {
 
 .prev-next-area a:hover {
     color: #c94040 !important;
+    text-decoration: none !important;
+}
+
+/* Underline only the page title on hover, not "previous" / "next" */
+.prev-next-area a:hover .prev-next-title {
     text-decoration: underline !important;
 }
 
