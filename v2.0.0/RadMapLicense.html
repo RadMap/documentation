@@ -31,7 +31,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ac960770" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f6b01ebc" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -53,7 +53,7 @@
     <link rel="icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="User guide" href="user_guide.html" />
+    <link rel="prev" title="Methods" href="methods.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="2.0.0" />
@@ -103,7 +103,7 @@
   </button>
   
   
-  <div class="col-lg-3 navbar-header-items__start">
+  <div class=" navbar-header-items__start">
     
       <div class="navbar-item">
 
@@ -122,9 +122,11 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="RadMap Documentation v2.0.0 documentation - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="RadMap Documentation v2.0.0 documentation - Home"/>
+    <img src="_static/logo-light.png" class="logo__image only-light" alt="RadMap documentation – home"/>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="RadMap documentation – home"/>
   
+  
+    <p class="title logo__title">RadMap</p>
   
 </a></div>
     
@@ -150,7 +152,7 @@
     
   </div>
   
-  <div class="col-lg-9 navbar-header-items">
+  <div class=" navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
@@ -172,9 +174,16 @@
 </li>
 
 
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="methods.html">
+    Methods
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    End-User License Agreement (EULA) of RadMap
+    EULA
   </a>
 </li>
 
@@ -189,13 +198,19 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
         </div>
       
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -208,10 +223,25 @@
           
           
           
-          <a href="https://github.com/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://radmap.tech" title="radmap.tech" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">radmap.tech</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/RadMap/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
+      
+        <div class="navbar-item">
+<a class="rm-download" href="https://github.com/RadMap/RadMap/releases/latest">Download</a></div>
       
     </div>
     
@@ -220,10 +250,8 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
     </div>
   
@@ -273,9 +301,16 @@
 </li>
 
 
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="methods.html">
+    Methods
+  </a>
+</li>
+
+
 <li class="nav-item current active">
   <a class="nav-link nav-internal" href="#">
-    End-User License Agreement (EULA) of RadMap
+    EULA
   </a>
 </li>
 
@@ -289,6 +324,14 @@
     
       <div class="sidebar-header-items__end">
         
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
@@ -300,10 +343,25 @@
           
           
           
-          <a href="https://github.com/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://radmap.tech" title="radmap.tech" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">radmap.tech</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/RadMap/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
+        
+          <div class="navbar-item">
+<a class="rm-download" href="https://github.com/RadMap/RadMap/releases/latest">Download</a></div>
         
       </div>
     
@@ -369,21 +427,35 @@ All rights reserved.</p>
 <p>This EULA agreement governs your acquisition and use of our RadMap software (“The Software”) directly from <strong>The Licensor</strong> or indirectly through an authorized reseller or distributor (a “Reseller”).</p>
 <p>“You” and “Your” means the individual or legal entity licensing the Software under this EULA.</p>
 <p>Please read this EULA agreement carefully before completing the installation process and using the RadMap software. It provides a license to use the RadMap software and contains warranty information and liability disclaimers.</p>
-<p>If you register for a free trial of the RadMap software, this EULA agreement will also govern that trial. By clicking “accept” or installing and/or using the RadMap software, you are confirming your acceptance of the Software and agreeing to become bound by the terms of this EULA agreement.</p>
+<p>This EULA agreement also governs use of the Software under the free licence. By clicking “accept” or installing and/or using the RadMap software, you are confirming your acceptance of the Software and agreeing to become bound by the terms of this EULA agreement.</p>
 <p>If you are entering into this EULA agreement on behalf of a company or other legal entity, you represent that you have the authority to bind such entity and its affiliates to these terms and conditions. If you do not have such authority or if you do not agree with the terms and conditions of this EULA agreement, do not install or use the Software, and you must not accept this EULA agreement.</p>
 <p>This EULA agreement shall apply only to the Software supplied by herewith regardless of whether other software is referred to or described herein. The terms also apply to any supplements and support services for the Software, unless other terms accompany those items on delivery. If so, those terms apply. A new major version of the Software may require a separate license; updates and minor releases within the same major version are covered by this EULA.</p>
 <section id="license-grant">
 <h2>License Grant</h2>
-<p><strong>The Licensor</strong> hereby grants you a personal, non-transferable, non-exclusive licence to install and use the RadMap software on a single machine identified at the time of license activation, in accordance with the terms of this EULA agreement.</p>
-<p>If You are a legal entity, You may permit individuals within Your own organisation to use the Software on Your behalf on that licensed machine. You are responsible for ensuring the machine meets the minimum requirements of the RadMap software and that all such individuals comply with the terms of this EULA.</p>
+<p><strong>The Licensor</strong> hereby grants you a personal, non-transferable, non-exclusive licence to install and use the RadMap software in accordance with the terms of this EULA agreement, in one of two forms:</p>
+<ul class="simple">
+<li><p><strong>Free licence.</strong> Without a licence file, the Software runs in free mode, which limits each simulation run to 50,000 primary particles. You may install and use the Software in free mode on any number of machines.</p></li>
+<li><p><strong>Full licence.</strong> A licence file issued by <strong>The Licensor</strong> removes that limit on the single machine it was issued for, identified by its machine ID, until the expiry date the licence file states, if it states one.</p></li>
+</ul>
+<p>If You are a legal entity, You may permit individuals within Your own organisation to use the Software on Your behalf. You are responsible for ensuring the machine meets the minimum requirements of the RadMap software and that all such individuals comply with the terms of this EULA.</p>
 <p>You are not permitted to:</p>
 <ul class="simple">
 <li><p>Edit, alter, modify, adapt, translate or otherwise change the whole or any part of the Software nor permit the whole or any part of the Software to be combined with or become incorporated in any other software, nor decompile, disassemble or reverse engineer the Software or attempt to do any such things</p></li>
-<li><p>Reproduce, copy, distribute, resell or sublicense the Software</p></li>
-<li><p>Transfer the Software or this license to another machine or third party without prior written consent from <strong>The Licensor</strong></p></li>
+<li><p>Reproduce, copy, distribute, resell or sublicense the Software, except for installing it as this EULA permits</p></li>
+<li><p>Transfer a full licence to another machine or to a third party without prior written consent from <strong>The Licensor</strong></p></li>
 <li><p>Use the Software in any way which breaches any applicable local, national or international law</p></li>
 <li><p>Use the Software for any purpose that <strong>The Licensor</strong> considers is a breach of this EULA agreement</p></li>
 </ul>
+</section>
+<section id="third-party-components">
+<h2>Third-party Components</h2>
+<p>The Software includes components made by others under their own licences, listed with those licences in the documentation’s <em>Third-party software</em> section and in Help → About. This EULA does not restrict any right those licences give You; for those components, their terms apply.</p>
+</section>
+<section id="intended-use">
+<h2>Intended Use</h2>
+<p>The Software is intended for radiation protection calculations: dose rates from radioactive sources and the effect of shielding on them. Its results are estimates whose accuracy depends on the model You build and on the limitations described in the user guide. You are responsible for judging whether the Software and its results are suitable for Your purpose.</p>
+<p>The Software has not been developed under a nuclear quality assurance programme, such as ASME NQA-1 or ISO 19443. Where its results support the safety analysis or licensing basis of a nuclear facility, You are responsible for qualifying the Software for that use under Your own quality assurance requirements.</p>
+<p>The Software is not a medical device. It is not intended for the diagnosis or treatment of patients, including patient dosimetry and radiotherapy treatment planning, and must not be used for these purposes.</p>
 </section>
 <section id="warranty">
 <h2>Warranty</h2>
@@ -424,6 +496,8 @@ All rights reserved.</p>
 <p>This EULA agreement, and any dispute arising out of or in connection with this EULA agreement, shall be governed by and construed in accordance with the laws of Sweden. Any dispute that cannot be resolved amicably shall be submitted to the exclusive jurisdiction of the courts of Sweden.</p>
 </section>
 </section>
+<p>RadMap also includes software made by others, under their own licences:
+see <a class="reference internal" href="third_party.html"><span class="doc">Third-party software</span></a>.</p>
 
 
                 </article>
@@ -436,12 +510,12 @@ All rights reserved.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="user_guide.html"
+       href="methods.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">User guide</p>
+        <p class="prev-next-title">Methods</p>
       </div>
     </a>
 </div>
@@ -464,6 +538,8 @@ All rights reserved.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#license-grant">License Grant</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#third-party-components">Third-party Components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intended-use">Intended Use</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warranty">Warranty</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitation-of-liability">Limitation of Liability</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intellectual-property-and-ownership">Intellectual Property and Ownership</a></li>
@@ -498,22 +574,22 @@ All rights reserved.</p>
     <div class="footer-items__start">
       
         <div class="footer-item">
-
-  <p class="copyright">
-    
-      © Copyright 2018–2026, Klas Marcks von Würtemberg.
-      <br/>
-    
-  </p>
-</div>
+<a class="rm-footer-brand" href="index.html">
+  <img class="only-light" src="_static/logo-light.png" alt="" width="24" height="24">
+  <img class="only-dark" src="_static/logo-dark.png" alt="" width="24" height="24">
+  <span>RadMap</span>
+</a></div>
       
         <div class="footer-item">
-
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
-    <br/>
-  </p>
-</div>
+<nav class="rm-footer-links" aria-label="Footer">
+  <a href="https://radmap.tech">radmap.tech</a>
+  <a href="https://github.com/RadMap/RadMap/discussions/categories/q-a">Ask a question</a>
+  <a href="https://github.com/RadMap/RadMap/issues/new/choose">Report a problem</a>
+  <a href="#">EULA</a>
+  
+  <a href="https://radmap.tech/documentation/errata.html">Errata</a>
+  <a href="mailto:info@radmap.tech">Contact</a>
+</nav></div>
       
     </div>
   
@@ -522,10 +598,7 @@ All rights reserved.</p>
     <div class="footer-items__end">
       
         <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
+<p class="rm-footer-copy">© 2026 RadMap</p></div>
       
     </div>
   

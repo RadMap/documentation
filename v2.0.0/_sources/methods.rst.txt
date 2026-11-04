@@ -1,0 +1,232 @@
+Methods
+=======
+
+How RadMap calculates a dose rate: what it hands the simulation, what the
+simulation does with it, and how a dose rate is made of the result.  The
+user guide says how to set up a calculation; this part says what happens
+to it.  What RadMap does not calculate, or calculates only approximately,
+is collected in the user guide under :ref:`known-limitations`.
+
+Overview
+--------
+
+A calculation runs in two programs.  RadMap holds the project: the
+geometry, the materials, the sources and the dose maps.  When a
+simulation starts, it checks the project, writes it out as a geometry
+description and a list of commands, and starts the simulation program,
+which comes with RadMap.  That program uses Geant4, the Monte Carlo
+radiation transport toolkit developed by an international collaboration
+led from CERN, to simulate radioactive decays one at a time and follow
+the radiation they emit through the geometry.  It scores the photons
+inside each dose map and returns, for each map, the mean score per
+decay and its statistical uncertainty.  RadMap multiplies these by the
+activity of the sources and reports a dose rate.
+
+RadMap uses Geant4 11.4, built from source with patches of RadMap's own
+to how decay positions are sampled (see `Sources`_), and the Geant4 data
+sets of that release:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Data set
+     - Version
+     - Holds
+   * - G4EMLOW
+     - 8.8
+     - Photon and electron interaction data
+   * - RadioactiveDecay
+     - 6.1.2
+     - Decay modes, branching ratios and beta spectra
+   * - PhotonEvaporation
+     - 6.1.2
+     - Nuclear levels and gamma transitions
+   * - G4ENSDFSTATE
+     - 3.0
+     - Nuclear ground states and half-lives
+
+Geometry and materials
+----------------------
+
+Each solid -- a box, a tube or a sphere, including shells and segments --
+is passed to Geant4 with its dimensions, its position and rotation in its
+parent, and its material.  A solid placed inside another displaces the
+parent's material where it sits, so the tree of solids describes the
+geometry exactly as it is drawn.  Before any decay is simulated, Geant4
+checks every solid against its siblings and its parent, and the run is
+refused if any overlap or stick out: a point may belong to one solid
+only.
+
+A material is passed as its density and composition: elements by mass
+fraction or by number of atoms, or other materials by mass fraction.  An
+element is either one of natural isotopic composition or one defined by
+its isotopes, as the material library holds it.  Geant4 computes all
+interaction cross sections from the composition and density; RadMap
+passes no cross sections of its own.
+
+Sources
+-------
+
+A source is a radionuclide with an activity, spread through the volume
+of a solid.
+
+**Activity.**  An activity given per volume or per mass is multiplied by
+the volume of the source's solid, less the solids placed inside it, and
+for per mass by its material's density.  The activities of all sources
+add up to the total activity of the project.
+
+**Choosing a decay.**  Each history of the simulation is one decay: one
+primary particle, as the simulation settings count them.  The
+source it belongs to is drawn at random, each source with a probability
+equal to its share of the total activity.
+
+**Where it decays.**  The position is drawn uniformly in a box around the
+source's solid and kept only if it lies in the solid and not in a solid
+placed inside it; otherwise it is drawn again.  The positions are thus
+uniform through the source's volume, right up to its surfaces.  A
+volume too thin to sample this way stops the run with a message naming
+the solid.  Sampling right up to the surfaces, and stopping on a volume
+too thin to sample, are RadMap's patches to Geant4's source sampling.
+
+**The decay.**  The nucleus decays at rest, by Geant4's radioactive decay
+module, from the data sets above: its decay mode and branch, the beta
+spectrum, and the gamma transitions, conversion electrons and X-rays of
+the daughter's de-excitation, all emitted isotropically.  A daughter
+left in an excited or metastable state de-excites in the same history,
+however long the state lives; so Cs-137 gives the 662 keV photons of
+Ba-137m.  A daughter in its ground state is dropped, unless *Full chain*
+is on for the source: it then decays too, and so on down the chain, each
+member once per decay of the source.  Time plays no part, so a chain is
+counted as in secular equilibrium.  Whether a history follows the chain is
+decided by the isotope it starts from, never by a daughter's, so sources
+of different isotopes whose chains meet keep their own settings.
+
+What the decay emits is followed as described in `Transport`_:
+photons and positrons always, electrons only when asked for.  Alpha
+particles and neutrinos are dropped at once.
+
+Transport
+---------
+
+Particles are followed through the geometry with Geant4's standard
+electromagnetic physics, option 3 (``G4EmStandardPhysics_option3``),
+which is meant for accurate low-energy work.  For photons it
+simulates:
+
+- the photoelectric effect, with Livermore cross sections and the
+  fluorescence X-rays of the atom left behind;
+- Compton scattering, with the Klein--Nishina model and the effects of
+  the atomic shells the electron is bound in;
+- Rayleigh (coherent) scattering, with Livermore data;
+- pair production, above 1.022 MeV.
+
+Electrons, from decay and from photon interactions, are dropped where
+they are created unless *Simulate electrons* is on.  The dose RadMap
+reports is photon dose, so this costs only the photons electrons would
+produce: their bremsstrahlung, which matters for energetic beta emitters
+in dense shielding, and the X-rays of the atoms they ionise.  With
+*Simulate electrons* on they are followed until they stop, with
+multiple scattering, ionisation and bremsstrahlung.
+
+Positrons are always followed, and annihilate, in flight or at rest,
+into photons that are followed in turn.  Neutrons, such as those of
+spontaneous fission, are not given any interactions: they leave the
+geometry without effect.
+
+Secondary particles are produced only above Geant4's production
+thresholds, set by a range of 1 mm in each material; below it their
+energy is deposited locally.  Photons are followed down to the lowest
+energies Geant4 tracks them, well below the 10 keV where the conversion
+coefficients begin.
+
+Scoring
+-------
+
+A dose map is a box placed in a parallel geometry: it shares positions
+with the solids but not their materials, so it does not affect the
+transport, and it may overlap solids and other dose maps.  Each map takes
+one of Geant4's parallel geometries, of which a run can have 15 besides
+the geometry itself.
+
+**Fluence.**  Each step a photon takes inside the box adds
+
+.. math::
+
+   h(E)\,\frac{\ell}{V},
+
+where :math:`h(E)` is the conversion coefficient at the photon's energy,
+:math:`\ell` the length of the step and :math:`V` the volume of the box.
+The fluence at a point is the number of photons crossing a small sphere
+there, divided by the sphere's cross-section; averaged over a volume, it
+equals the total length of the photons' paths in that volume divided by
+the volume.  So :math:`\ell/V` is the step's share of the fluence, which
+does not depend on the photon's energy; :math:`h(E)`, the dose per unit
+fluence at that energy, converts the share to dose.  The sum is
+therefore the dose from the fluence averaged over the box's volume,
+whatever the field and however the box is turned.  Every photon in the box counts: those that pass through
+it, those scattered in it and those emitted inside it.
+
+**A mean over a volume, not over a surface.**  Where the fluence is the
+same throughout the box, its mean is the fluence at any point in it.
+Where it changes across the box -- near a source, at the edge of a
+shield's shadow -- the mean is not the value at the box's centre, nor the
+value at the faces the photons enter by.  In the field of a point source,
+a cube of side :math:`s` whose centre is at a distance :math:`d` reads
+about :math:`1 + s^2/12d^2` times the fluence at its centre, in any
+orientation: 0.75 % more for a 30 cm cube at 1 m.  A thin plate facing
+the source reads the mean over its face, slightly less than at its
+centre.  RadMap's versions before 2.0 scored the photons entering the box
+instead, divided by the area of the box seen from their direction.  For a
+thin plate that is the same thing, but a deep box read nearer the
+fluence at the faces the photons entered by, and its reading changed
+when it was turned (defect D-0005 on the errata page).
+
+**Conversion coefficients.**  :math:`h(E)` comes from the publication
+the project uses for the map's quantity (*Dose → Dose settings*; the
+user guide's *Origin of conversion data* lists them).  Between the
+tabulated energies it is interpolated with a natural cubic spline.
+Below the lowest tabulated energy, 10 keV, effective dose and H*(10)
+take zero and air kerma takes its 10 keV value; above the highest, all
+three keep their last tabulated value.
+
+**Dose rate.**  The scores of all histories are summed and divided by the
+number of primary particles simulated, :math:`N`, which gives the dose
+per decay.
+Multiplied by the total activity, in decays per second, and by 3600
+seconds per hour, it gives the dose rate: in Sv/h for effective dose and
+H*(10), in Gy/h for air kerma.
+
+Statistics and reproducibility
+------------------------------
+
+The scores of one history are independent of those of another.  The
+uncertainty RadMap reports is therefore the standard deviation of the
+mean over histories,
+
+.. math::
+
+   \sigma = \sqrt{\frac{1}{N(N-1)}\left(\sum_i x_i^2
+            - \frac{1}{N}\Big(\sum_i x_i\Big)^2\right)},
+
+with :math:`x_i` the score of history :math:`i` and :math:`N` the number
+of primary particles, scaled to a dose rate as the mean is.  It is the statistical
+uncertainty of the Monte Carlo estimate only; the uncertainty of the
+data and of the model the user built is not in it.  It falls as
+:math:`1/\sqrt{N}`.
+
+Each run draws its random numbers from a new seed and uses all the
+processor's cores.  Two runs of the same project therefore differ within
+their uncertainties.  With a fixed seed on one thread, a run is repeated
+exactly; RadMap's tests run so.  On several threads the result can
+differ in its last digits from run to run, because the threads' sums
+are added in the order the threads finish.
+
+Verification
+------------
+
+The `V&V report`_ published with each version checks these methods against
+published data and measurements: the dose from point sources against the
+published coefficients and decay data, attenuation and buildup in
+shielding, the sampling of sources, interpolation, and air kerma against
+measured experiments.  It is generated from the tests run on that
+version's build.

@@ -31,7 +31,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ac960770" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f6b01ebc" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -53,7 +53,7 @@
     <link rel="icon" href="_static/logo.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="End-User License Agreement (EULA) of RadMap" href="RadMapLicense.html" />
+    <link rel="next" title="Methods" href="methods.html" />
     <link rel="prev" title="Installation" href="installation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -104,7 +104,7 @@
   </button>
   
   
-  <div class="col-lg-3 navbar-header-items__start">
+  <div class=" navbar-header-items__start">
     
       <div class="navbar-item">
 
@@ -123,9 +123,11 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="RadMap Documentation v2.0.0 documentation - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="RadMap Documentation v2.0.0 documentation - Home"/>
+    <img src="_static/logo-light.png" class="logo__image only-light" alt="RadMap documentation – home"/>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="RadMap documentation – home"/>
   
+  
+    <p class="title logo__title">RadMap</p>
   
 </a></div>
     
@@ -151,7 +153,7 @@
     
   </div>
   
-  <div class="col-lg-9 navbar-header-items">
+  <div class=" navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
@@ -174,8 +176,15 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="methods.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="RadMapLicense.html">
-    End-User License Agreement (EULA) of RadMap
+    EULA
   </a>
 </li>
 
@@ -190,13 +199,19 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
         </div>
       
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -209,10 +224,25 @@
           
           
           
-          <a href="https://github.com/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://radmap.tech" title="radmap.tech" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">radmap.tech</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/RadMap/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
+      
+        <div class="navbar-item">
+<a class="rm-download" href="https://github.com/RadMap/RadMap/releases/latest">Download</a></div>
       
     </div>
     
@@ -221,10 +251,8 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
     </div>
   
@@ -275,8 +303,15 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="methods.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="RadMapLicense.html">
-    End-User License Agreement (EULA) of RadMap
+    EULA
   </a>
 </li>
 
@@ -290,6 +325,14 @@
     
       <div class="sidebar-header-items__end">
         
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
@@ -301,10 +344,25 @@
           
           
           
-          <a href="https://github.com/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://radmap.tech" title="radmap.tech" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">radmap.tech</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/RadMap/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
+        
+          <div class="navbar-item">
+<a class="rm-download" href="https://github.com/RadMap/RadMap/releases/latest">Download</a></div>
         
       </div>
     
@@ -366,48 +424,65 @@
 <h1>User guide</h1>
 <section id="about-radmap">
 <h2>About RadMap</h2>
-<p>RadMap is a software that allows you to simulate how radiation interacts
-with matter. With RadMap you describe an environment in terms of
-geometrical objects and sources of radiation. RadMap then uses a full
-Monte Carlo algorithm to calculate the effects of radiation in desired
-points of your environment.</p>
+<p>RadMap calculates dose rates from radioactive sources, and the effect of
+shielding on them, at the points you choose.  You describe an
+environment in terms of geometrical objects and sources of radiation, and
+RadMap follows the radiation through it with a full Monte Carlo
+simulation.</p>
 <p>With RadMap you can</p>
 <ul class="simple">
-<li><p>calculate external gamma dose due to a large number of radioactive
-isotopes in complex geometries</p></li>
-<li><p>define new materials if the many predefined materials do not suit
-your needs</p></li>
-<li><p>save your geometries and sources for later use and sharing</p></li>
+<li><p>calculate external gamma dose rates, in the dose quantity that suits
+your question, from a large number of radioactive isotopes in complex
+geometries</p></li>
+<li><p>build geometries from nested solids, and save parts of them as
+reusable volumes</p></li>
+<li><p>use the many predefined materials, or define new materials, elements
+and isotopes when they do not suit your needs</p></li>
+<li><p>save your geometries and sources for later use and sharing, and report
+the results as a PDF</p></li>
 </ul>
+<p>RadMap is intended for radiation protection calculations; it is not a
+medical device.  It is developed, verified and released under its
+<a class="reference external" href="https://radmap.tech/documentation/v2.0.0/RadMap_Development_plan_v2.0.0.pdf">development plan</a>, and each release comes with a <a class="reference external" href="https://radmap.tech/documentation/v2.0.0/RadMap_VV_report_v2.0.0.pdf">V&amp;V report</a>
+generated from the tests run on that build.  Its results are
+estimates, within the limits listed
+under <a class="reference internal" href="#id2">Known limitations</a>, and whether they suit your purpose is yours
+to judge.  The <a class="reference internal" href="RadMapLicense.html"><span class="doc">EULA</span></a> states its intended use in
+full.</p>
 </section>
 <section id="starting-radmap">
 <h2>Starting RadMap</h2>
-<p>Starting RadMap brings up a program window divided in five principal
-parts: the <strong>Geometry tree</strong>, the <strong>Geometry view</strong>, <strong>Dose maps</strong>,
-<strong>Sources</strong>, and <strong>Properties</strong>.  There is also a menu bar at the top.</p>
-<p><strong>Geometry tree</strong> — shows the geometrical objects in a tree structure.
-Depending on shape, material, density and position, each object affects
-radiation transport differently.</p>
+<p>Starting RadMap brings up a program window divided into five parts: the <strong>Geometry tree</strong>, the <strong>Geometry view</strong>, <strong>Dose maps</strong>,
+<strong>Sources</strong>, and <strong>Properties</strong>.  There is also a menu bar at the top
+with the menus <strong>File</strong>, <strong>Simulation</strong>, <strong>Dose</strong>, <strong>Materials</strong>,
+<strong>Report</strong> and <strong>Help</strong>.</p>
+<p><strong>Geometry tree</strong> — shows the geometrical objects in a tree structure,
+each inside the one it is placed in.</p>
 <p><strong>Geometry view</strong> — displays the objects you create in the geometry tree
 visually.</p>
 <p><strong>Dose maps</strong> — a list of dose maps.  Each dose map is a box-shaped
-region that registers particle flux and converts it to dose.</p>
+region that registers particle fluence and converts it to a dose rate.</p>
 <p><strong>Sources</strong> — a list of radiation sources.  Each source is associated
 with a solid in the geometry tree, making that object the source of
 radiation.</p>
 <p><strong>Properties</strong> — shows and edits the properties of whatever is selected
 in the geometry tree, dose maps, or sources.</p>
+<p>RadMap always has a project open.  When it starts, a new project
+containing only the world volume is ready for you to work in.</p>
 </section>
 <section id="a-simple-case-walk-through">
 <h2>A simple case — walk-through</h2>
-<section id="create-a-world-volume">
-<h3>Create a world volume</h3>
+<section id="the-world-volume">
+<h3>The world volume</h3>
 <p>The first thing you need is a world volume — a box-shaped region in
 which particles are transported.  Particles that leave the world volume
 are lost and no longer affect the simulation.  All other solids and dose
 maps must be contained within it.</p>
-<p>Choose <strong>File → New Project</strong>.  An entry <em>World</em> appears in the
-Geometry tree, and the Property panel becomes active.</p>
+<p>A new project already contains the world volume, shown as <em>World</em> in the
+Geometry tree.  To start over from an empty world at any time, choose
+<strong>File → New project</strong>.  Select <em>World</em> in the Geometry tree to make the
+Property panel active.</p>
+<p>The world volume cannot be deleted.</p>
 </section>
 <section id="set-the-dimensions">
 <h3>Set the dimensions</h3>
@@ -415,6 +490,9 @@ Geometry tree, and the Property panel becomes active.</p>
 <strong>Dimensions</strong> tab in the Property panel and set the X, Y and Z side
 lengths (for example 100 cm each).  The outline of the box appears in
 the geometry view.</p>
+<p>Each length and angle field has its own unit list next to it, and the
+project keeps the unit you choose.  Changing the unit keeps the number and
+reads it in the new unit: 10 cm becomes 10 mm, not 100 mm.</p>
 <p>Note that the rotation and position tabs are disabled for the world
 volume — it cannot be moved or rotated.</p>
 </section>
@@ -422,40 +500,67 @@ volume — it cannot be moved or rotated.</p>
 <h3>Navigate the geometry view</h3>
 <p>Use the mouse and keyboard to explore the 3-D view:</p>
 <ul class="simple">
-<li><p><strong>Left-click and drag</strong> — rotate the view.</p></li>
-<li><p><strong>Up/Down arrow</strong> — zoom in and out.</p></li>
+<li><p><strong>Left-click and drag</strong> — rotate the view around the focus point.</p></li>
+<li><p><strong>Up/Down arrow</strong> — move the camera forwards and backwards.</p></li>
 <li><p><strong>Shift + arrow keys</strong> — pan the view.</p></li>
-<li><p><strong>Ctrl + arrow keys</strong> — rotate the view.</p></li>
+<li><p><strong>Ctrl + arrow keys</strong> — turn the camera.</p></li>
 </ul>
-<p>If you lose an object, right-click it in the Geometry tree and choose
-<strong>Focus and fit to view</strong> to centre it on screen.</p>
+<p>The Geometry tree’s right-click menu has three helpers for the view:</p>
+<ul class="simple">
+<li><p><strong>Set focus</strong> — make the selected solid the point the view rotates
+around.</p></li>
+<li><p><strong>Focus and fit to view</strong> — centre the solid on screen and zoom so it
+fills the view.  Useful if you have lost an object.</p></li>
+<li><p><strong>Set step size → Max dim / Min dim</strong> — set how far each arrow-key
+press moves the camera, from the largest or smallest dimension of the
+selected solid.  Choose <em>Min dim</em> to move precisely around a small
+object and <em>Max dim</em> to cross a large scene quickly.</p></li>
+</ul>
+<p>The same commands are available for dose maps from the Dose maps list.</p>
+<p>Whatever is selected — a solid, a dose map or a source’s solid — is
+highlighted in the view.</p>
 </section>
 <section id="set-the-material">
 <h3>Set the material</h3>
 <p>Every solid must have a material.  Select the world volume in the
 Geometry tree, open the <strong>General</strong> tab in the Property panel, and
-choose <em>Air</em> from the Material drop-down.  The <strong>Edit Material</strong> button
-opens a panel for creating custom materials.</p>
+choose <em>AIR</em> from the <strong>Material</strong> drop-down.  The drop-down lists the
+materials in the project’s material library; to add or change materials,
+use the <strong>Materials</strong> menu (see <a class="reference internal" href="#materials"><span class="std std-ref">Materials</span></a>).</p>
 </section>
 <section id="add-a-child-solid">
 <h3>Add a child solid</h3>
 <p>Right-click an entry in the Geometry tree and choose
-<strong>New sub solid → Tube</strong> to add a tube inside the world.  The new solid
-appears in the tree and in the 3-D view.  Give it a descriptive name
-(e.g. <em>lead_shielding</em>) and assign a material as before.</p>
+<strong>New sub solid → Tube</strong> to add a tube inside the world.  The other
+choices are <strong>Box</strong> and <strong>Sphere</strong>.  The new solid appears in the tree
+and in the 3-D view.  Give it a descriptive name (e.g.
+<em>lead_shielding</em>) and assign a material as before.</p>
+<p>The same menu has <strong>Delete solid</strong>, which removes the selected solid
+together with everything inside it, and <strong>Delete children</strong>, which
+keeps the solid but removes everything inside it.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only normal letters, numbers and underscores are accepted in solid
-names.  Forbidden characters are silently rejected.</p>
+<p>Names may contain letters, digits, underscores, hyphens and dots, may
+not contain spaces, may not start with a digit and are at most 20
+characters long.  Names must be unique among solids, among sources
+and among dose maps.  A name that breaks these rules is kept as you
+typed it and the field turns red; the project cannot be saved or
+simulated until it is corrected.</p>
 </div>
 </section>
 <section id="set-tube-dimensions-and-position">
 <h3>Set tube dimensions and position</h3>
 <p>The <strong>Dimensions</strong> tab for a tube exposes inner radius, outer radius,
-length, start angle and opening angle.  Try, for example:
+length, <strong>Start phi</strong> and <strong>Delta phi</strong>.  Try, for example:
 inner radius 10 cm, outer radius 20 cm, length 30 cm, delta phi 270°.
 Varying start phi and delta phi changes how much of the tube wall is
 present — useful for modelling a shielding container with an opening.</p>
+<p>A <strong>sphere</strong> has an inner and an outer radius, and two pairs of angles:
+start phi and delta phi around the Z axis, and start theta and delta
+theta measured from it.  Like every new solid, a new sphere starts with
+all dimensions at zero.  For a full sphere set delta phi to 360° and
+delta theta to 180°; an inner radius larger than zero makes it a
+spherical shell, and smaller angles cut out a segment.</p>
 <p>Under the <strong>Position</strong> tab, set the position relative to the parent
 volume (e.g. X 5 cm, Y 10 cm, Z 15 cm).</p>
 <div class="admonition note">
@@ -467,26 +572,61 @@ a finite number of points are sampled, very small overlaps may
 occasionally go undetected.</p>
 </div>
 </section>
-<section id="coordinate-systems-and-rotation">
-<h3>Coordinate systems and rotation</h3>
-<p>To understand how a solid is oriented, right-click it in the Geometry
-tree and choose <strong>Show coordinate system</strong> — three coloured axes appear
-at the solid’s centre.  If the axes are hidden by the solid surface,
-choose <strong>Draw wireframe</strong> to make the solid transparent.</p>
-<p>Set the rotation of a solid from the <strong>Rotation</strong> tab.  The rotation is
-sequential: first around X, then Y, then Z.  Setting X or Y after Z has
-been changed can produce unexpected results, so it is easiest to always
-set rotations in the order X, Y, Z.</p>
+<section id="coordinate-systems-rotation-and-appearance">
+<h3>Coordinate systems, rotation and appearance</h3>
+<p>To understand how a solid is oriented, tick <strong>Coordinate system</strong> in the
+<strong>Appearance</strong> section of the General tab — three coloured axes appear
+at the solid’s centre.  A dose map has the same checkbox in its own
+General tab.</p>
+<p>If the axes, or solids further in, are hidden by a solid’s surface,
+tick <strong>Wireframe</strong> in the same section to draw that solid as an
+outline.  The section also has a <strong>Colour</strong> picker.  Appearance is
+saved with the project but only affects the display, never the
+simulation.  The world volume is always drawn as a wireframe.</p>
+<p>Set the rotation of a solid from the <strong>Rotation</strong> tab.  The solid turns
+about its own axes, which turn with it: first about X, then about the
+new Y, then about the newest Z.  Only the three angles count, not the
+order you type them in: the X turn always comes first, about the solid’s
+original X axis, so setting Y and then X does not turn the solid about
+its Y-turned X axis.  Turns about different axes do not commute, so tick
+<strong>Coordinate system</strong> to see where the axes end up.</p>
 </section>
 <section id="add-a-source">
 <h3>Add a source</h3>
 <p>Sources are attached to solids.  First add a small solid to act as
-the source (e.g. a 2 cm box, material <em>Fe</em>, inside the tube at
-X 5 cm, Y 10 cm, Z 15 cm).</p>
+the source: for example a 2 cm box of material <em>Fe</em>, a child of <em>World</em>
+at the tube’s own position, X 5 cm, Y 10 cm, Z 15 cm, so that it sits
+at the centre of the tube’s hollow.</p>
+<p>The decays of a source are spread evenly through the volume of its
+solid, less the volume of any solids placed inside it.  RadMap samples
+the decay positions in a box enclosing the solid and keeps those that
+fall in that volume, so the volume must fill a fair part of the box.  A
+curved shell thinner than about 1/5000 of its radius, or a solid almost
+filled by the solids inside it, cannot hold a source: the simulation is
+refused, naming the solid.</p>
 <p>Right-click the solid in the Geometry tree and choose <strong>Attach source</strong>.
 An entry <em>source_1</em> appears in the Sources panel.  In the Property
 panel, set the element (e.g. <em>Caesium</em>) and isotope (e.g. <em>137</em>), then
 enter the activity (e.g. 100 GBq).</p>
+<p>The isotope list holds every isotope in Geant4’s radioactive decay data
+whose ground state is radioactive, each shown with its half-life.
+Isotopes with a half-life under 1 minute are hidden.  Under
+<strong>File → Preferences</strong> you can change that limit and add an upper one,
+for example to hide the practically stable isotopes with half-lives of
+10<sup>15</sup> years and more; leave a field empty for no limit.  A limit
+can be written in scientific notation, such as <code class="docutils literal notranslate"><span class="pre">1.4e9</span></code>.  The limits are
+your own setting, the same for every project; the <em>Isotope filter</em> line
+above the element list shows the ones in force.  A source keeps its isotope even when the limits
+would hide it; the list then marks it with an asterisk, and hovering
+over the isotope explains why.</p>
+<p><strong>Isotope info</strong>, next to the isotope, shows its half-life, how it
+decays and to what, and the photons one decay gives off: energy,
+photons per 100 decays and origin (a gamma of the daughter, an X-ray or
+annihilation).  They are computed from the same Geant4 data the
+simulation uses, so the table lists what is simulated.  The photons of
+a radioactive daughter’s own decay are not included; with <strong>Full
+chain</strong> on, the simulation adds them.  Click a column heading to sort
+by it, and again to reverse the order.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>The decay scheme used is that of the ground state nucleus.  You
@@ -500,81 +640,528 @@ followed.  When enabled, unstable decay products are themselves decayed
 during the simulation — their half-lives are not considered.  This is
 physically meaningful only when the half-lives of the decay products are
 much shorter than that of the primary isotope.  When disabled, the
-simulation follows one decay to the ground state of the first product.</p>
+simulation follows one decay to the ground state of the first product.
+For an isotope whose decay products do not decay further, such as Cs-137
+or Co-60, there is no chain to follow, so the setting is off and the
+checkbox is disabled.
+The setting is per isotope: sources of the same isotope must all have
+it on or all off, or the simulation is refused.  Sources of different
+isotopes may differ, even when their chains meet: with Te-132 off and
+I-132 on, the I-132 born from Te-132 is dropped, while the I-132
+source’s own decays follow its chain.</p>
+</section>
+<section id="give-the-activity-as-a-concentration">
+<h3>Give the activity as a concentration</h3>
+<p>The <strong>Activity</strong> row offers three mutually exclusive choices: <em>Absolute</em>,
+<em>Per mass</em> and <em>Per volume</em>.  <em>Absolute</em> is the total activity of the
+source, as above.  The other two state how much activity there is in each
+unit of mass, or of volume, of the source material — RadMap then derives
+the total.</p>
+<p>The unit list follows the choice.  An absolute activity can be given in
+any unit from nBq to EBq, or from nCi to ECi.  A concentration is given
+in Bq, kBq, MBq, GBq, µCi, mCi, Ci or kCi per g or kg (<em>Per mass</em>), or
+per cm³ or m³ (<em>Per volume</em>).</p>
+<p>The <strong>Total</strong> field below shows the derived total and cannot be edited.
+It is the number the simulation normalises its results to, so it is worth
+a glance before running: a concentration that looks reasonable can still
+give a total that does not.</p>
+<p>Two things determine it.  The volume used is the source solid’s own
+volume <strong>minus the volume of any solids placed inside it</strong>, because
+RadMap emits decays only in material that belongs to the source itself —
+a point inside a child volume belongs to that child.  For <em>Per mass</em>,
+that volume is then multiplied by the density of the solid’s material,
+taken from the project’s material library.</p>
+<p>RadMap stores what you entered rather than the derived total.  Resizing
+the solid, placing a child inside it or changing its material therefore
+changes the total, while the concentration stays as you typed it.</p>
+<p>The <strong>Total</strong> field reads <em>Undefined</em> when no total can be worked out:
+the solid’s material has no usable density, its dimensions describe no
+volume, or the solids inside it are too large to fit.  A source whose
+total is undefined — or works out as zero — cannot be simulated, and
+RadMap says so when the run is started.  The project still saves, since
+the concentration you entered is not what is at fault.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The derived total assumes child volumes are fully contained, which is
+required of any geometry in any case (see the note under <em>Set tube
+dimensions and position</em>).  Where a child protrudes, too much volume
+is subtracted and the total comes out too low — but such geometry is
+rejected when a simulation is started, so a wrong total cannot reach
+a result or a report.</p>
+</div>
 </section>
 <section id="adding-dose-maps">
 <h3>Adding dose maps</h3>
-<p>A dose map registers particle flux entering a box-shaped region and
-converts it to dose using the ICRP 116 conversion tables.  Dose maps do
-not interfere with radiation transport and may overlap solids or other
-dose maps.</p>
+<p>A dose map registers the photon fluence in a box-shaped region and
+converts it to a dose rate using published conversion coefficients.
+The result is the mean over the box’s <strong>volume</strong>: see <a class="reference internal" href="#what-a-dose-map-measures">What a dose map
+measures</a>.  Dose maps do not interfere with
+radiation transport and may overlap solids or other dose maps.  A
+simulation can score at most 15 dose maps; a project with more is
+refused when you start the run.</p>
 <p>Right-click a solid in the Geometry tree and choose <strong>Attach dose map</strong>.
 The dose map’s coordinate system is defined relative to that parent
 solid, but otherwise the two are independent.</p>
 <p>Set the dose map dimensions, position and rotation as you would for a
-solid.  You can also configure the <strong>exposure geometry</strong>:</p>
+solid.</p>
+<p>For this example, create two dose maps attached to the tube, one on each
+side.  Place one at X 15 cm, Y −15 cm (facing the open side of the
+tube) and a second at X −15 cm, Y 15 cm (shielded by the tube wall).</p>
+</section>
+<section id="what-a-dose-map-measures">
+<h3>What a dose map measures</h3>
+<p>A dose map reports the dose rate <strong>averaged over the volume of its
+box</strong>.  That is neither the dose rate at the box’s centre nor the dose
+rate on its surface.  Where the radiation is the same throughout the box,
+all three are equal, and the size and orientation of the box make no
+difference.</p>
+<p>Near a source, or at the edge of a shield’s shadow, the radiation
+changes across the box, and the box reads its mean over the volume.  A
+large box close to a source covers points both near the source and far
+from it, and its reading lies between the two.  Turning a box changes its
+reading only as far as it changes the region the box covers.</p>
+<p>Choose the box for the question you are asking:</p>
 <ul class="simple">
-<li><p><strong>AP / PA</strong> — parallel beam incident on the front or back of the body.</p></li>
-<li><p><strong>RLAT / LLAT</strong> — beam from the right or left side.</p></li>
-<li><p><strong>ROT</strong> — body rotating in a broad beam; generally the most meaningful
-choice for a single-source scenario.</p></li>
-<li><p><strong>ISO</strong> — isotropic radiation field, independent of direction.</p></li>
+<li><p><strong>The dose rate at a point</strong>, such as where a person stands or where a
+survey meter would be read: make the box small compared with its
+distance from the source and from the edges of shields, so that the
+radiation hardly changes across it.  A plate a few millimetres thick,
+facing the source, reads the mean over its face.  A cube of side <em>s</em>
+at a distance <em>d</em> from a small source reads about <em>s</em>²/12<em>d</em>²
+more than the value at its centre: 0.75 % for a 30 cm cube at 1 m.  The
+difference grows with the square of the box’s size over its distance.</p></li>
+<li><p><strong>The mean over a region</strong>, such as a work area or a room: make the box
+that region.</p></li>
 </ul>
+<p>A smaller box is crossed by fewer photons, so its result carries a larger
+statistical uncertainty: make it no smaller than the question needs.  A
+dose map that encloses a source, or part of one, also counts the photons
+emitted inside it, so its mean includes the high dose rate close to the
+source.</p>
+<p>RadMap versions before 2.0 counted the photons entering the box through
+its faces instead.  For a thin box the result is the same.  A deep box
+near a source, however, read nearer the dose rate at the faces the
+radiation entered by, and its reading changed when it was turned: see
+the errata page, defect D-0005, and <em>Methods</em>.</p>
+</section>
+<section id="choosing-what-the-dose-map-scores">
+<h3>Choosing what the dose map scores</h3>
+<p>The <strong>Dose</strong> section of the General tab decides what the map reports.</p>
+<p><strong>Radiation</strong> selects the particle type.  It stays fixed on <em>Photons</em>
+while that is the only type RadMap has coefficients for.</p>
+<p><strong>Dose Quantity</strong> selects the quantity.  The available quantities answer
+different questions.</p>
+<p><strong>Effective dose</strong> is the whole-body, risk-weighted quantity that
+radiation protection limits are expressed in, reported in sieverts.  It
+is not a measurable quantity: it is calculated for a reference human
+body, so you must also say how that body is oriented in the radiation
+field.  The six orientations appear as separate entries in the dropdown:</p>
+<ul class="simple">
+<li><p><strong>Effective dose (AP)</strong> / <strong>(PA)</strong> — parallel beam incident on the
+front or back of the body.</p></li>
+<li><p><strong>Effective dose (ROT)</strong> — body rotating in a broad beam; generally
+the most meaningful choice for a single-source scenario.</p></li>
+<li><p><strong>Effective dose (ISO)</strong> — isotropic radiation field, independent of
+direction.</p></li>
+<li><p><strong>Effective dose (LLAT)</strong> / <strong>(RLAT)</strong> — beam from the left or right
+side.</p></li>
+</ul>
+<p><strong>H*(10)</strong>, the ambient dose equivalent, is the operational quantity
+used for area monitoring, reported in sieverts.  It is defined in a
+reference sphere that is always aligned with the radiation field, so it
+has no orientation and appears as a single entry.  Area survey meters are
+normally calibrated in H*(10), which makes it the quantity to use when
+comparing with such a meter’s reading.</p>
+<p><strong>Air kerma</strong> is a property of the radiation field itself, reported in
+grays.  It describes the energy released in air at that point with no
+body present, which makes it the quantity to use when comparing against
+an instrument or a figure quoted in air kerma.  Having no body, it has no
+orientation, so it appears as a single entry.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>The concept of effective dose assumes whole-body exposure.  Using AP
 or PA with multiple sources at different angles is not physically
 meaningful; prefer ROT or ISO in such cases.</p>
 </div>
-<p>For this example, create two dose maps attached to the tube, one on each
-side.  Place one at X 15 cm, Y −15 cm (facing the open side of the
-tube) and a second at X −15 cm, Y 15 cm (shielded by the tube wall).
-Set the geometry to <em>ROT</em> for both.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The unit follows from the quantity and is not a separate choice:
+effective dose and H*(10) are reported in Sv/h, air kerma in Gy/h.
+The <strong>Dose rate</strong> row always shows the unit next to the value.</p>
+</div>
+<p>For this example, set the Dose Quantity to <em>Effective dose (ROT)</em> for
+both dose maps.</p>
+</section>
+<section id="origin-of-conversion-data">
+<h3>Origin of conversion data</h3>
+<p>RadMap does not simulate dose directly.  The Monte Carlo calculation
+transports particles through the geometry and scores the photon
+<strong>fluence</strong> in each dose map: the total length of the photons’ paths
+inside it per unit volume — at each point the same as the photons
+crossing a unit area there.  That fluence is then multiplied by a published <em>conversion coefficient</em> for
+the selected quantity, which is what turns a count of particles into a
+dose rate.</p>
+<p>This holds for every dose quantity RadMap reports.  The division of
+labour is worth knowing, because it is what stands behind the number you
+get: the transport is physics RadMap calculates, while the step from
+fluence to a dose quantity is fixed by internationally agreed tables
+published by bodies such as the ICRP and ICRU.  RadMap applies those
+coefficients; it does not derive them.  <a class="reference internal" href="methods.html"><span class="doc">Methods</span></a> describes the
+whole calculation.</p>
+<p>No single publication covers every quantity, so different quantities may
+draw on different publications.  The <strong>Data source</strong> row shows which
+publication the selected quantity uses.  At present they are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Quantity</p></th>
+<th class="head"><p>Publication</p></th>
+<th class="head"><p>Photon energies covered</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Effective dose</p></td>
+<td><p>ICRP 116 (2010, corrected 2015)</p></td>
+<td><p>10 keV – 10 GeV</p></td>
+</tr>
+<tr class="row-odd"><td><p>H*(10)</p></td>
+<td><p>ICRP 74 (1996)</p></td>
+<td><p>10 keV – 10 MeV</p></td>
+</tr>
+<tr class="row-even"><td><p>Air kerma</p></td>
+<td><p>ICRP 74 (1996)</p></td>
+<td><p>10 keV – 10 MeV</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Photons outside these ranges are not refused.  Below 10 keV,
+effective dose and H*(10) count them as zero, which is the physics:
+they do not get past the skin.  Air kerma counts them at its 10 keV
+value, which is too low for them.  This matters only within tens of
+centimetres of an unshielded source of X-rays below 10 keV, such as
+bare Am-241; a source in a capsule does not emit them.</p>
+</div>
+<p><strong>Dose → Dose settings</strong> lists each radiation type and quantity RadMap
+can score, with the publication used for each.  Where more than one
+publication is available for a quantity, you choose between them there.
+The choice applies to the whole project, so two dose maps scoring the
+same quantity can never disagree about their coefficients.  A quantity
+with only one publication shows it without offering a choice.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The publication decides what the stored numbers mean, so it is part of
+what a simulation result depends on.  On a locked project the dialog
+still opens but its controls are disabled; choose
+<strong>File → Delete results</strong> first if you need to change it.</p>
+</div>
+<p>Every PDF report contains a <strong>Data sources</strong> table listing the quantities
+the project actually used and the publication behind each, so a report
+records the basis of its own numbers.</p>
 </section>
 <section id="run-the-simulation">
 <h3>Run the simulation</h3>
-<p>Open <strong>Simulation → Simulation settings</strong>.  Set the number of primary
-particles to simulate.  More particles give better precision, but
+<p>Open <strong>Simulation → Simulation settings</strong>.  Set the <strong>Number of primary
+particles</strong> to simulate: each is one decay of a source nucleus, followed
+with all it emits.  More particles give better precision, but
 computation time scales linearly while precision improves only with the
 square root of particle count — ten times more particles takes ten times
 longer but reduces the standard deviation by a factor of roughly three.</p>
+<p>How many particles you need depends on the case.  Shielding between the
+source and a dose map, the distance between them and the size of the dose
+map all decide how many particles actually reach it, so a heavily shielded
+or distant dose map may need many times more than one in direct view of the
+source.  Check the uncertainty reported with each dose rate, and increase
+the number of particles until it is small enough for your purpose.</p>
 <p>The free license caps each run at 50,000 primary particles.</p>
-<p>Click <strong>Start simulation</strong>.  You will be prompted to save the project
-first.  A progress bar shows the simulation progress; you can cancel at
-any time.  When finished, the dose rate and its uncertainty appear in
-the Property panel for each dose map.</p>
+<p>The settings dialog also contains a <strong>Physics options</strong> section with a
+<em>Simulate electrons</em> checkbox.  By default this is off: electrons, from
+decay and from photon interactions, are discarded where they are
+created, keeping simulations fast.  This is the correct choice for the vast
+majority of sources, where gamma photons carry all the dose of interest.</p>
+<p>Switch it on when your source is a <strong>high-energy beta emitter</strong> (such as
+Sr-90/Y-90 or P-32) placed in or near <strong>high-Z shielding material</strong>
+(lead, tungsten).  In that geometry the beta electrons are stopped
+quickly in the shielding, and a significant fraction of their kinetic
+energy is radiated as bremsstrahlung — secondary photons that can
+contribute substantially to the dose outside the shield.  With electron
+transport enabled RadMap tracks these electrons and scores the resulting
+bremsstrahlung photons.  Note that tracking electrons increases
+simulation time noticeably, so only enable this option when bremsstrahlung
+is physically relevant.</p>
+<p>Under <strong>Save location</strong>, choose where the project file is saved.  The
+project is saved there before the simulation starts, and the results
+are stored in the same file when it finishes.  <strong>Start simulation</strong> is
+available once a save location is set.</p>
+<p>Click <strong>Start simulation</strong>.  The dialog then lists each stage as it
+runs — parsing the geometry, building the physics tables, checking for
+volume overlaps, running the simulation and saving the results — with a
+progress bar during the run.  You can cancel at any time.  If a stage
+fails, the error is shown in the dialog, with the full details available
+under <strong>Show details</strong>.  When finished, the dose rate and its uncertainty
+appear in the Property panel for each dose map.  The uncertainty, after
+the ±, is one standard deviation: the statistical uncertainty of the
+Monte Carlo estimate.</p>
 <p>After a simulation the project is <strong>locked</strong> — most properties of
 solids, sources and dose maps cannot be changed while results are
-attached.  The title bar shows <em>[LOCKED]</em> as a reminder.  To make
-further edits, choose <strong>File → Delete results</strong> to discard the current
-results and unlock the project.</p>
+attached.  The title bar shows <em>[LOCKED]</em> as a reminder.  Colour and
+wireframe can still be changed, since they do not affect the results.
+To make further edits, choose <strong>File → Delete results</strong> to discard the
+current results and unlock the project.  Like any other edit, this reaches
+the file only when you save the project.</p>
 </section>
 <section id="create-a-report-file">
 <h3>Create a report file</h3>
 <p>Choose <strong>Report → Create PDF report</strong> to export the simulation results
-to a PDF file.  You will be prompted for a save location; the file is
-then opened by your default PDF viewer.</p>
+to a PDF file.  The command is available once the project has results.
+You will be prompted for a save location; the file is then opened by
+your default PDF viewer.</p>
+<p>The report states how many primary particles the results come from and
+that each ± is one standard deviation.  It then gives:</p>
+<ul class="simple">
+<li><p>a <strong>Dose maps</strong> table: the quantity, geometry, radiation type and dose
+rate of each dose map;</p></li>
+<li><p>a <strong>Sources</strong> table;</p></li>
+<li><p>the <strong>Data sources</strong> table described above;</p></li>
+<li><p>a picture of the geometry view as it looks when the report is created,
+so set up the view you want in the report first.</p></li>
+</ul>
+<p>The report prints Western European letters only.  Other characters in a
+project, dose map or source name, such as Greek, Cyrillic or Korean,
+come out as question marks; RadMap lists the affected text when it
+creates the report.</p>
+<p>Under the title, the report names the run its results come from: the RadMap
+version that ran it, the time it started (in UTC) and its run ID.  The
+same ID is stored with the results in the project file, so a report can
+always be matched to the file holding its results — keep that file with the
+report.  <strong>Report → Run information</strong> shows the same details for the open
+project without making a report, with the ID ready to copy.  After
+<strong>File → Delete results</strong>, the next simulation gets a new ID, even if
+nothing in the project changed.  Results saved by an earlier
+version of RadMap have no run ID; their reports show the date the report was
+made and the RadMap version that made it instead.</p>
+<p>The report’s <strong>Sources</strong> table always gives the total activity of each
+source.  If any source was given as a concentration, the table carries a
+further column holding the value as entered — headed <em>Specific activity</em>
+when only per-mass sources appear, <em>Activity concentration</em> when only
+per-volume ones do, and <em>Specific activity / concentration</em> when the
+report contains both.  A <em>Full chain</em> column says how each source was
+run: <em>On</em>, <em>Off</em>, or <em>No chain</em> for an isotope the setting cannot change.
+It is left out when no source in the report has a chain.</p>
 </section>
+</section>
+<section id="the-dose-maps-and-sources-lists">
+<h2>The Dose maps and Sources lists</h2>
+<p>A solid can carry several sources and several dose maps: each
+<strong>Attach source</strong> or <strong>Attach dose map</strong> adds one more.  A tick next to the
+command in the Geometry tree’s right-click menu shows that the solid
+already has one.</p>
+<p>The Dose maps and Sources lists show every dose map and source in the
+project.  Selecting an entry shows its properties in the Property panel
+and highlights it in the view — for a source, its solid.  Right-click an entry for <strong>Delete dose
+map</strong> or <strong>Delete source</strong>; a dose map’s menu also has the view commands
+of the Geometry tree (see <a class="reference internal" href="#navigate-the-geometry-view">Navigate the geometry view</a>).</p>
+</section>
+<section id="saving-and-loading-projects">
+<h2>Saving and loading projects</h2>
+<p>A project — geometry, sources, dose maps, the project’s material library
+and any results — is saved as a single <code class="docutils literal notranslate"><span class="pre">.rma</span></code> file.  Use
+<strong>File → Save project</strong>, <strong>File → Save project as</strong> and
+<strong>File → Load project</strong>.  <strong>File → New project</strong> discards the current
+project and starts a new one with an empty world.</p>
+<p>While the project has changes that are not saved, the title bar starts
+with <code class="docutils literal notranslate"><span class="pre">*</span></code>.  <strong>File → New project</strong>, <strong>File → Load project</strong> and closing
+RadMap then ask before discarding them.</p>
+<p>Example projects to open are in the <code class="docutils literal notranslate"><span class="pre">Samples\Examples</span></code> folder of the
+installation directory.</p>
+</section>
+<section id="reusing-volumes">
+<h2>Reusing volumes</h2>
+<p>Part of a geometry can be saved and reused in other projects.
+Right-click a solid in the Geometry tree and choose <strong>Save Volume</strong> to
+save that solid and everything inside it as a <code class="docutils literal notranslate"><span class="pre">.sol</span></code> file.  If the
+volume contains sources or dose maps, you choose whether to include
+them.  The file also carries the materials the volume uses.  What you
+save must be complete, as for saving a project: each solid needs a
+material and valid dimensions, and names must not repeat.</p>
+<p>To insert a saved volume, right-click the solid that should contain it
+and choose <strong>Load Volume</strong>.  Materials the project does not have yet
+are added to its material library.  If a material in the file has the
+same name as one in the project but a different definition, the
+project’s own definition is kept, and a <strong>Material library differences</strong>
+dialog shows what differed so you can check the result.</p>
+</section>
+<section id="materials">
+<span id="id1"></span><h2>Materials</h2>
+<p>Each project carries its own <strong>material library</strong>.  A new project
+starts with the default library: the elements, plus common compounds,
+mixtures and tissues such as <em>AIR</em>, <em>CONCRETE</em>, <em>WATER</em> and lead glass.</p>
+<p>Use the <strong>Materials</strong> menu to work with libraries:</p>
+<ul class="simple">
+<li><p><strong>Edit project material library</strong> — change the materials of the
+current project.</p></li>
+<li><p><strong>Edit external material library</strong> — open and edit a material library
+file (<code class="docutils literal notranslate"><span class="pre">.mlb</span></code>) without changing the project.</p></li>
+<li><p><strong>Reset to default library</strong> — replace the project’s library with the
+default library RadMap ships.</p></li>
+<li><p><strong>Export material library</strong> — save the project’s library to a file,
+for example to reuse it in other projects.</p></li>
+<li><p><strong>Import material library</strong> — replace the project’s library with one
+from a file.</p></li>
+</ul>
+<p>Before an edit to an entry that other entries or solids use is applied, or saved to a
+library file, RadMap lists what the edit changes and asks you to
+confirm: the elements and materials that hold the entry, the solids made
+of them, and any source whose total activity changes.  A total changes
+only when you edit the density of the material a source’s solid is made
+of, and the source is given per mass.  An edit can still change a
+source’s dose rates, through the solid around it.</p>
+<p>Reset and Import replace the whole library.  A solid whose material is
+not in the new library loses its material assignment; RadMap lists those
+solids afterwards.  The project file is changed only when you save.</p>
+<p>To share materials between projects — a library of your organisation’s
+own materials, say — keep them in a library file: <strong>Export material
+library</strong> from a project that has them, add to the file with <strong>Edit
+external material library</strong>, and bring it into another project with
+<strong>Import material library</strong>.  Since Import replaces the project’s
+library, the file should hold every material the project needs.</p>
+<section id="the-material-editor">
+<h3>The material editor</h3>
+<p>The material editor has three sections side by side: <strong>Material</strong>,
+<strong>Element</strong> and <strong>Isotope</strong>.  A material is built from elements or from
+other materials, and an element from isotopes.  In each section, choose <strong>Edit</strong> and pick an
+entry from the list to change it, or <strong>New</strong> to create one; a new entry
+cannot take the name of an existing one.</p>
+<p>When you edit the project’s library the button is <strong>Apply</strong>: the change
+goes into the project, and reaches the project file when you save the
+project.  When you edit an external library it is <strong>Save</strong>, which writes
+the change to the library file at once.  <strong>Delete</strong> removes the entry
+shown.</p>
+<p>Before anything is applied or saved, RadMap checks the entry.  A value
+that is not accepted turns its field red, the <strong>Log</strong> at the bottom of
+the editor says why, and nothing is changed until it is corrected.</p>
+</section>
+<section id="defining-a-material">
+<h3>Defining a material</h3>
+<p>Give the material a name and a density, with its unit, and choose how it
+is composed:</p>
+<ul class="simple">
+<li><p><strong>Simple</strong> — one element, given by its atomic number <strong>Z</strong> and its
+atomic mass in u (<strong>Mass (u)</strong>), as in the default library’s <em>Fe</em>.</p></li>
+<li><p><strong>Element mix</strong> — choose elements from <strong>Add Element</strong>; each becomes a
+row.  In the <strong>Fraction</strong> column, give each element’s share of the
+mass; the shares must add up to 1.  A steel of 98 % iron and 2 %
+carbon by mass is <em>Fe</em> 0.98 and <em>C</em> 0.02.  For a compound it is often
+easier to count atoms: click the column heading to switch it to
+<strong>Composite</strong> and give the number of atoms of each element in one
+molecule — water is <em>H</em> 2 and <em>O</em> 1.  Switching clears the column.</p></li>
+<li><p><strong>Material mix</strong> — choose materials from <strong>Add Material</strong> and give each
+one’s share of the mass, adding up to 1.  A heavy concrete with iron
+ore could be <em>CONCRETE</em> 0.7 and <em>FERRIC_OXIDE</em> 0.3.  The density is
+the mix’s own, which you give; it is not worked out from the parts.</p></li>
+</ul>
+<p><strong>Remove item</strong> removes the selected rows.  Atomic numbers run from 1 to
+98 (californium), the range Geant4’s data covers.</p>
+</section>
+<section id="defining-an-element-or-an-isotope">
+<h3>Defining an element or an isotope</h3>
+<p>The default library holds the natural elements, so new ones are needed
+mainly for an isotopic composition of your own, such as enriched boron.</p>
+<p>An <strong>element</strong> is either <em>Simple</em>, given by Z and its atomic mass in u,
+or an <em>Isotope mix</em>.  For an isotope mix, choose isotopes from <strong>Add
+Isotope</strong> and give each one’s share of the atoms, adding up to 1:
+boron enriched to 96 % in boron-10 is <em>B10</em> 0.96 and <em>B11</em> 0.04.  All
+isotopes of an element have the same Z, so once one is added the list
+offers only isotopes with its Z.</p>
+<p>An <strong>isotope</strong> is given by its atomic number <strong>Z</strong>, its mass number
+<strong>A</strong>, which must be at least Z, and its atomic mass in u.</p>
+<p>Material, element and isotope names must start with a letter or digit
+and may contain letters, digits, underscores, dots, commas and hyphens.
+These rules differ from those for solids, sources and dose maps (see
+<em>Add a child solid</em>): a material’s name may start with a digit and may
+contain a comma.</p>
+<p>An entry that another entry is built from cannot be deleted — a material
+used in a material mix, an element used in a material, or an isotope
+used in an element.  Deleting a material that solids use clears it from
+those solids, and the editor’s log lists them.  Importing a library that
+lacks a material in use does the same.  Those solids need a new material
+before the project can be saved or simulated.</p>
+</section>
+</section>
+<section id="known-limitations">
+<span id="id2"></span><h2>Known limitations</h2>
+<p>What RadMap does not calculate, or calculates only approximately.  Each
+point is explained where it applies; this section collects them, so you
+can check a case against all of them at once.</p>
+<ul class="simple">
+<li><p><strong>Photon dose only.</strong>  Dose maps score photons.  The dose from beta,
+alpha and neutron radiation is not reported.  Neutrons, such as those
+from the spontaneous fission of <sup>252</sup>Cf, leave the source but
+pass through matter without interacting, so the photons they would
+produce there (capture gammas, for example) are missing too.  See <a class="reference internal" href="#choosing-what-the-dose-map-scores">Choosing
+what the dose map scores</a>.</p></li>
+<li><p><strong>Bremsstrahlung only on request.</strong>  Electrons from decay are
+discarded unless <em>Simulate electrons</em> is on, so the bremsstrahlung of
+beta emitters in shielding is missing by default.  See <a class="reference internal" href="#run-the-simulation">Run the
+simulation</a>.</p></li>
+<li><p><strong>Conversion coefficients have an energy range.</strong>  Below 10 keV,
+effective dose and H*(10) count photons as zero, which is the physics,
+while air kerma counts them at its 10 keV value and so reads too low
+close to an unshielded source of soft X-rays.  Above 10 MeV, air kerma
+and H*(10) use their 10 MeV values; photons from radioactive decay
+rarely reach that.  See <a class="reference internal" href="#origin-of-conversion-data">Origin of conversion data</a>.</p></li>
+<li><p><strong>Ground states only.</strong>  A source decays from the ground state of its
+isotope; an excited or metastable state cannot be chosen.  See <a class="reference internal" href="#add-a-source">Add a
+source</a>.</p></li>
+<li><p><strong>Full chain ignores half-lives.</strong>  With <em>Full chain</em> on, every
+radioactive daughter decays once for each decay of the source, as in
+secular equilibrium.  That overstates the daughters’ share when one
+lives long compared with the source, or when the source is freshly
+prepared and its daughters have not yet grown in.  See <a class="reference internal" href="#add-a-source">Add a source</a>.</p></li>
+<li><p><strong>A dose rate at one moment.</strong>  The activity is the one you enter;
+RadMap does not decay it over time or integrate a dose over a period.</p></li>
+<li><p><strong>Sources are spread evenly</strong> through the volume of their solid,
+less the solids placed inside it, and that volume must not be too
+thin: a very thin curved shell cannot hold a source.  See <a class="reference internal" href="#add-a-source">Add a
+source</a>.</p></li>
+<li><p><strong>A dose map is a mean over its box, free in air.</strong>  It averages the
+fluence over the box’s volume, without a body present; effective dose then
+assumes whole-body exposure in the chosen irradiation geometry.  See
+<a class="reference internal" href="#what-a-dose-map-measures">What a dose map measures</a> and <a class="reference internal" href="#choosing-what-the-dose-map-scores">Choosing what the dose map scores</a>.</p></li>
+<li><p><strong>Results are Monte Carlo estimates.</strong>  Each dose rate carries a
+statistical uncertainty that shrinks only with the square root of the
+number of particles.  See <a class="reference internal" href="#run-the-simulation">Run the simulation</a>.</p></li>
+</ul>
 </section>
 <section id="licensing">
 <span id="license-tiers"></span><h2>Licensing</h2>
-<p>RadMap operates in one of two modes depending on your license.</p>
-<p><strong>Free license</strong> — no action required.  RadMap starts in free mode
-automatically.  Each simulation run is capped at 50,000 primary
-particles, which is sufficient for most screening calculations.</p>
-<p><strong>Full license</strong> — removes the particle cap.  To obtain one:</p>
-<ol class="arabic simple">
-<li><p>Open RadMap and choose <strong>Help → License</strong>.
-The dialog shows your machine ID and copies it to the clipboard
-automatically.</p></li>
-<li><p>Send that machine ID to the RadMap team to request a license file.</p></li>
-<li><p>When you receive the <code class="docutils literal notranslate"><span class="pre">.lic</span></code> file, open <strong>Help → License</strong> again
-and click <strong>Install License File…</strong>.</p></li>
-<li><p>Browse to the <code class="docutils literal notranslate"><span class="pre">.lic</span></code> file and click <strong>Open</strong>.
-The license takes effect immediately — no restart required.</p></li>
-</ol>
-<p>The license is tied to the machine it was issued for and is not
-transferable to another machine.</p>
+<p>RadMap runs under the free license, which caps each simulation run at
+50,000 primary particles, or under a full license, which removes the
+cap.  How to obtain, install and renew a full license is described
+under <a class="reference internal" href="installation.html#licensing"><span class="std std-ref">Licensing</span></a> in the installation chapter.</p>
+</section>
+<section id="getting-help">
+<span id="id3"></span><h2>Getting help</h2>
+<p>Which channel to use depends on what you need:</p>
+<ul class="simple">
+<li><p><strong>Questions about using RadMap</strong> — how to model something, which dose
+quantity fits your case — ask in the <a class="reference external" href="https://github.com/RadMap/RadMap/discussions/categories/q-a">Q&amp;A discussions</a> on GitHub.
+Search there first: questions and their answers stay public, so yours may
+already be answered.</p></li>
+<li><p><strong>Bugs and feature requests</strong> — <a class="reference external" href="https://github.com/RadMap/RadMap/issues/new/choose">open an issue</a> on GitHub.  A short
+form asks for what is needed to reproduce the problem: the RadMap version
+(shown under <strong>Help → About</strong>), the Windows version and the steps that
+lead to it.</p></li>
+<li><p><strong>Licensing, anything confidential, or if you do not use GitHub</strong> —
+email <a class="reference external" href="mailto:info&#37;&#52;&#48;radmap&#46;tech">info<span>&#64;</span>radmap<span>&#46;</span>tech</a>.</p></li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Discussions and issues are public.  Never post confidential project data
+there — facility geometry, source inventories or activities.  Describe the
+problem in general terms, or email us instead.</p>
+</div>
 </section>
 </section>
 
@@ -598,11 +1185,11 @@ transferable to another machine.</p>
       </div>
     </a>
     <a class="right-next"
-       href="RadMapLicense.html"
+       href="methods.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">End-User License Agreement (EULA) of RadMap</p>
+        <p class="prev-next-title">Methods</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -628,20 +1215,35 @@ transferable to another machine.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#about-radmap">About RadMap</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-radmap">Starting RadMap</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-case-walk-through">A simple case — walk-through</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-world-volume">Create a world volume</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-world-volume">The world volume</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-dimensions">Set the dimensions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#navigate-the-geometry-view">Navigate the geometry view</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-material">Set the material</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-child-solid">Add a child solid</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-tube-dimensions-and-position">Set tube dimensions and position</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-systems-and-rotation">Coordinate systems and rotation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinate-systems-rotation-and-appearance">Coordinate systems, rotation and appearance</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-source">Add a source</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#give-the-activity-as-a-concentration">Give the activity as a concentration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-dose-maps">Adding dose maps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-a-dose-map-measures">What a dose map measures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-what-the-dose-map-scores">Choosing what the dose map scores</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#origin-of-conversion-data">Origin of conversion data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-simulation">Run the simulation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-report-file">Create a report file</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dose-maps-and-sources-lists">The Dose maps and Sources lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-and-loading-projects">Saving and loading projects</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reusing-volumes">Reusing volumes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#materials">Materials</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-material-editor">The material editor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-material">Defining a material</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-an-element-or-an-isotope">Defining an element or an isotope</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-limitations">Known limitations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licensing">Licensing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting help</a></li>
 </ul>
   </nav></div>
 
@@ -667,22 +1269,22 @@ transferable to another machine.</p>
     <div class="footer-items__start">
       
         <div class="footer-item">
-
-  <p class="copyright">
-    
-      © Copyright 2018–2026, Klas Marcks von Würtemberg.
-      <br/>
-    
-  </p>
-</div>
+<a class="rm-footer-brand" href="index.html">
+  <img class="only-light" src="_static/logo-light.png" alt="" width="24" height="24">
+  <img class="only-dark" src="_static/logo-dark.png" alt="" width="24" height="24">
+  <span>RadMap</span>
+</a></div>
       
         <div class="footer-item">
-
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
-    <br/>
-  </p>
-</div>
+<nav class="rm-footer-links" aria-label="Footer">
+  <a href="https://radmap.tech">radmap.tech</a>
+  <a href="https://github.com/RadMap/RadMap/discussions/categories/q-a">Ask a question</a>
+  <a href="https://github.com/RadMap/RadMap/issues/new/choose">Report a problem</a>
+  <a href="RadMapLicense.html">EULA</a>
+  
+  <a href="https://radmap.tech/documentation/errata.html">Errata</a>
+  <a href="mailto:info@radmap.tech">Contact</a>
+</nav></div>
       
     </div>
   
@@ -691,10 +1293,7 @@ transferable to another machine.</p>
     <div class="footer-items__end">
       
         <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
+<p class="rm-footer-copy">© 2026 RadMap</p></div>
       
     </div>
   

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RadMap errata</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap");
+:root { --bg: #FBFAF8; --text: #363B46; --heading: #0E1117; --link: #C23E34;
+        --accent: #E04940; --rule: #E4E1DC; color-scheme: light dark; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0E1117; --text: #B0B7C4; --heading: #EEF0F4; --link: #F27F73;
+          --accent: #EE6A5D; --rule: #262C38; }
+}
+body { background: var(--bg); color: var(--text); margin: 0;
+       font: 16px/1.6 "Inter", system-ui, sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2.5rem 16px 4rem; }
+h1, h2 { font-family: "Space Grotesk", system-ui, sans-serif; color: var(--heading); }
+h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+h1::after { content: ""; display: block; width: 3rem; height: 3px;
+            background: var(--accent); margin-top: 0.6rem; }
+h2 { font-size: 1.3rem; margin-top: 2.5rem; padding-top: 1.5rem;
+     border-top: 1px solid var(--rule); }
+a { color: var(--link); }
+.updated { font-size: 0.875rem; opacity: 0.8; }
+</style>
+</head>
+<body>
+<main>
+<h1>Errata</h1>
+<p class="updated">Updated 2026-11-04.  <a href="https://radmap.tech/documentation/">Documentation</a></p>
+<p>Faults found in released versions of RadMap.  Each entry says which versions it
+affects, whether it can change results and under which conditions, and the version
+that fixes it.  Every PDF report names the RadMap version that produced it, so you
+can tell whether a result needs review.</p>
+<p>This page is updated whenever a fault is found, independently of releases.  To
+report a problem, use <a href="https://github.com/RadMap/RadMap/issues/new/choose">Report
+a problem</a>.</p>
+<h2>D-0001: Sources in a moved parent, or rotated tube segments, sampled in the wrong place</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-22, by the V&amp;V case R6-Sampling, written to check where a
+source's decays happen</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> for a source in a solid that sits inside a moved solid, at
+any depth, and for a source in a rotated tube segment.  Either the run stopped at
+its first decay, with an error or a crash, or it completed with decays in only part
+of the source's volume, the part the sampling box happened to overlap.  The dose
+rates of such a run describe a source of the right activity in the wrong place:
+too high near the part that had decays and too low elsewhere, by an amount that
+depends on the geometry.  Sources in solids placed directly in the world volume,
+and full tubes, were not affected.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>RadMap tells Geant4 to sample decay positions in a box around the source solid and
+keep those inside it.  The box's centre was the solid's position relative to its
+parent, not in the world, and its offset from the solid's origin was not turned
+with the solid.  So for a source in a moved parent, or a rotated segment whose
+bounding box is off its origin, the box sat away from the solid.  Results of such
+projects made with 1.x should be recalculated with 2.0.0.</p>
+<h2>D-0002: Sampling box of a curved source fitted to its drawing mesh, slightly too small</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-22, while designing the check that refuses sources too thin to
+sample</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> negligible.  For sources in tubes and spheres, thin slivers
+at the curved surfaces, at most about 0.2 % of the radius deep and together about
+2 parts in 10 000 of the source's volume, never had decays.  The activity was not
+lost but spread over the rest of the source, a few millimetres away, so dose rates
+changed by far less than 0.1 %, well within the statistical uncertainty of any run.
+Sources in boxes were not affected.  No recalculation is needed.</li>
+<li><strong>Users told:</strong> not needed; listed on this errata page</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>RadMap tells Geant4 to sample decay positions in a box enclosing the source solid
+and keep those inside it.  The box was fitted to the corners of the mesh used to
+draw the solid, and a curved surface bulges out beyond the mesh between its corners,
+so the box stopped short of the solid there.  The box is now computed exactly from
+the solid's dimensions.</p>
+<h2>D-0003: Effective dose used ICRP 116's coefficients without their 2015 corrections</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-24, while checking RadMap's coefficient tables against the
+publications for the V&amp;V report</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> effective dose from photons, in every irradiation geometry.
+At the energies radionuclides emit, up to 10 MeV, RadMap's coefficients were up
+to 1.7 % high in LLAT, 1.2 % high in RLAT, 1.2 % low in PA, 0.9 % low in ROT, and
+within 0.6 % in ISO and AP, depending on the energy; a dose rate differs by at
+most as much.  Air kerma and H*(10) are not affected.  Only an effective dose
+result used within about 2 % of a limit needs recalculating.</li>
+<li><strong>Users told:</strong> not yet</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>ICRP corrected 199 of the photon effective dose coefficients in Table A.1 of
+Publication 116 in 2015 (Corrigenda, Annals of the ICRP 44(1)).  RadMap's tables
+were transcribed from the original 2010 table and carried the uncorrected values,
+although the corrections were published before RadMap's first release.  RadMap now
+uses the corrected table, and its data source reads <em>ICRP 116 (2010, corrected
+2015)</em>.</p>
+<h2>D-0004: Isotopes offered whose ground state has no decay data emitted nothing</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-27, by a new test that runs every offered isotope's decay data
+through RadMap's parser</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> for a source of Ag-94, Bi-198, Lu-154, Nb-85, Po-193,
+Ra-201, Re-194, Se-82 or Tl-186 only.  The source emitted no radiation, and every
+dose map read zero, without a warning.  Of these, only Bi-198 (half-life 11.6
+minutes) is a likely choice: Se-82 is practically stable and the others have
+half-lives under 12 seconds.  Results of a project with such a source should be
+recalculated with another isotope.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>The isotope list offered every isotope Geant4 has a decay file for.  For some, the
+file describes only an excited state of the nucleus, and Geant4 can then not decay
+the ground state a source starts in.  In the decay data 1.1.0 used (Geant4's
+RadioactiveDecay 4.3.2) that held for the nine isotopes above; in the data 2.0.0
+uses it holds for 39.  The isotope list now leaves out every isotope whose ground
+state has no decay data, and a project that holds one is refused before the
+simulation starts, with a message naming the source.</p>
+<h2>D-0005: Deep dose maps read the radiation where it entered them, not their mean</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-28, while writing a V&amp;V case for dose maps turned with a corner
+towards a source</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> for dose maps deep along the direction the radiation comes
+from, where it changes across them: close to a source, or at the edge of a
+shield's shadow.  A box facing a small source read high by about half its depth
+divided by its distance: 5 % for a 10 cm cube at 1 m, 15 % for a 30 cm cube.
+Turned with a corner towards the source, the same cubes read 0.2 % and 2.4 % low.
+Plates facing the source changed little: 0.1 % for a plate 2 mm thick at 1 m.
+A dose map enclosing a source, or part of one, did not count the photons emitted
+inside it and read low, by an amount depending on how much of the source it
+held.  Results from dose maps deeper than a few per cent of their distance from
+a source, or enclosing one, should be recalculated.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>A dose map is meant to read the dose rate averaged over its volume.  It counted the
+photons entering it through any face, each divided by the area of the box seen from
+its direction.  That is the mean over the box only where the radiation is the same
+throughout it, as for a thin plate.  Where the radiation changes across a deep box,
+the count follows the faces the photons enter by, which depend on how the box is
+turned, so the same box in the same place read differently in different
+orientations.  RadMap now adds up the length of every photon's path inside the box
+and divides by its volume, which is the mean over the volume by definition, in any
+orientation and wherever the photons come from.</p>
+<h2>D-0006: Rotated dose maps simulated turned the opposite way</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-28, by the V&amp;V case O-Co60-Orientation, written to check dose
+maps turned towards a source</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> for a dose map with a rotation of its own, or attached to a
+rotated solid.  The map was in the right place but turned the opposite way from
+the one RadMap showed: about one axis, by the angle with its sign reversed; about
+several, by the inverse rotation.  The map then covered a different region from
+the one drawn, and for a deep map near a source its reading also changed with
+its orientation (D-0005).  The effect is negligible for a map small compared
+with its distance from sources and shield edges, and grows with its size: a
+120 × 240 × 480 mm box turned about two axes, 600 mm from a source, covered a
+region where the mean dose rate is 4.5 % higher.  Results from large rotated dose maps near sources or shield edges should
+be recalculated.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>RadMap hands Geant4 a dose map's rotation as three angles, from which Geant4 builds
+a rotation matrix for the map's box.  Geant4 uses that matrix as the rotation of the
+box's frame, which turns the box itself by the inverse.  Solids reach Geant4 by
+another route that has always allowed for this; dose maps did not.  RadMap now hands
+Geant4 the inverse rotation for dose maps too.</p>
+<h2>D-0007: Dose maps turned close to a quarter turn about Y simulated up to 1° off</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-28, by a new unit test requiring a dose map to turn in Geant4 as
+a solid with the same rotation does</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> negligible.  For a dose map whose overall rotation, its own
+combined with its solids', came within about 1.15° of a quarter turn about Y --
+for instance a map turned 89.5° about Y -- the map was simulated as if turned the
+full quarter turn, tilted by up to 1.15° from the orientation shown.  Turned
+exactly 90°, it was simulated as shown.  A tilt of 1.15° changes the region a map
+covers so little that a 30 cm cube reads within 0.02 %, and a 120 × 240 × 480 mm
+box 600 mm from a source within 0.4 %.  No recalculation is needed.</li>
+<li><strong>Users told:</strong> not needed; listed on this errata page</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>RadMap hands Geant4 a dose map's rotation as three angles about X, Y and Z.  When the
+second angle came within about 1.15° of ±90°, the conversion set it to exactly ±90°;
+on the negative side it also turned the map half a turn about its own Z axis, which
+maps a box onto itself.  The angles are now computed exactly at every orientation.</p>
+<h2>D-0008: A full turn of a tube or sphere entered in radians left a slit</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-28, while reviewing how tubes and spheres check their angles</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> for a tube or sphere whose sweep was meant as a full turn
+but entered in radians, or a sphere meant to reach a pole in radians.  The fields
+keep three decimals, so a full turn could not be entered exactly: 6.283 rad, the
+nearest, is 0.011° short of it, and the solid was simulated with a slit that wide
+running through it, 0.19 mm at a radius of 1 m; 6.284 rad was refused.  Photons
+heading into the slit crossed the solid unattenuated.  The effect depends on the
+geometry: it is largest for a thick shield, at points behind it in line with the
+slit.  Angles entered in degrees were not affected.  Results from shields whose
+sweep was entered in radians should be recalculated.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>RadMap took a tube's or sphere's sweep exactly as entered.  A sweep within 0.05° of a
+full turn, or of the pole for a sphere's theta, is now taken as exactly that, so
+6.283 and 6.284 rad both give a closed solid.</p>
+<h2>D-0009: A material with its density in kg/cm³ could not be simulated</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-29, while reviewing how materials reach Geant4</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> none.  A simulation with a material whose density was given
+in kg/cm³ stopped before its first decay, with Geant4's error that the unit
+<em>kg/cm3</em> does not exist, so no result was produced.  Materials in g/cm³ or mg/cm³
+were not affected.</li>
+<li><strong>Users told:</strong> not needed; listed on this errata page</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>RadMap handed Geant4 each density in the unit the user chose, by the unit's name, and
+Geant4 knows g/cm³ and mg/cm³ but not kg/cm³.  RadMap now hands Geant4 every density
+in g/cm³, converted.  It also no longer offers kg/cm³, in which every real material
+is a small fraction -- osmium, the densest, is 0.0226 kg/cm³ -- and reads a library
+holding one as g/cm³, the value a thousand times larger.</p>
+<h2>D-0010: A solid's material could change to one whose name differs only in case</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-29, while reviewing the user interface's event handling</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> only in a project whose material library holds two
+materials whose names differ only in upper and lower case, such as <em>Lead</em> and
+<em>LEAD</em>, which RadMap's own library does not.  A solid given the second of them
+was shown with the first, and editing anything else about that solid -- its name,
+colour, wireframe or axes -- gave it the first: it was then simulated in a material
+the user had not chosen.  Results from projects whose library holds such a pair
+should be checked: each solid's material is shown correctly from 2.0.0, and a
+solid showing the wrong one should be recalculated.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>The properties panel looked up a solid's material in its list of materials ignoring
+case, while material names are case-sensitive, and wrote the material it found back
+to the solid with the solid's next edit.  It now looks the material up by its exact
+name.</p>
+<h2>D-0011: The 3D view's arrow keys could act as if Ctrl or Shift were still held</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-29, while reviewing the 3D view's input handling; confirmed by hand</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> none.  Only how the view moves with the keyboard was
+affected; no project, file or result.</li>
+<li><strong>Users told:</strong> not needed; listed on this errata page</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>The view kept its own record of which of Shift, Ctrl and the arrow keys were held,
+and cleared a key only when it saw the key released.  A key released while another
+window had the keyboard stayed held in that record: after Ctrl+S, Ctrl+L or another
+shortcut that opens a dialog from the view, the arrow keys tilted the view instead of
+moving it, until Ctrl or Shift was pressed again.  The view now reads Shift and Ctrl
+from each key press, and forgets the arrow keys when it loses the keyboard.</p>
+<h2>D-0012: A name in a non-Latin script prints as question marks in the PDF report</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-30, while reviewing the report classes</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> none.  The numbers are right, but which dose map or source a
+row belongs to may not be readable, and two names can print the same.</li>
+<li><strong>Users told:</strong> not needed; listed on this errata page</li>
+<li><strong>Fixed in:</strong> 2.0.0, in part: the report warns; the characters still print as question marks</li>
+</ul>
+<p>The report is set in Helvetica, one of the PDF standard fonts, which covers Western
+European letters only.  Any other character in a project, dose map or source name,
+such as Greek or Cyrillic, is printed as a question mark, though RadMap accepts it
+as a name and shows it correctly everywhere else.  The report still supports only
+these characters, as a deliberate limit, but RadMap now names the affected text when
+it creates a report.</p>
+<h2>D-0013: <em>Full chain</em> on one source also applies to the other sources</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-31, while reviewing the simulation classes</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> for a project with <em>Full chain</em> on for one source and off for
+another whose daughter is radioactive in its ground state.  The other source's
+daughters decay too, so its dose rate is too high, by an amount that depends on the
+isotopes.  Measured: 100 MBq of Te-132 with <em>Full chain</em> off beside 100 MBq of Cs-137
+with it on gave 3.3 times the sum of the two run alone, because Te-132's daughter
+I-132 emits far more photons.  Projects where every source has the same setting are
+not affected.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>The setting is applied when a decay starts, and a flag recording it was set but never
+cleared.  After the first decay of a source with <em>Full chain</em> on, every later decay on
+that thread followed its chain, whichever source it came from.  Results of such
+projects made with 1.x or a development build should be recalculated.</p>
+<h2>D-0014: A source in a solid with &quot;0x&quot; in its name is not confined to the solid</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-31, while reviewing the simulation classes</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> for a source in a solid whose name contains &quot;0x&quot;, such as
+<code>Plate100x50</code>.  Decays are placed anywhere in the box around the solid: also inside
+its child solids, and outside a tube or sphere.  Dose rates can be too high or too
+low, depending on the geometry.  Measured: a source in a 5 mm air shell around a lead
+core gave a dose rate 3.9 times lower with a name containing &quot;0x&quot;, as most decays
+landed in the lead.  A box with no children is not affected.  Nothing warned of it.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>Reading the geometry, Geant4 cuts every name at &quot;0x&quot;, where its own file format puts a
+pointer.  RadMap then asked for the volume by its full name, Geant4 did not find it,
+reported that only in its log, and sampled the box unconfined.  Results of such projects
+made with 1.x or a development build should be recalculated.</p>
+<h2>D-0015: Materials named alike up to &quot;0x&quot; are simulated as one material</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-31, while reviewing the classes that save and load a project</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0, as far as known</li>
+<li><strong>Effect on results:</strong> for a project using two materials, two elements or two isotopes
+whose names are the same up to a &quot;0x&quot;, such as <code>Wall0xA</code> and <code>Wall0xB</code>.  Both are
+simulated as whichever was defined first, so dose rates can be wrong by any amount,
+in either direction.  Measured: a vacuum shield beside a lead material of such a name
+gave a dose rate 187 times too low.  Nothing warned of it.  One such name on its own,
+with no other that matches it, is not affected.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>Geant4 cuts these names at &quot;0x&quot; where it defines them as well as where it uses them,
+whatever it is told about stripping names.  The fix for D-0014 covered solids only.
+Results of such projects made with 1.x or a development build should be recalculated.</p>
+<h2>D-0016: A run stops when two elements share an isotope</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-31, while reviewing the classes that save and load a project</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0, as far as known</li>
+<li><strong>Effect on results:</strong> none.  The run stops with &quot;Referenced isotope ... was not found!&quot;</li>
+<li><strong>Users told:</strong> not needed</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>The geometry file listed the second element above the isotope it shares with the first,
+and Geant4 reads the file from the top.</p>
+<h2>D-0017: Save Volume writes a file that loses solids when names repeat</h2>
+<ul>
+<li><strong>Found:</strong> 2026-10-31, while reviewing the classes that save and load a project</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0, as far as known</li>
+<li><strong>Effect on results:</strong> none directly: the solids missing after <em>Load Volume</em> can be seen.</li>
+<li><strong>Users told:</strong> not needed</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p><em>Save Volume</em> did not check names, as a project save does.  Solids are found by name on
+loading, so of two with the same name one took the other's place.</p>
+<h2>D-0018: An isotope's Z could be edited to one its element cannot hold</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-01, while reviewing the API classes</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0, as far as known</li>
+<li><strong>Effect on results:</strong> none.  The element's isotopes no longer shared one Z, and the
+run stops with a Geant4 error.</li>
+<li><strong>Users told:</strong> not needed</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>Editing an element checked that its isotopes share one Z, but editing one of those
+isotopes did not.</p>
+<h2>D-0019: A source in the world volume is not confined to it</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-01, by hand while checking a source in the world volume</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0</li>
+<li><strong>Effect on results:</strong> for a source in the world volume of a project with solids in
+the world.  Decays are placed anywhere in the world: also inside the solids, not only
+around them.  Dose rates can be too high or too low, depending on the geometry.
+Measured: a source in the 100 mm of air around a lead cube gave a dose rate 2.1 times
+lower, as most decays landed in the lead.  A world with no solids in it is not
+affected.  Nothing warned of it.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>Geant4 places the world volume itself, under a name of its own, where every other solid
+is placed by a line of the geometry file under the name RadMap gives it.  RadMap asked
+for the world by the usual name, Geant4 did not find it, reported that only in its log,
+and sampled the world unconfined.  Results of such projects made with 1.x should be
+recalculated.</p>
+<h2>D-0020: A field marked invalid in the material editor stayed red for the next entry</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-02, by hand while checking the material editor</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0, as far as known</li>
+<li><strong>Effect on results:</strong> none.  The red marks only the field; a valid value in it is
+applied as usual.</li>
+<li><strong>Users told:</strong> not needed</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>Choosing another entry, or another kind of entry, filled the fields without clearing
+the mark an invalid value had left on them, so the new entry's valid value showed red.</p>
+<h2>D-0021: Argon and potassium had each other's atomic weight in the default library</h2>
+<ul>
+<li><strong>Found:</strong> 2026-09-14, while correcting the default material library (commit
+11230f7), before this log was started; logged 2026-11-03</li>
+<li><strong>Versions affected:</strong> 1.0 to 1.1.0, as far as known</li>
+<li><strong>Effect on results:</strong> not measured.  Argon was given 39.0983 instead of 39.948, and
+potassium the reverse, so each element's number of atoms per gram was about 2 % off:
+argon in AIR, and potassium in the twelve materials holding it, among them
+tissue-equivalent ones and POTASSIUM_IODIDE.  The attenuation by these elements
+changes by as much; a material's density is not affected.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 2.0.0</li>
+<li><strong>Fixed in:</strong> 2.0.0</li>
+</ul>
+<p>The two entries were swapped in the library RadMap ships, from which every new project
+takes its own copy.  Existing projects keep the library they were saved with: correct
+the two atomic weights in the project's material library, or reset it to the default
+library.</p>
+</main>
+</body>
+</html>

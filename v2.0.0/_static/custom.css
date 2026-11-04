@@ -1,357 +1,636 @@
 /*
- * The left sidebar has two extra sections that are empty for our flat doc
- * structure (no nested toctree children, no ReadTheDocs ad server):
+ * RadMap documentation theme — matches radmap.tech.
  *
- *  - sidebar-primary-items__start  — "Section Navigation" (always empty)
- *  - ethical-ad-placement          — RTD ad slot (never loads locally)
+ * The colour tokens and fonts below are copied from the website's style.css
+ * (RadMap.github.io).  When the website's palette changes, update both.
  *
- * Hide both unconditionally so they leave no blank space.
+ * pydata-sphinx-theme declares its palette on html[data-theme=light] and
+ * html[data-theme=dark].  Redeclaring the variables on the same selectors
+ * (loaded later, so they win) restyles the theme in both modes without
+ * !important; the few !important rules below override theme rules that are
+ * themselves !important.
+ *
+ * publish-docs.yml copies this file into every published version, so one
+ * change restyles them all.  Keep it self-contained for that reason: the
+ * fonts are imported here rather than linked from conf.py, because an older
+ * version's HTML carries only the links its own conf.py wrote.
  */
-.sidebar-primary-items__start {
-    display: none;
-}
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* ---------------------------------------------------------------------------
+ * Layout clean-up
+ *
+ * The left sidebar has two sections that are empty for this flat doc
+ * (no nested toctree children, no ReadTheDocs ad server).  Hide both so
+ * they leave no blank space.
+ * ------------------------------------------------------------------------- */
+.sidebar-primary-items__start,
 #ethical-ad-placement {
     display: none;
 }
 
 /* ---------------------------------------------------------------------------
- * Colour scheme — matches radmap.tech
- *
- *  Primary accent  : #e85a4f  (coral/salmon — buttons, links, hover)
- *  Navbar bg       : #303030  (dark charcoal — same as site nav bar)
- *  Page background : #eae7dc  (warm eggshell — site header overlay colour)
- *  Body text       : #000000  (black — same as site body text on eggshell)
- * ---------------------------------------------------------------------------
- */
-
-/* CSS custom properties — override pydata-sphinx-theme defaults.
- * pydata defines its palette in html[data-theme=light] (specificity 0,1,1),
- * which beats :root and [data-bs-theme=light] (both 0,1,0).
- * All three selectors are needed to guarantee our values win. */
-:root,
-[data-bs-theme=light],
+ * Colour tokens — light
+ * ------------------------------------------------------------------------- */
 html[data-theme=light] {
-    --pst-color-primary:           #e85a4f;
-    --pst-color-primary-highlight: #c94040;
-    --pst-color-secondary:         #e85a4f;
-    --pst-color-link:              #e85a4f;
-    --pst-color-link-hover:        #c94040;
-    --pst-color-accent:            #e85a4f;
-    --pst-color-text-base:         #000000;
-    --pst-color-text-muted:        #505050;
-    --pst-color-border:            #c8c4b8;
-    --pst-color-shadow:            #c8c4b8;
-    /* surface / on-background — used for kbd chips, cards, search field */
-    --pst-color-surface:           #d6d2c6;
-    --pst-color-on-background:     #eae7dc;
-    --pst-color-on-surface:        #000000;
-    /* inline code — charcoal text on warm-gray chip, coral when inside a link */
-    --pst-color-inline-code:       #303030;
-    --pst-color-inline-code-links: #e85a4f;
-    /* admonitions — note: charcoal, caution/warning: coral */
-    --pst-color-info:              #303030;
-    --pst-color-info-bg:           #ddd8d0;
-    --pst-color-warning:           #e85a4f;
-    --pst-color-warning-bg:        #ddd8d0;
-    --pst-color-attention:         #e85a4f;
-    --pst-color-attention-bg:      #ddd8d0;
+    /* website: --coral, --coral-strong, --coral-ink */
+    --rm-coral:          #E04940;
+    --rm-coral-strong:   #CB3A32;
+    --rm-coral-ink:      #C23E34;
+    --rm-coral-soft:     color-mix(in srgb, #E04940 10%, transparent);
+    --rm-coral-line:     color-mix(in srgb, #E04940 35%, transparent);
+    --rm-nav-bg:         rgba(251, 250, 248, 0.8);
+
+    --pst-color-primary:           var(--rm-coral);
+    --pst-color-primary-text:      #FFFFFF;
+    --pst-color-primary-highlight: var(--rm-coral-strong);
+    --pst-color-primary-bg:        var(--rm-coral-soft);
+    --pst-color-secondary:         var(--rm-coral-strong);
+    --pst-color-secondary-bg:      var(--rm-coral-soft);
+    --pst-color-accent:            var(--rm-coral);
+    --pst-color-accent-bg:         var(--rm-coral-soft);
+    --pst-color-link:              var(--rm-coral-ink);
+    --pst-color-link-hover:        var(--rm-coral-strong);
+
+    --pst-color-background:        #FBFAF8;   /* --bg */
+    --pst-color-on-background:     #FFFFFF;   /* --surface */
+    --pst-color-surface:           #F3F1EE;   /* --bg-alt */
+    --pst-color-on-surface:        #1A1D24;
+    --pst-color-text-base:         #363B46;   /* body text: between --text and --muted, see below */
+    --pst-color-text-muted:        #5B6170;   /* --muted */
+    --pst-color-heading:           #1A1D24;
+    --pst-color-border:            #E4E1DC;
+    --pst-color-border-muted:      rgba(20, 24, 33, 0.09);   /* --border */
+    --pst-color-shadow:            rgba(20, 24, 33, 0.06);
+
+    --pst-color-inline-code:       var(--rm-coral-ink);
+    --pst-color-inline-code-links: var(--rm-coral);
+    --pst-color-target:            color-mix(in srgb, #E04940 18%, transparent);
+    --pst-color-blockquote-notch:  #5B6170;
+    --pst-color-table:             #1A1D24;
+    --pst-color-table-row-hover-bg: var(--rm-coral-soft);
+    --pst-color-table-inner-border: #E4E1DC;
+
+    /* Admonitions: notes neutral, cautions and warnings in coral */
+    --pst-color-info:              #5B6170;
+    --pst-color-info-bg:           #F3F1EE;
+    --pst-color-warning:           var(--rm-coral);
+    --pst-color-warning-bg:        var(--rm-coral-soft);
+    --pst-color-attention:         var(--rm-coral);
+    --pst-color-attention-bg:      var(--rm-coral-soft);
 }
 
-/* Admonitions — direct overrides */
-.admonition,
-div.admonition {
-    background-color: #eae7dc !important;
-    border-color:     #303030 !important;
+/* ---------------------------------------------------------------------------
+ * Colour tokens — dark
+ * ------------------------------------------------------------------------- */
+html[data-theme=dark] {
+    --rm-coral:          #EE6A5D;
+    --rm-coral-strong:   #F47E72;
+    --rm-coral-ink:      #F27F73;
+    --rm-coral-soft:     color-mix(in srgb, #EE6A5D 14%, transparent);
+    --rm-coral-line:     color-mix(in srgb, #EE6A5D 35%, transparent);
+    --rm-nav-bg:         rgba(14, 17, 23, 0.75);
+
+    --pst-color-primary:           var(--rm-coral);
+    --pst-color-primary-text:      #0E1117;   /* dark text on coral, as on the website */
+    --pst-color-primary-highlight: var(--rm-coral-strong);
+    --pst-color-primary-bg:        var(--rm-coral-soft);
+    --pst-color-secondary:         var(--rm-coral-strong);
+    --pst-color-secondary-bg:      var(--rm-coral-soft);
+    --pst-color-accent:            var(--rm-coral);
+    --pst-color-accent-bg:         var(--rm-coral-soft);
+    --pst-color-link:              var(--rm-coral-ink);
+    --pst-color-link-hover:        var(--rm-coral-strong);
+
+    --pst-color-background:        #0E1117;
+    --pst-color-on-background:     #171C26;
+    --pst-color-surface:           #131720;
+    --pst-color-on-surface:        #EEF0F4;
+    --pst-color-text-base:         #B0B7C4;   /* body text: dimmer than in light mode, since light-on-dark
+                                                 text reads heavier and bold text needs room to stand out */
+    --pst-color-text-muted:        #9AA2B2;
+    --pst-color-heading:           #EEF0F4;
+    --pst-color-border:            #262C38;
+    --pst-color-border-muted:      rgba(255, 255, 255, 0.08);
+    --pst-color-shadow:            rgba(0, 0, 0, 0.35);
+
+    --pst-color-inline-code:       var(--rm-coral-ink);
+    --pst-color-inline-code-links: var(--rm-coral);
+    --pst-color-target:            color-mix(in srgb, #EE6A5D 22%, transparent);
+    --pst-color-blockquote-notch:  #9AA2B2;
+    --pst-color-table:             #EEF0F4;
+    --pst-color-table-row-hover-bg: var(--rm-coral-soft);
+    --pst-color-table-inner-border: #262C38;
+
+    --pst-color-info:              #9AA2B2;
+    --pst-color-info-bg:           #171C26;
+    --pst-color-warning:           var(--rm-coral);
+    --pst-color-warning-bg:        var(--rm-coral-soft);
+    --pst-color-attention:         var(--rm-coral);
+    --pst-color-attention-bg:      var(--rm-coral-soft);
 }
 
-.admonition > .admonition-title,
-div.admonition > .admonition-title {
-    background-color: #ddd8d0 !important;
-    color:            #000000 !important;
+/* ---------------------------------------------------------------------------
+ * Typography — Inter for text, Space Grotesk for headings, JetBrains Mono
+ * for code, as on the website
+ * ------------------------------------------------------------------------- */
+html {
+    --pst-font-family-base:      "Inter", var(--pst-font-family-base-system);
+    --pst-font-family-heading:   "Space Grotesk", var(--pst-font-family-base-system);
+    --pst-font-family-monospace: "JetBrains Mono", var(--pst-font-family-monospace-system);
 }
 
-.admonition > .admonition-title::after,
-div.admonition > .admonition-title::after {
-    color: #303030 !important;
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
 }
 
-/* Caution / warning — coral accent */
-.admonition.caution,
-div.admonition.caution,
-.admonition.warning,
-div.admonition.warning {
-    border-color: #e85a4f !important;
+/* Body text is a step softer than headings, as on the website, where headings
+ * use --text and paragraphs --muted.  The docs sit between the two: --muted
+ * would make long reading text look secondary.  Bold text keeps the heading
+ * colour, like the website's bold labels. */
+.bd-article strong,
+.bd-article b {
+    color: var(--pst-color-heading);
 }
 
-.admonition.caution > .admonition-title,
-div.admonition.caution > .admonition-title,
-.admonition.warning > .admonition-title,
-div.admonition.warning > .admonition-title {
-    background-color: #ddd8d0 !important;
+.bd-article h1 {
+    font-size: 2.4rem;
+    letter-spacing: -0.03em;
 }
 
-.admonition.caution > .admonition-title::after,
-div.admonition.caution > .admonition-title::after,
-.admonition.warning > .admonition-title::after,
-div.admonition.warning > .admonition-title::after {
-    color: #e85a4f !important;
+/* ---------------------------------------------------------------------------
+ * Colour between sections — the website's coral, used sparingly so long pages
+ * have a rhythm: a hairline with a short coral bar above each main section, a
+ * warm glow behind the page title (the website's hero glow), coral list markers
+ * (the website's coral checks and arrows)
+ * ------------------------------------------------------------------------- */
+.bd-article section > h2 {
+    position: relative;
+    margin-top: 3.2rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--pst-color-border-muted);
 }
 
-/* Inline code — direct override, bypasses variable resolution issues */
-code.docutils.literal,
-code.literal {
-    color:            #303030 !important;
-    background-color: #d6d2c6 !important;
-    border-color:     #c8c4b8 !important;
+.bd-article section > h2::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 2.5rem;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+    background-color: var(--rm-coral);
 }
 
-a code.docutils.literal,
-a code.literal {
-    color: #e85a4f !important;
+/* On the full-width container, so the glow fades out on every side instead
+ * of being cut off at the article's edge. */
+.bd-container {
+    background-image: radial-gradient(ellipse 44rem 18rem at 18% 0%,
+                                      var(--rm-coral-soft), transparent 72%);
+    background-repeat: no-repeat;
 }
 
-/* Navbar active-page indicator — 3px border-bottom on ::before pseudo-element */
-.bd-header ul.navbar-nav > li.nav-item.current > .nav-link::before {
-    border-bottom-color: #e85a4f !important;
+.bd-article li::marker {
+    color: var(--rm-coral);
 }
 
-/* Right sidebar TOC active indicator — inset box-shadow acting as left bar */
-.toc-entry a.nav-link.active {
-    box-shadow: inset max(3px, .1875rem, .12em) 0 0 #e85a4f !important;
-    color: #e85a4f !important;
+.bd-article ol > li::marker {
+    font-family: var(--pst-font-family-monospace);
+    font-size: 0.9em;
 }
 
-/* Page background — warm eggshell on content areas only (not the navbar) */
-body,
-.bd-main,
-.bd-content,
-.bd-article-container,
-article.bd-article,
-.bd-sidebar-secondary,
-.bd-sidebar-secondary .sidebar-secondary-items,
-.tocsidebar,
-.bd-toc {
-    background-color: #eae7dc !important;
+/* ---------------------------------------------------------------------------
+ * Page width — the website's 1160px column with 24px gutters, so the logo,
+ * the breadcrumbs and the page text all start at the same left edge, as on
+ * radmap.tech.  Below the theme's 960px breakpoint its own mobile layout
+ * applies.
+ * ------------------------------------------------------------------------- */
+.bd-page-width {
+    max-width: 1160px;
 }
 
-/* Body text — black on eggshell */
-body,
-article.bd-article,
-.bd-article-container {
-    color: #000000;
+@media (min-width: 960px) {
+    .bd-header .bd-header__inner,
+    .bd-footer .bd-footer__inner {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    /* Left-aligned, not centred: below 1200px the theme hides the page
+     * table of contents and would otherwise centre the text column. */
+    .bd-main .bd-content {
+        justify-content: flex-start;
+    }
+
+    .bd-main .bd-content .bd-article-container {
+        padding-left: 24px;
+    }
+
+    .bd-main .bd-content .bd-article-container .bd-article {
+        padding-left: 0;
+    }
+
+    /* Breadcrumbs on the same edge as the title (the theme indents them) */
+    .bd-header-article .header-article-items {
+        padding-left: 0;
+    }
+
+    ul.bd-breadcrumbs li.breadcrumb-home a.nav-link {
+        margin-left: 0;
+    }
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6,
-.bd-article h1,
-.bd-article h2,
-.bd-article h3 {
-    color: #000000;
-}
-
-/* Body content links — coral, no underline; underline appears on hover */
-article.bd-article a,
-.bd-article-container a {
-    color: #e85a4f !important;
-    text-decoration: none !important;
-}
-
-article.bd-article a:hover,
-.bd-article-container a:hover {
-    color: #e85a4f !important;
-    text-decoration: underline !important;
-}
-
-/* Right-sidebar TOC links — black, coral + underline on hover */
-.bd-sidebar-secondary a,
-.bd-toc a {
-    color: #000000 !important;
-    text-decoration: none !important;
-}
-
-.bd-sidebar-secondary a:hover,
-.bd-toc a:hover,
-.bd-sidebar-secondary a.active,
-.bd-toc a.active {
-    color: #e85a4f !important;
-    text-decoration: underline !important;
-}
-
-/* Navbar — dark charcoal background matching the site header */
+/* ---------------------------------------------------------------------------
+ * Navbar — laid out like the radmap.tech header: translucent and blurred
+ * with a hairline border; logo, version and page links grouped on the left;
+ * icon buttons and a coral Download button on the right (navbar_align and
+ * navbar_end in conf.py set the grouping)
+ * ------------------------------------------------------------------------- */
 .bd-header {
-    background-color: #303030 !important;
+    background-color: var(--rm-nav-bg) !important;
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    backdrop-filter: saturate(160%) blur(14px);
+    border-bottom: 1px solid var(--pst-color-border-muted);
+    box-shadow: none;
 }
 
-/* Navbar text and icon links — force white so they're readable on dark bg */
-.bd-header .navbar-nav .nav-link,
-.bd-header .navbar-brand,
-.bd-header .version-switcher__button,
-.bd-header a {
-    color: #ffffff !important;
+.bd-header .bd-header__inner {
+    height: 4rem;
+    gap: 1.25rem;
 }
 
-/* Hover state for navbar links — coral accent */
-.bd-header .navbar-nav .nav-link:hover,
-.bd-header a:hover {
-    color: #e85a4f !important;
+/* Logo and wordmark at the website's size: a 32px mark and 19px type */
+.navbar-brand {
+    gap: 10px;
 }
 
-/* Active page indicator in navbar — coral underline, no blue/lilac */
-.bd-header .navbar-nav .nav-link.active,
-.bd-header .navbar-nav .nav-item.active > .nav-link {
-    color: #e85a4f !important;
-    border-bottom-color: #e85a4f !important;
-    text-decoration-color: #e85a4f !important;
+.navbar-brand img {
+    height: 32px;
+    width: auto;
 }
 
-/* Navbar hover — coral underline (::before pseudo-element) */
-.bd-header ul.navbar-nav > li.nav-item > .nav-link:hover {
-    color: #e85a4f !important;
+.navbar-brand .logo__title {
+    font-family: var(--pst-font-family-heading);
+    font-weight: 700;
+    font-size: 1.1875rem;
+    letter-spacing: -0.02em;
+    color: var(--pst-color-heading);
 }
 
-.bd-header ul.navbar-nav > li.nav-item > .nav-link:hover::before {
-    border-bottom-color: #e85a4f !important;
+/* Room between the wordmark and the version pill.  Needs .bd-header to
+ * outrank the theme's own spacing for this group. */
+.bd-header .navbar-header-items__start {
+    column-gap: 1.25rem;
 }
 
-/* Icon links (GitHub etc.) — suppress browser tap highlight on mobile */
-html .pst-navbar-icon {
-    -webkit-tap-highlight-color: transparent;
+/* No underline on hover: the theme underlines the logo link, as the website
+ * does not */
+.bd-header .navbar-brand:hover,
+.bd-header .navbar-brand:visited:hover {
+    text-decoration: none;
 }
 
-/* Coral on hover/focus/active — use html prefix to match theme specificity
-   and cover mobile layouts where the icon moves outside .bd-header */
-html .pst-navbar-icon:hover,
-html .pst-navbar-icon:focus,
-html .pst-navbar-icon:active,
-html .pst-navbar-icon:focus-visible {
-    color: #e85a4f !important;
-    outline-color: #e85a4f !important;
+/* Page links — muted, with a soft coral pill on hover and for the current
+ * page, instead of the theme's underline */
+.bd-header .navbar-nav {
+    gap: 0.25rem;
 }
 
-html .pst-navbar-icon:hover::before,
-html .pst-navbar-icon:focus::before,
-html .pst-navbar-icon:active::before {
-    border-bottom: max(3px, .1875rem, .12em) solid #e85a4f !important;
+.bd-header .navbar-nav .nav-link {
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    color: var(--pst-color-text-muted);
+    font-weight: 500;
+    transition: color 0.15s, background-color 0.15s;
 }
 
-/* Suppress any remaining blue/lilac focus outlines in the navbar */
-.bd-header a:focus,
-.bd-header .nav-link:focus {
-    outline-color: #e85a4f !important;
+.bd-header ul.navbar-nav > li.nav-item > .nav-link {
+    white-space: nowrap;   /* never break "User guide" over two lines */
+}
+
+/* The theme draws its underline as a bar in ::before — normal, current
+ * and hover states each have their own rule */
+.bd-header ul.navbar-nav > li.nav-item > .nav-link::before,
+.bd-header ul.navbar-nav > li.nav-item > .nav-link:hover::before,
+.bd-header ul.navbar-nav > li.nav-item.current > .nav-link::before {
+    border-bottom: none;
+}
+
+.bd-header ul.navbar-nav > li.nav-item > .nav-link:hover,
+.bd-header ul.navbar-nav > li.nav-item.current > .nav-link {
+    color: var(--pst-color-heading);
+    background-color: var(--rm-coral-soft);
+    text-decoration: none;
+}
+
+/* Keep each group on one line.  The theme lets them wrap, which at widths
+ * just above its mobile breakpoint pushed items out of the bar. */
+.bd-header .navbar-header-items__start,
+.bd-header .navbar-header-items__center,
+.bd-header .navbar-header-items__end,
+.bd-header .navbar-icon-links {
+    flex-wrap: nowrap;
+}
+
+/* Right-hand group: square icon buttons, as the website's theme button */
+.bd-header .navbar-header-items__end,
+.bd-header .navbar-icon-links {
+    column-gap: 0.5rem;
+}
+
+.navbar-header-items__end .navbar-item,
+.navbar-icon-links {
+    margin: 0;
+}
+
+html .bd-header .pst-navbar-icon {
+    width: 2.375rem;
+    height: 2.375rem;
+    padding: 0;
+    border: 1px solid var(--pst-color-border-muted);
+    border-radius: 10px;
+    color: var(--pst-color-text-muted);
+}
+
+html .bd-header .pst-navbar-icon::before {
+    display: none;
+}
+
+html .bd-header .pst-navbar-icon:hover,
+html .bd-header .pst-navbar-icon:focus-visible {
+    color: var(--rm-coral);
+    border-color: var(--rm-coral-line);
+}
+
+/* The sidebar toggles on narrow screens stay plain icons */
+html .bd-header .sidebar-toggle {
+    border: none;
+}
+
+/* Download — the website's primary button */
+a.rm-download {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    border-radius: 10px;
+    background-color: var(--rm-coral);
+    color: var(--pst-color-primary-text);
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--rm-coral) 28%, transparent);
+    transition: background-color 0.15s, transform 0.15s;
+}
+
+a.rm-download:hover {
+    background-color: var(--rm-coral-strong);
+    color: var(--pst-color-primary-text);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Version switcher — a pill like the website's version badge */
+button.btn.version-switcher__button {
+    font-family: var(--pst-font-family-monospace);
+    font-size: 0.8rem;
+    color: var(--rm-coral-ink);
+    border: 1px solid var(--pst-color-border-muted);
+    border-radius: 999px;
+    background-color: var(--pst-color-on-background);
+    padding: 0.3rem 0.8rem;
+}
+
+button.btn.version-switcher__button:hover,
+button.btn.version-switcher__button:focus-visible {
+    border-color: var(--rm-coral-line);
+    box-shadow: none;
+}
+
+.version-switcher__menu {
+    border: 1px solid var(--pst-color-border-muted);
+    border-radius: 10px;
+    background-color: var(--pst-color-on-background);
+}
+
+.version-switcher__menu a.list-group-item {
+    background-color: transparent;
+    color: var(--pst-color-text-base);
+}
+
+.version-switcher__menu a.list-group-item:hover,
+.version-switcher__menu a.list-group-item.active {
+    background-color: var(--rm-coral-soft);
+    color: var(--pst-color-text-base);
+}
+
+/* ---------------------------------------------------------------------------
+ * Content
+ * ------------------------------------------------------------------------- */
+
+/* Links in text — coral, underlined on hover only */
+.bd-article a {
+    text-decoration: none;
+}
+
+.bd-article a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+/* Inline code — a soft coral chip, as on the website */
+code.literal,
+code.docutils.literal {
+    background-color: var(--rm-coral-soft);
+    border: none;
+    border-radius: 5px;
+    padding: 0.1em 0.4em;
+}
+
+/* Code blocks */
+div.highlight,
+pre {
+    border-radius: 10px;
+}
+
+pre {
+    border: 1px solid var(--pst-color-border-muted);
+    box-shadow: none;
+}
+
+/* Admonitions — a card with a hairline border, a coloured left edge and a
+ * small-caps label, echoing the website's cards and section labels.
+ * Selectors carry .bd-article so they outrank the theme's per-type rules
+ * (e.g. div.admonition.caution > .admonition-title); only the theme's
+ * box-shadow is !important and needs the same to remove. */
+.bd-article div.admonition {
+    background-color: var(--pst-color-on-background);
+    border: 1px solid var(--pst-color-border-muted);
+    border-left: 3px solid var(--pst-color-info);
+    border-radius: 12px;
     box-shadow: none !important;
 }
 
-/* Right-sidebar active section indicator bar — coral not blue */
-.bd-sidebar-secondary .nav-link.active,
-.bd-toc .nav-link.active {
-    border-left-color: #e85a4f !important;
-    color: #e85a4f !important;
-    text-decoration: none !important;
+.bd-article div.admonition > .admonition-title {
+    background-color: transparent;
+    font-family: var(--pst-font-family-monospace);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pst-color-text-muted);
 }
 
-/* Version-switcher button — white-ish border on dark navbar, coral ring on hover */
-button.btn.version-switcher__button {
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    color: #ffffff !important;
+.bd-article div.admonition > .admonition-title::after {
+    color: var(--pst-color-text-muted);
 }
 
-button.btn.version-switcher__button:hover {
-    box-shadow: 0 0 0 .1875rem #e85a4f !important;
+.bd-article div.admonition.caution,
+.bd-article div.admonition.warning,
+.bd-article div.admonition.attention,
+.bd-article div.admonition.danger,
+.bd-article div.admonition.important {
+    border-color: var(--pst-color-border-muted);
+    border-left-color: var(--rm-coral);
 }
 
-button.btn.version-switcher__button:focus-visible {
-    box-shadow: 0 0 0 .1875rem #e85a4f !important;
-    outline-color: #e85a4f !important;
+.bd-article div.admonition.caution > .admonition-title,
+.bd-article div.admonition.warning > .admonition-title,
+.bd-article div.admonition.attention > .admonition-title,
+.bd-article div.admonition.danger > .admonition-title,
+.bd-article div.admonition.important > .admonition-title {
+    background-color: transparent;
+    color: var(--rm-coral-ink);
 }
 
-/* Search button field in navbar — semi-transparent on dark background */
-.search-button-field {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border-color:     rgba(255, 255, 255, 0.35) !important;
-    color:            rgba(255, 255, 255, 0.8) !important;
+.bd-article div.admonition.caution > .admonition-title::after,
+.bd-article div.admonition.warning > .admonition-title::after,
+.bd-article div.admonition.attention > .admonition-title::after,
+.bd-article div.admonition.danger > .admonition-title::after,
+.bd-article div.admonition.important > .admonition-title::after {
+    color: var(--rm-coral-ink);
 }
 
-/* Ctrl / K kbd chips inside the navbar search button */
-.search-button-field kbd,
-.search-button__kbd-shortcut kbd {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-    color:            rgba(255, 255, 255, 0.85) !important;
-    border-color:     rgba(255, 255, 255, 0.3) !important;
-    box-shadow:       1px 1px 1px rgba(0, 0, 0, 0.4) !important;
+/* Tables */
+table.table {
+    border: 1px solid var(--pst-color-border-muted);
 }
 
-/* Search bar — coral focus ring, eggshell background */
-.bd-search:focus-within {
-    box-shadow: 0 0 0 .1875rem #e85a4f !important;
+table.table thead th {
+    font-weight: 600;
 }
 
-.search-button-field:hover {
-    box-shadow: 0 0 0 .1875rem #e85a4f !important;
+/* ---------------------------------------------------------------------------
+ * Page table of contents (right sidebar)
+ * ------------------------------------------------------------------------- */
+.bd-sidebar-secondary a {
+    color: var(--pst-color-text-muted);
 }
 
-/* Back-to-top button — coral background, white text */
+.bd-sidebar-secondary a:hover {
+    color: var(--pst-color-heading);
+    text-decoration: none;
+}
+
+.toc-entry a.nav-link.active {
+    color: var(--pst-color-heading);
+    font-weight: 500;
+    box-shadow: inset 2px 0 0 var(--rm-coral);
+}
+
+/* ---------------------------------------------------------------------------
+ * Page furniture
+ * ------------------------------------------------------------------------- */
+.prev-next-area a p.prev-next-title {
+    color: var(--rm-coral-ink);
+}
+
 #pst-back-to-top {
-    background-color: #e85a4f !important;
-    color: #ffffff !important;
+    background-color: var(--rm-coral);
+    color: var(--pst-color-primary-text);
+    border-radius: 999px;
 }
 
 #pst-back-to-top:hover {
-    background-color: #c94040 !important;
-    color: #ffffff !important;
+    background-color: var(--rm-coral-strong);
 }
 
-#pst-back-to-top:focus-visible {
-    outline-color: #e85a4f !important;
-    box-shadow: none !important;
+/* Footer — as on radmap.tech: one row with logo, links and copyright,
+ * a hairline above, muted 14px text with coral on hover.  The theme stacks
+ * each footer group vertically; these rules lay them out in a row. */
+.bd-footer {
+    border-top: 1px solid var(--pst-color-border-muted);
+    padding: 2rem 0;
 }
 
-/* Previous / Next navigation links at page bottom */
-.prev-next-area a {
-    color: #e85a4f !important;
-    text-decoration: none !important;
+.bd-footer .bd-footer__inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
-.prev-next-area a:hover {
-    color: #c94040 !important;
-    text-decoration: none !important;
+.bd-footer .footer-items__start {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
-/* Underline only the page title on hover, not "previous" / "next" */
-.prev-next-area a:hover .prev-next-title {
-    text-decoration: underline !important;
-    text-decoration-thickness: 2px !important;
+.bd-footer .footer-items__center:empty {
+    display: none;
 }
 
-.prev-next-area .prev-next-title {
-    color: #e85a4f !important;
+.bd-footer .footer-items__end {
+    flex-grow: 0;
 }
 
-/* Footer links — Sphinx, PyData Sphinx Theme credits */
-.bd-footer a,
-footer a {
-    color: #e85a4f !important;
-    text-decoration: none !important;
+a.rm-footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--pst-font-family-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--pst-color-heading);
+    text-decoration: none;
 }
 
-.bd-footer a:hover,
-footer a:hover {
-    color: #c94040 !important;
-    text-decoration: underline !important;
+a.rm-footer-brand:hover {
+    color: var(--pst-color-heading);
+    text-decoration: none;
 }
 
-/* Version-switcher dropdown — keep it readable */
-.version-switcher__menu {
-    background-color: #3a3a3a;
-    border-color: #e85a4f;
+.rm-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.version-switcher__menu a {
-    color: #ffffff !important;
+.rm-footer-links a,
+.rm-footer-copy {
+    font-size: 0.875rem;
+    color: var(--pst-color-text-muted);
+    text-decoration: none;
 }
 
-.version-switcher__menu a:hover,
-.version-switcher__menu a.active {
-    background-color: #e85a4f !important;
-    color: #ffffff !important;
+.rm-footer-links a:hover {
+    color: var(--rm-coral);
+    text-decoration: none;
+}
+
+.rm-footer-copy {
+    margin: 0;
+}
+
+/* Focus rings in coral instead of the theme's default */
+:focus-visible {
+    outline-color: var(--rm-coral);
 }

@@ -10,32 +10,45 @@ System requirements
   Earlier Windows 10 builds and Windows 7/8/8.1 are not supported.
 * Administrator account for installation
 * Approximately 1 GB of free disk space
+* Graphics supporting **OpenGL 3.3** or later — any graphics card or integrated
+  graphics from the last decade.  Some virtual machines and remote desktop
+  sessions do not provide it; RadMap then shows an *OpenGL initialisation
+  failed* message and closes.
 
 .. note::
 
    RadMap uses Geant4's multi-threaded simulation engine.  A multi-core processor
-   will reduce simulation time proportionally to the number of available cores.
+   reduces simulation time roughly in proportion to the number of cores.
 
 Install RadMap
 --------------
 
 1. Download ``RadMap_setup.exe`` from the RadMap release page.
-2. Run the installer.  Windows may show a User Account Control prompt — click
+2. Optionally, verify the download.  In PowerShell, in the folder you saved
+   it to, run ``Get-FileHash .\RadMap_setup.exe -Algorithm SHA256``.  The
+   *Hash* it prints must match the checksum in ``RadMap_setup.exe.sha256`` on
+   the release page, also shown under the Download button on radmap.tech.  A
+   match shows that the installer arrived complete and unaltered.
+3. Run the installer.  Windows may show a User Account Control prompt — click
    **Yes** to allow the installer to run with administrator privileges.
-3. Read the license agreement and accept it.
-4. Choose an installation directory.  The default is
-   ``C:\Program Files (x86)\RadMap``.
+4. Read the license agreement and accept it.
+5. Choose an installation directory.  The default is
+   ``C:\Program Files\RadMap``.
    You may change this to any path you prefer.  The installer creates the
    directory if it does not already exist.
-5. Click **Install** and wait for the Geant4 data sets to be extracted.
+6. Click **Install** and wait for the Geant4 data sets to be extracted.
    This step takes a minute or two depending on your hardware.
-6. When the installer finishes you can optionally launch RadMap immediately
+7. When the installer finishes you can optionally launch RadMap immediately
    by leaving the **Launch RadMap** checkbox checked.
 
 You can now use RadMap under the **free license**.  The free license limits
-each simulation run to **50,000 primary particles**.  For most screening
-calculations this is sufficient; for high-statistics results you need a full
-license (see :ref:`licensing`).
+each simulation run to **50,000 primary particles** — enough to evaluate
+RadMap and build your models.  How many particles a precise result needs
+depends on the case; a full license removes the limit (see :ref:`licensing`).
+
+To look at an example project, choose **File → Load project** and open one from
+the ``Samples\Examples`` folder of the installation directory; to keep your
+changes to it, save it to a folder of your own with **File → Save project as**.
 
 .. _licensing:
 
@@ -54,15 +67,87 @@ Full license
 A full license removes the particle limit.  To obtain one:
 
 1. Open RadMap and choose **Help → License**.
-   The dialog shows your machine ID and copies it to the clipboard automatically.
+   The dialog shows your machine ID; **Copy Machine ID** copies it to the clipboard.
 2. Send that machine ID to the RadMap team to request a license file.
 3. When you receive the ``.lic`` file, open **Help → License** again
    and click **Install License File...**.
 4. Browse to the ``.lic`` file and click **Open**.
    The license takes effect immediately — no restart required.
 
+To renew a license, install the new file the same way.  It replaces the
+license in force.  A file RadMap cannot validate is refused, and the
+license in force stays.  RadMap keeps the license in
+``C:\ProgramData\RadMap\radmap.lic``, for every user of the machine, and
+**Help → License** shows that path.
+
 The license is tied to the machine it was issued for and is not
-transferable to another machine.
+transferable to another machine.  A full license may carry an expiry
+date; **Help → License** shows it, or *Perpetual (no expiry)*.  When a
+license expires, RadMap returns to the free license.
+
+.. _verifying-installation:
+
+Verifying your installation
+---------------------------
+
+RadMap comes with five projects that check whether your installation
+reproduces the results this version of RadMap gave when it was released.
+Run them after installing, or whenever you need to show that an
+installation works as released.
+
+1. Choose **File → Load project** and open a project from the
+   ``Samples\Verification`` folder of the installation directory.
+2. Open **Simulation → Simulation settings**.  Under **Save location**,
+   choose a folder of your own, such as *Documents*: the verification
+   projects are installed read-only, so the results go into a copy and the
+   project itself stays as released.  With the free license, set **Number
+   of primary particles** to 50,000.  Leave the other settings unchanged.
+3. Click **Start simulation** and wait for it to finish.
+4. Select each dose map in turn and compare its dose rate in the Property
+   panel with the table below, in the column of the check you ran: it
+   must lie within the limits.
+5. Choose **Report → Create PDF report** and open the report.  Its dose
+   rates must be the same, and so lie within the same limits; it states
+   the number of primary particles.  Keep it as the record of the check.
+
+There are two checks:
+
+- **The full check**, at 2,000,000 primary particles, the number the
+  projects are saved with.  It shows that your installation reproduces this version's
+  results, to within about ±1 % for most dose maps.  It needs a full
+  license.
+- **The quick check**, at 50,000 primary particles, the most the free
+  license allows.  It finds a broken installation -- missing or damaged data
+  or program files -- but not differences of a few percent: its limits are
+  wider because 50,000 primary particles give a less precise result.
+
+A run with any other number of primary particles is not a check.
+
+.. verification-table::
+
+Acceptance limits: the expected value ± 4 standard deviations of a run
+with the given number of primary particles, the uncertainty of the
+expected value included, rounded outwards to the three digits RadMap
+shows.  The expected values come from long runs of this version, ten
+times as many primary particles as the full check or more.
+
+A correct installation falls outside the limits only rarely.  If a result
+does, run that project again; if it is outside again, the installation is
+faulty.  Reinstall RadMap, and if that does not help, get in touch
+(:ref:`getting-help`).
+
+The projects exercise the parts of an installation that a fault would
+show in: the decay data and each table of conversion coefficients
+(project 1), photon interactions in shielding (2), positrons (3), the
+X-rays that follow electron capture (4), and electron transport with
+bremsstrahlung (5, which has *Simulate electrons* on).
+
+.. note::
+
+   The projects are made to give precise results quickly, not as examples
+   of how to model.  Their dose maps are large and close to the source, so
+   each map's value is an average over a steep gradient: it means something
+   only compared with this table.
 
 Uninstall RadMap
 ----------------

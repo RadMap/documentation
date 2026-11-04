@@ -31,7 +31,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ac960770" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f6b01ebc" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -103,7 +103,7 @@
   </button>
   
   
-  <div class="col-lg-3 navbar-header-items__start">
+  <div class=" navbar-header-items__start">
     
       <div class="navbar-item">
 
@@ -122,9 +122,11 @@
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="RadMap Documentation v2.0.0 documentation - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="RadMap Documentation v2.0.0 documentation - Home"/>
+    <img src="_static/logo-light.png" class="logo__image only-light" alt="RadMap documentation – home"/>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="RadMap documentation – home"/>
   
+  
+    <p class="title logo__title">RadMap</p>
   
 </a></div>
     
@@ -150,7 +152,7 @@
     
   </div>
   
-  <div class="col-lg-9 navbar-header-items">
+  <div class=" navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
@@ -173,8 +175,15 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="methods.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="RadMapLicense.html">
-    End-User License Agreement (EULA) of RadMap
+    EULA
   </a>
 </li>
 
@@ -189,13 +198,19 @@
         <div class="navbar-item navbar-persistent--container">
           
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
         </div>
       
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
         <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
@@ -208,10 +223,25 @@
           
           
           
-          <a href="https://github.com/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://radmap.tech" title="radmap.tech" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">radmap.tech</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/RadMap/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
+      
+        <div class="navbar-item">
+<a class="rm-download" href="https://github.com/RadMap/RadMap/releases/latest">Download</a></div>
       
     </div>
     
@@ -220,10 +250,8 @@
   
     <div class="navbar-persistent--mobile">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
     </div>
   
@@ -272,8 +300,15 @@
 
 
 <li class="nav-item ">
+  <a class="nav-link nav-internal" href="methods.html">
+    Methods
+  </a>
+</li>
+
+
+<li class="nav-item ">
   <a class="nav-link nav-internal" href="RadMapLicense.html">
-    End-User License Agreement (EULA) of RadMap
+    EULA
   </a>
 </li>
 
@@ -287,6 +322,14 @@
     
       <div class="sidebar-header-items__end">
         
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
           <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
@@ -298,10 +341,25 @@
           
           
           
-          <a href="https://github.com/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+          <a href="https://radmap.tech" title="radmap.tech" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-solid fa-globe fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">radmap.tech</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/RadMap/RadMap" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
+        
+          <div class="navbar-item">
+<a class="rm-download" href="https://github.com/RadMap/RadMap/releases/latest">Download</a></div>
         
       </div>
     
@@ -337,10 +395,20 @@
                   
   <section id="radmap-documentation">
 <h1>RadMap Documentation</h1>
-<p>RadMap is a desktop application for radiation dose-rate calculations.
+<p>RadMap is a desktop application for radiation dose rate calculations.
 It uses the Geant4 Monte Carlo toolkit as its calculation engine and
 provides a graphical interface for building geometry models, defining
 radiation sources, setting up dose maps, and viewing results.</p>
+<p>The documents of RadMap v2.0.0:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://radmap.tech/documentation/v2.0.0/RadMap_Documentation_v2.0.0.pdf">Documentation</a> (PDF) – installation, user
+guide, methods, EULA and third-party notices, as on these pages; also
+installed with RadMap.</p></li>
+<li><p><a class="reference external" href="https://radmap.tech/documentation/v2.0.0/RadMap_VV_report_v2.0.0.pdf">V&amp;V report</a> (PDF) – the verification and validation of this
+version, generated from the tests run on its build.</p></li>
+<li><p><a class="reference external" href="https://radmap.tech/documentation/v2.0.0/RadMap_Development_plan_v2.0.0.pdf">Software development plan</a> (PDF) – how RadMap
+is developed, verified, released and corrected.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul>
@@ -348,6 +416,7 @@ radiation sources, setting up dose maps, and viewing results.</p>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#system-requirements">System requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#install-radmap">Install RadMap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#licensing">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#verifying-your-installation">Verifying your installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#uninstall-radmap">Uninstall RadMap</a></li>
 </ul>
 </li>
@@ -355,11 +424,29 @@ radiation sources, setting up dose maps, and viewing results.</p>
 <li class="toctree-l2"><a class="reference internal" href="user_guide.html#about-radmap">About RadMap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide.html#starting-radmap">Starting RadMap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide.html#a-simple-case-walk-through">A simple case — walk-through</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#the-dose-maps-and-sources-lists">The Dose maps and Sources lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#saving-and-loading-projects">Saving and loading projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#reusing-volumes">Reusing volumes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#materials">Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#known-limitations">Known limitations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="user_guide.html#licensing">Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#getting-help">Getting help</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="RadMapLicense.html">End-User License Agreement (EULA) of RadMap</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="methods.html">Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#geometry-and-materials">Geometry and materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#sources">Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#transport">Transport</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#scoring">Scoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#statistics-and-reproducibility">Statistics and reproducibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methods.html#verification">Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="RadMapLicense.html">EULA</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="RadMapLicense.html#license-grant">License Grant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RadMapLicense.html#third-party-components">Third-party Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RadMapLicense.html#intended-use">Intended Use</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RadMapLicense.html#warranty">Warranty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RadMapLicense.html#limitation-of-liability">Limitation of Liability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RadMapLicense.html#intellectual-property-and-ownership">Intellectual Property and Ownership</a></li>
@@ -373,6 +460,8 @@ radiation sources, setting up dose maps, and viewing results.</p>
 </li>
 </ul>
 </div>
+<p><a class="reference internal" href="third_party.html"><span class="doc">Third-party software</span></a> – the notices and licences of the software by others that
+RadMap includes.</p>
 </section>
 
 
@@ -421,22 +510,22 @@ radiation sources, setting up dose maps, and viewing results.</p>
     <div class="footer-items__start">
       
         <div class="footer-item">
-
-  <p class="copyright">
-    
-      © Copyright 2018–2026, Klas Marcks von Würtemberg.
-      <br/>
-    
-  </p>
-</div>
+<a class="rm-footer-brand" href="#">
+  <img class="only-light" src="_static/logo-light.png" alt="" width="24" height="24">
+  <img class="only-dark" src="_static/logo-dark.png" alt="" width="24" height="24">
+  <span>RadMap</span>
+</a></div>
       
         <div class="footer-item">
-
-  <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
-    <br/>
-  </p>
-</div>
+<nav class="rm-footer-links" aria-label="Footer">
+  <a href="https://radmap.tech">radmap.tech</a>
+  <a href="https://github.com/RadMap/RadMap/discussions/categories/q-a">Ask a question</a>
+  <a href="https://github.com/RadMap/RadMap/issues/new/choose">Report a problem</a>
+  <a href="RadMapLicense.html">EULA</a>
+  
+  <a href="https://radmap.tech/documentation/errata.html">Errata</a>
+  <a href="mailto:info@radmap.tech">Contact</a>
+</nav></div>
       
     </div>
   
@@ -445,10 +534,7 @@ radiation sources, setting up dose maps, and viewing results.</p>
     <div class="footer-items__end">
       
         <div class="footer-item">
-<p class="theme-version">
-  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
-</p></div>
+<p class="rm-footer-copy">© 2026 RadMap</p></div>
       
     </div>
   

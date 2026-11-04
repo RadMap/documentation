@@ -1,2 +1,7 @@
 .. include:: _RadMapLicense.txt
    :parser: myst_parser.sphinx_
+
+.. only:: html
+
+   RadMap also includes software made by others, under their own licences:
+   see :doc:`third_party`.

@@ -1,10 +1,22 @@
 RadMap Documentation
 ====================
 
-RadMap is a desktop application for radiation dose-rate calculations.
+RadMap is a desktop application for radiation dose rate calculations.
 It uses the Geant4 Monte Carlo toolkit as its calculation engine and
 provides a graphical interface for building geometry models, defining
 radiation sources, setting up dose maps, and viewing results.
+
+.. only:: html
+
+   The documents of RadMap |release|:
+
+   - `Documentation <documentation PDF_>`_ (PDF) -- installation, user
+     guide, methods, EULA and third-party notices, as on these pages; also
+     installed with RadMap.
+   - `V&V report`_ (PDF) -- the verification and validation of this
+     version, generated from the tests run on its build.
+   - `Software development plan <development plan_>`_ (PDF) -- how RadMap
+     is developed, verified, released and corrected.
 
 .. toctree::
    :maxdepth: 2
@@ -12,4 +24,14 @@ radiation sources, setting up dose maps, and viewing results.
 
    installation
    user_guide
-   RadMapLicense
+   methods
+   EULA <RadMapLicense>
+   third_party
+
+.. On the website the contents above leave out third_party (conf.py keeps it out of
+   the top bar), so it is linked here.
+
+.. only:: html
+
+   :doc:`third_party` -- the notices and licences of the software by others that
+   RadMap includes.
