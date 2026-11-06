@@ -28,7 +28,7 @@ a { color: var(--link); }
 <body>
 <main>
 <h1>Errata</h1>
-<p class="updated">Updated 2026-11-04.  <a href="https://radmap.tech/documentation/">Documentation</a></p>
+<p class="updated">Updated 2026-11-06.  <a href="https://radmap.tech/documentation/">Documentation</a></p>
 <p>Faults found in released versions of RadMap.  Each entry says which versions it
 affects, whether it can change results and under which conditions, and the version
 that fixes it.  Every PDF report names the RadMap version that produced it, so you
@@ -399,6 +399,24 @@ changes by as much; a material's density is not affected.</li>
 takes its own copy.  Existing projects keep the library they were saved with: correct
 the two atomic weights in the project's material library, or reset it to the default
 library.</p>
+<h2>D-0022: The user guide recommended ROT, not AP, as the body orientation for one source</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-06, while reviewing the advice against ICRP 116's coefficients</li>
+<li><strong>Versions affected:</strong> 2.0.0</li>
+<li><strong>Effect on results:</strong> RadMap calculates every orientation correctly; the advice
+chose the wrong one.  A dose map set to <em>Effective dose (ROT)</em> for a person facing
+one source reads lower than <em>Effective dose (AP)</em>: by 15 % for Co-60, 20 % for
+Cs-137 and about 36 % for Am-241.</li>
+<li><strong>Users told:</strong> on this errata page</li>
+<li><strong>Fixed in:</strong> the next release, commit 41812aa</li>
+</ul>
+<p>The user guide's <em>Choosing what the dose map scores</em> section called ROT &quot;generally the most meaningful
+choice for a single-source scenario&quot;.  For photons from 10 keV to 6 MeV, which covers
+the gamma lines of nearly all radionuclides, AP gives the highest effective dose of
+the six orientations in ICRP 116, so it is the cautious choice for a person facing
+the source or standing in an unknown way.  ROT suits a person who moves about and
+turns relative to the source; ISO, sources all around.  Results calculated with ROT
+on the guide's advice should be compared with AP.</p>
 </main>
 </body>
 </html>
