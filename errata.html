@@ -41,7 +41,7 @@ a { color: var(--link); }
 <main>
 <nav class="crumbs"><a href="https://radmap.tech/documentation/">RadMap documentation</a> › Errata</nav>
 <h1>Errata</h1>
-<p class="updated">Updated 2026-11-12.</p>
+<p class="updated">Updated 2026-11-13.</p>
 <p>Faults found in released versions of RadMap.  Each entry says which versions it
 affects, whether it can change results and under which conditions, and the version
 that fixes it.  Every PDF report names the RadMap version that produced it, so you
@@ -58,6 +58,7 @@ much.  Versions before 1.1.0 were pre-releases and are not listed.</p>
 <div class="matrix"><table>
 <thead><tr><th scope="col">Defect</th><th class="mark" scope="col">2.0.0</th><th class="mark" scope="col">Older</th><th class="mark" scope="col">Results</th><th scope="col">Title</th></tr></thead>
 <tbody>
+<tr><th scope="row"><a href="#d-0028">D-0028</a></th><td class="mark">x</td><td class="mark"></td><td class="mark">yes</td><td>The material editor could save a material mix as a mix of elements</td></tr>
 <tr><th scope="row"><a href="#d-0027">D-0027</a></th><td class="mark">x</td><td class="mark">x</td><td class="mark">yes</td><td>A dose map reaching outside the world volume read too low</td></tr>
 <tr><th scope="row"><a href="#d-0026">D-0026</a></th><td class="mark">x</td><td class="mark">x</td><td class="mark">tiny</td><td>An isotope's atomic mass was rounded when the isotope was saved</td></tr>
 <tr><th scope="row"><a href="#d-0025">D-0025</a></th><td class="mark">x</td><td class="mark"></td><td class="mark">no</td><td>A simulation refused for several problems showed only one as the error</td></tr>
@@ -555,6 +556,26 @@ outside the world volume, so the part of a map outside it scored nothing, and it
 reading was averaged over the whole volume all the same.  RadMap allowed such a map
 and simulated it without a warning.  In a run with a Co-60 source, a box half outside
 the world read half what a box of its inside half alone read, to within 0.1 %.</p>
+<h2 id="d-0028">D-0028: The material editor could save a material mix as a mix of elements</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-13, by a user switching a new material mix to an element mix in
+the material editor</li>
+<li><strong>Versions affected:</strong> 2.0.0</li>
+<li><strong>Effect on results:</strong> a material saved this way was made of the elements named like
+its materials, in the same mass fractions.  Where each of those materials is the pure
+element of its name, as every such material in the default library is, the
+composition was the same.  Otherwise it changed as far as those materials differ from
+those elements, and so did every dose rate computed with it.  A mix holding a
+material that no element is named like was refused, as it should be.</li>
+<li><strong>Users told:</strong> on this errata page</li>
+<li><strong>Fixed in:</strong> the next release, commit c68d378</li>
+</ul>
+<p>RadMap 2.0.0 lets a material be a mix of other materials; 1.1.0 has no such mixes.  In
+the material editor, switching a saved material mix -- one just applied, or chosen
+from the list -- to <em>Element mix</em> emptied the grid and filled it again with the
+material's own components, now listed as elements, and Apply saved them as elements.
+Switching the mix now always starts an empty grid, and the saved components come back
+only under the mix they were saved as.</p>
 </main>
 </body>
 </html>
