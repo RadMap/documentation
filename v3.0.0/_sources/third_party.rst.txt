@@ -1,0 +1,33 @@
+:orphan:
+
+Third-party software
+====================
+
+RadMap includes software and data made by others.  The copyright notice and
+the full licence text of every component RadMap or its installer ships are in
+``ThirdPartyNotices.txt``, in the ``Doc`` folder of the installation
+directory, and in **Help → About**.  This section gives the notices whose
+licences ask for them in the user documentation.
+
+Geant4
+------
+
+.. third-party-notice:: Geant4
+
+g4tools
+-------
+
+.. third-party-notice:: g4tools (bundled with Geant4)
+   :parts: gl2ps: copyright notice; GL2PS License
+
+Xerces-C++
+----------
+
+.. third-party-notice:: Xerces-C++
+   :parts: NOTICE
+
+wxWidgets
+---------
+
+.. third-party-notice:: wxWidgets
+   :parts:

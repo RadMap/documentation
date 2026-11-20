@@ -41,7 +41,7 @@ a { color: var(--link); }
 <main>
 <nav class="crumbs"><a href="https://radmap.tech/documentation/">RadMap documentation</a> › Errata</nav>
 <h1>Errata</h1>
-<p class="updated">Updated 2026-11-13.</p>
+<p class="updated">Updated 2026-11-20.</p>
 <p>Faults found in released versions of RadMap.  Each entry says which versions it
 affects, whether it can change results and under which conditions, and the version
 that fixes it.  Every PDF report names the RadMap version that produced it, so you
@@ -55,37 +55,45 @@ change a simulation's results: yes, no, or tiny -- by too little to matter, thou
 digit of a result can change.  The entry says under which conditions, and by how
 much.  Versions before 1.1.0 were pre-releases and are not listed.</p>
 <p><em>Older</em> stands for the versions released more than 2 years ago, 1.1.0: an x there means one of them has the fault, and the entry says which.</p>
+<p>A ? marks versions more than two years old that were not checked for the fault.
+Only faults that cannot change results are left unchecked: every version is checked
+for one that can.</p>
 <div class="matrix"><table>
-<thead><tr><th scope="col">Defect</th><th class="mark" scope="col">2.0.0</th><th class="mark" scope="col">Older</th><th class="mark" scope="col">Results</th><th scope="col">Title</th></tr></thead>
+<thead><tr><th scope="col">Defect</th><th class="mark" scope="col">3.0.0</th><th class="mark" scope="col">2.0.0</th><th class="mark" scope="col">Older</th><th class="mark" scope="col">Results</th><th scope="col">Title</th></tr></thead>
 <tbody>
-<tr><th scope="row"><a href="#d-0028">D-0028</a></th><td class="mark">x</td><td class="mark"></td><td class="mark">yes</td><td>The material editor could save a material mix as a mix of elements</td></tr>
-<tr><th scope="row"><a href="#d-0027">D-0027</a></th><td class="mark">x</td><td class="mark">x</td><td class="mark">yes</td><td>A dose map reaching outside the world volume read too low</td></tr>
-<tr><th scope="row"><a href="#d-0026">D-0026</a></th><td class="mark">x</td><td class="mark">x</td><td class="mark">tiny</td><td>An isotope's atomic mass was rounded when the isotope was saved</td></tr>
-<tr><th scope="row"><a href="#d-0025">D-0025</a></th><td class="mark">x</td><td class="mark"></td><td class="mark">no</td><td>A simulation refused for several problems showed only one as the error</td></tr>
-<tr><th scope="row"><a href="#d-0024">D-0024</a></th><td class="mark">x</td><td class="mark">x</td><td class="mark">yes</td><td>A pasted value was changed instead of refused</td></tr>
-<tr><th scope="row"><a href="#d-0023">D-0023</a></th><td class="mark">x</td><td class="mark"></td><td class="mark">no</td><td>A simulation kept running after RadMap ended abnormally</td></tr>
-<tr><th scope="row"><a href="#d-0022">D-0022</a></th><td class="mark">x</td><td class="mark"></td><td class="mark">yes</td><td>The user guide recommended ROT, not AP, as the body orientation for one source</td></tr>
-<tr><th scope="row"><a href="#d-0021">D-0021</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Argon and potassium had each other's atomic weight in the default library</td></tr>
-<tr><th scope="row"><a href="#d-0020">D-0020</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>A field marked invalid in the material editor stayed red for the next entry</td></tr>
-<tr><th scope="row"><a href="#d-0019">D-0019</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>A source in the world volume is not confined to it</td></tr>
-<tr><th scope="row"><a href="#d-0018">D-0018</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>An isotope's Z could be edited to one its element cannot hold</td></tr>
-<tr><th scope="row"><a href="#d-0017">D-0017</a></th><td class="mark"></td><td class="mark"></td><td class="mark">no</td><td>Save Volume writes a file that loses solids when names repeat</td></tr>
-<tr><th scope="row"><a href="#d-0016">D-0016</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>A run stops when two elements share an isotope</td></tr>
-<tr><th scope="row"><a href="#d-0015">D-0015</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Materials named alike up to &quot;0x&quot; are simulated as one material</td></tr>
-<tr><th scope="row"><a href="#d-0014">D-0014</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>A source in a solid with &quot;0x&quot; in its name is not confined to the solid</td></tr>
-<tr><th scope="row"><a href="#d-0013">D-0013</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td><em>Full chain</em> on one source also applies to the other sources</td></tr>
-<tr><th scope="row"><a href="#d-0012">D-0012</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>A name in a non-Latin script prints as question marks in the PDF report</td></tr>
-<tr><th scope="row"><a href="#d-0011">D-0011</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>The 3D view's arrow keys could act as if Ctrl or Shift were still held</td></tr>
-<tr><th scope="row"><a href="#d-0010">D-0010</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>A solid's material could change to one whose name differs only in case</td></tr>
-<tr><th scope="row"><a href="#d-0009">D-0009</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>A material with its density in kg/cm³ could not be simulated</td></tr>
-<tr><th scope="row"><a href="#d-0008">D-0008</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>A full turn of a tube or sphere entered in radians left a slit</td></tr>
-<tr><th scope="row"><a href="#d-0007">D-0007</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">tiny</td><td>Dose maps turned close to a quarter turn about Y simulated up to 1° off</td></tr>
-<tr><th scope="row"><a href="#d-0006">D-0006</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Rotated dose maps simulated turned the opposite way</td></tr>
-<tr><th scope="row"><a href="#d-0005">D-0005</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Deep dose maps read the radiation where it entered them, not their mean</td></tr>
-<tr><th scope="row"><a href="#d-0004">D-0004</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Isotopes offered whose ground state has no decay data emitted nothing</td></tr>
-<tr><th scope="row"><a href="#d-0003">D-0003</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Effective dose used ICRP 116's coefficients without their 2015 corrections</td></tr>
-<tr><th scope="row"><a href="#d-0002">D-0002</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">tiny</td><td>Sampling box of a curved source fitted to its drawing mesh, slightly too small</td></tr>
-<tr><th scope="row"><a href="#d-0001">D-0001</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Sources in a moved parent, or rotated tube segments, sampled in the wrong place</td></tr>
+<tr><th scope="row"><a href="#d-0033">D-0033</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">x</td><td class="mark">yes</td><td>Four compositions in the default library were those Geant4 later corrected</td></tr>
+<tr><th scope="row"><a href="#d-0032">D-0032</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">x</td><td class="mark">yes</td><td>Aluminium oxide and carbon dioxide had no density in the default library</td></tr>
+<tr><th scope="row"><a href="#d-0031">D-0031</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">x</td><td class="mark">yes</td><td>Ten elements had a neighbour's atomic weight in the default library</td></tr>
+<tr><th scope="row"><a href="#d-0030">D-0030</a></th><td class="mark"></td><td class="mark">x</td><td class="mark"></td><td class="mark">yes</td><td>A value a file held beyond its field was replaced by the field's limit</td></tr>
+<tr><th scope="row"><a href="#d-0029">D-0029</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">?</td><td class="mark">no</td><td>Replacing or deleting library materials did not first show the solids it changed</td></tr>
+<tr><th scope="row"><a href="#d-0028">D-0028</a></th><td class="mark"></td><td class="mark">x</td><td class="mark"></td><td class="mark">yes</td><td>The material editor could save a material mix as a mix of elements</td></tr>
+<tr><th scope="row"><a href="#d-0027">D-0027</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">x</td><td class="mark">yes</td><td>A dose map reaching outside the world volume read too low</td></tr>
+<tr><th scope="row"><a href="#d-0026">D-0026</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">x</td><td class="mark">tiny</td><td>An isotope's atomic mass was rounded when the isotope was saved</td></tr>
+<tr><th scope="row"><a href="#d-0025">D-0025</a></th><td class="mark"></td><td class="mark">x</td><td class="mark"></td><td class="mark">no</td><td>A simulation refused for several problems showed only one as the error</td></tr>
+<tr><th scope="row"><a href="#d-0024">D-0024</a></th><td class="mark"></td><td class="mark">x</td><td class="mark">x</td><td class="mark">yes</td><td>A pasted value was changed instead of refused</td></tr>
+<tr><th scope="row"><a href="#d-0023">D-0023</a></th><td class="mark"></td><td class="mark">x</td><td class="mark"></td><td class="mark">no</td><td>A simulation kept running after RadMap ended abnormally</td></tr>
+<tr><th scope="row"><a href="#d-0022">D-0022</a></th><td class="mark"></td><td class="mark">x</td><td class="mark"></td><td class="mark">yes</td><td>The user guide recommended ROT, not AP, as the body orientation for one source</td></tr>
+<tr><th scope="row"><a href="#d-0021">D-0021</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Argon and potassium had each other's atomic weight in the default library</td></tr>
+<tr><th scope="row"><a href="#d-0020">D-0020</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>A field marked invalid in the material editor stayed red for the next entry</td></tr>
+<tr><th scope="row"><a href="#d-0019">D-0019</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>A source in the world volume is not confined to it</td></tr>
+<tr><th scope="row"><a href="#d-0018">D-0018</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>An isotope's Z could be edited to one its element cannot hold</td></tr>
+<tr><th scope="row"><a href="#d-0017">D-0017</a></th><td class="mark"></td><td class="mark"></td><td class="mark"></td><td class="mark">no</td><td>Save Volume writes a file that loses solids when names repeat</td></tr>
+<tr><th scope="row"><a href="#d-0016">D-0016</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>A run stops when two elements share an isotope</td></tr>
+<tr><th scope="row"><a href="#d-0015">D-0015</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Materials named alike up to &quot;0x&quot; are simulated as one material</td></tr>
+<tr><th scope="row"><a href="#d-0014">D-0014</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>A source in a solid with &quot;0x&quot; in its name is not confined to the solid</td></tr>
+<tr><th scope="row"><a href="#d-0013">D-0013</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td><em>Full chain</em> on one source also applies to the other sources</td></tr>
+<tr><th scope="row"><a href="#d-0012">D-0012</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>A name in a non-Latin script prints as question marks in the PDF report</td></tr>
+<tr><th scope="row"><a href="#d-0011">D-0011</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>The 3D view's arrow keys could act as if Ctrl or Shift were still held</td></tr>
+<tr><th scope="row"><a href="#d-0010">D-0010</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>A solid's material could change to one whose name differs only in case</td></tr>
+<tr><th scope="row"><a href="#d-0009">D-0009</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">no</td><td>A material with its density in kg/cm³ could not be simulated</td></tr>
+<tr><th scope="row"><a href="#d-0008">D-0008</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>A full turn of a tube or sphere entered in radians left a slit</td></tr>
+<tr><th scope="row"><a href="#d-0007">D-0007</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">tiny</td><td>Dose maps turned close to a quarter turn about Y simulated up to 1° off</td></tr>
+<tr><th scope="row"><a href="#d-0006">D-0006</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Rotated dose maps simulated turned the opposite way</td></tr>
+<tr><th scope="row"><a href="#d-0005">D-0005</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Deep dose maps read the radiation where it entered them, not their mean</td></tr>
+<tr><th scope="row"><a href="#d-0004">D-0004</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Isotopes offered whose ground state has no decay data emitted nothing</td></tr>
+<tr><th scope="row"><a href="#d-0003">D-0003</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Effective dose used ICRP 116's coefficients without their 2015 corrections</td></tr>
+<tr><th scope="row"><a href="#d-0002">D-0002</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">tiny</td><td>Sampling box of a curved source fitted to its drawing mesh, slightly too small</td></tr>
+<tr><th scope="row"><a href="#d-0001">D-0001</a></th><td class="mark"></td><td class="mark"></td><td class="mark">x</td><td class="mark">yes</td><td>Sources in a moved parent, or rotated tube segments, sampled in the wrong place</td></tr>
 </tbody></table></div>
 <h2 id="d-0001">D-0001: Sources in a moved parent, or rotated tube segments, sampled in the wrong place</h2>
 <ul>
@@ -259,8 +267,9 @@ full turn, or of the pole for a sphere's theta, is now taken as exactly that, so
 6.283 and 6.284 rad both give a closed solid.</p>
 <p>The version after 2.0.0 simulates a sweep exactly as entered again, so that what is
 simulated is always what was typed: a full turn is entered in degrees, and 6.283 rad
-leaves its 0.011° slit, as the user guide explains.  A project saved by 2.0 opens
-with such a sweep as the full turn it was simulated as.</p>
+leaves its 0.011° slit, as the user guide explains.  RadMap 3.0 opens no project
+saved by 2.0 (D-0031 to D-0033), so none of 2.0's sweeps is read differently from
+how 2.0 simulated it.</p>
 <h2 id="d-0009">D-0009: A material with its density in kg/cm³ could not be simulated</h2>
 <ul>
 <li><strong>Found:</strong> 2026-10-29, while reviewing how materials reach Geant4</li>
@@ -576,6 +585,116 @@ from the list -- to <em>Element mix</em> emptied the grid and filled it again wi
 material's own components, now listed as elements, and Apply saved them as elements.
 Switching the mix now always starts an empty grid, and the saved components come back
 only under the mix they were saved as.</p>
+<h2 id="d-0029">D-0029: Replacing or deleting library materials did not first show the solids it changed</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-13, by a user importing a library that held another version of a
+material the project used; deleting a material, which reaches solids the same way,
+on 2026-11-14 while fixing it</li>
+<li><strong>Versions affected:</strong> 2.0.0, older not checked</li>
+<li><strong>Effect on results:</strong> none.  The project's library became what the user chose, and
+every result was computed with it; a solid left without a material cannot be saved
+or simulated until it is given one.  What was missing was being told, before the
+change, which of the project's materials and solids it would change.</li>
+<li><strong>Users told:</strong> on this errata page</li>
+<li><strong>Fixed in:</strong> the next release, commits de8118a and f3ec278</li>
+</ul>
+<p><em>Import material library</em> and <em>Reset to default library</em> replace the whole project
+library.  Their confirmation named none of the materials the project uses that the new
+library defines differently -- a CONCRETE of another composition, say -- and listed the
+solids left without a material only after replacing.  <em>Delete</em> in the material editor
+removed a material that solids were made of without asking, and named those solids only
+in its log afterwards.  The material editor shows every entry, solid and source an edit
+reaches before it is applied (S-12); these three did not.</p>
+<h2 id="d-0030">D-0030: A value a file held beyond its field was replaced by the field's limit</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-17, by a user opening one of 2.0's verification samples</li>
+<li><strong>Versions affected:</strong> 2.0.0</li>
+<li><strong>Effect on results:</strong> only for a project whose file held a position, rotation,
+dimension or activity beyond what its field shows -- past its range, or with more
+than three decimals -- after which the field was clicked and another value in the
+same window was edited.  The value was then replaced by the end of the field's range,
+or rounded to three decimals: the 2.0 verification samples' world, 2000 mm wide,
+became 1000 mm.  Such values come only from files RadMap's fields did not write:
+2.0's own verification samples, and projects a script built through the API.  A
+project whose every value was typed into RadMap was not affected.</li>
+<li><strong>Users told:</strong> on this errata page</li>
+<li><strong>Fixed in:</strong> the next release, commit 83a109c; since RadMap 3.0 by opening no file
+of 2.0 (D-0031 to D-0033)</li>
+</ul>
+<p>A number field took values within its range, 0 to 1000 for a dimension, and showed
+three decimals, but a project file is read as written, and could hold more.  RadMap
+2.0's verification samples have a world box 2000 mm wide, set through the API.  The
+field showed 2000; once it lost focus, its validator -- wxWidgets 3.3's, new in 2.0 --
+replaced the text by the end of its range, 1000, without changing the project, so the
+3D view still showed 2000.  The next edit of any value in the same window read every
+field again and wrote 1000 into the project.  RadMap 1.1.0, checked, is not affected:
+its wxWidgets left such text as it was, and its files held what its fields could.  The
+first fix read a file's value in a form its field shows, the same value: in another
+unit a power of ten away -- 2000 mm as 200 cm.  RadMap 3.0 instead opens no file saved
+by 2.0 or earlier, for the errors in the material library each carries, and refuses
+any value its fields cannot show, through the API too, so a file it writes holds none.</p>
+<h2 id="d-0031">D-0031: Ten elements had a neighbour's atomic weight in the default library</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-19, while auditing the default material library against Geant4's
+NIST data, after reading the example projects</li>
+<li><strong>Versions affected:</strong> 1.1.0 to 2.0.0</li>
+<li><strong>Effect on results:</strong> not measured; negligible for dose rates.  Five pairs of
+neighbouring elements had each other's atomic weight: cobalt and nickel, tellurium
+and iodine, thorium and protactinium, uranium and neptunium, plutonium and
+americium -- uranium 237 instead of 238.03, iodine 127.6 instead of 126.90.  Each
+element's number of atoms per gram was 0.4 to 0.55 % off, and the attenuation by it
+changes by as much: the pure elements, and the fifteen materials holding one, among
+them SODIUM_IODIDE, CESIUM_IODIDE, POTASSIUM_IODIDE, CADMIUM_TELLURIDE,
+URANIUM_OXIDE, PLUTONIUM_DIOXIDE and STAINLESS-STEEL.  A material's density is not
+affected.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 3.0.0</li>
+<li><strong>Fixed in:</strong> the next release</li>
+</ul>
+<p>These are the pairs whose order by atomic weight is the reverse of their order by
+atomic number, as is argon and potassium's, swapped the same way (D-0021): the library
+was filled from a table sorted by weight and assigned by number.  So the list is
+complete.  The library RadMap ships is corrected, and RadMap 3.0 opens no project,
+volume or library file of 2.0 or earlier, each of which carries a copy of the library
+it was saved with.</p>
+<h2 id="d-0032">D-0032: Aluminium oxide and carbon dioxide had no density in the default library</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-19, while auditing the default material library against Geant4's
+NIST data</li>
+<li><strong>Versions affected:</strong> 1.1.0 to 2.0.0</li>
+<li><strong>Effect on results:</strong> a solid of ALUMINUM_OXIDE or CARBON_DIOXIDE from the default
+library was simulated as vacuum: whatever it attenuates was missing, so dose rates
+behind it were too high -- for aluminium oxide, 3.97 g/cm³, by as much as its
+attenuation.  The material editor showed the density as 0.  A source in such a solid
+with its activity per mass resolved to no activity, and was refused.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 3.0.0</li>
+<li><strong>Fixed in:</strong> the next release</li>
+</ul>
+<p>The two entries held their chemical formula, Al_2O_3 and CO_2, where the density
+belongs: a column shifted when the library was built from Geant4's list of materials.
+RadMap read the text as 0, and Geant4, given a material of density 0, makes it with
+its least density, about 1e-25 g/cm³, with only a warning.  The densities are now
+3.97 and 0.00184212 g/cm³, and the check the build runs on the shipped library judges
+every entry as RadMap's own writes do, which refuse a density of 0.</p>
+<h2 id="d-0033">D-0033: Four compositions in the default library were those Geant4 later corrected</h2>
+<ul>
+<li><strong>Found:</strong> 2026-11-19, while auditing the default material library against Geant4's
+NIST data</li>
+<li><strong>Versions affected:</strong> 1.1.0 to 2.0.0</li>
+<li><strong>Effect on results:</strong> not measured.  STAINLESS-STEEL held 8 % chromium and 18 %
+nickel by atoms, the reverse of 18/8 steel; at photon energies above a few hundred
+keV it attenuates within about 1 % of the right steel, and below them more strongly,
+so dose rates behind it were too low there.  TERPHENYL, POLYCHLOROSTYRENE and
+POLYVINYL_BUTYRAL had the hydrogen content of another molecule: their attenuation is
+off by about 1 %.</li>
+<li><strong>Users told:</strong> on this errata page, and in the release notes of 3.0.0</li>
+<li><strong>Fixed in:</strong> the next release</li>
+</ul>
+<p>The library's compositions were copied from Geant4 9.4, which defined stainless steel
+as 74 iron, 8 chromium and 18 nickel atoms, and the three plastics by weight fractions
+that describe C18H10, C17H18Cl2 and C8H13O2.  Geant4 has since corrected all four:
+steel to weight fractions of 0.7462 iron, 0.169 chromium and 0.0848 nickel, and the
+plastics to C18H14 (with the density 1.24 g/cm³), C8H7Cl and C8H14O2.  The library
+RadMap ships now holds Geant4 11.4's definitions.</p>
 </main>
 </body>
 </html>
