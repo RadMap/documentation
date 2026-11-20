@@ -1,12 +1,15 @@
 RadMap Documentation
 ====================
 
-RadMap is a desktop application for radiation dose rate calculations.
-It uses the Geant4 Monte Carlo toolkit as its calculation engine and
-provides a graphical interface for building geometry models, defining
-radiation sources, setting up dose maps, and viewing results.
+.. The PDF goes from its contents straight to the first chapter: the user guide's
+   About RadMap introduces RadMap there, so this opening is the website's only.
 
 .. only:: html
+
+   RadMap is a desktop application for radiation dose rate calculations.
+   It uses the Geant4 Monte Carlo toolkit as its calculation engine and
+   provides a graphical interface for building geometry models, defining
+   radiation sources, setting up dose maps, and viewing results.
 
    The documents of RadMap |release|:
 

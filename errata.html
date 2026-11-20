@@ -474,7 +474,7 @@ chose the wrong one.  A dose map set to <em>Effective dose (ROT)</em> for a pers
 one source reads lower than <em>Effective dose (AP)</em>: by 15 % for Co-60, 20 % for
 Cs-137 and about 36 % for Am-241.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commit 41812aa</li>
+<li><strong>Fixed in:</strong> 3.0.0, commit 41812aa</li>
 </ul>
 <p>The user guide's <em>Choosing what the dose map scores</em> section called ROT &quot;generally the most meaningful
 choice for a single-source scenario&quot;.  For photons from 10 keV to 6 MeV, which covers
@@ -489,7 +489,7 @@ on the guide's advice should be compared with AP.</p>
 <li><strong>Versions affected:</strong> 2.0.0</li>
 <li><strong>Effect on results:</strong> none.  The abandoned run's results were never read or saved.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commit 22b0680</li>
+<li><strong>Fixed in:</strong> 3.0.0, commit 22b0680</li>
 </ul>
 <p>DoseAlgorithm, the process that runs a simulation, was ended by RadMap when a run was
 cancelled or RadMap closed normally, but not when RadMap itself ended abnormally -- a
@@ -509,7 +509,7 @@ dimension moved by at most 0.0005 of its unit, 0.5 mm in metres, and a number be
 slit in a full turn.  A number typed, never pasted, was not affected.  A name cut
 short changed no result.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commit a772b3a</li>
+<li><strong>Fixed in:</strong> 3.0.0, commit a772b3a</li>
 </ul>
 <p>A field refused typing that its limits did not allow, but not pasting.  A number with
 more decimals than its field shows was taken whole, and shown rounded once the cursor
@@ -524,7 +524,7 @@ neither dimensions nor a material</li>
 <li><strong>Versions affected:</strong> 2.0.0</li>
 <li><strong>Effect on results:</strong> none.  The simulation was refused, as it should be.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commit 9713410</li>
+<li><strong>Fixed in:</strong> 3.0.0, commit 9713410</li>
 </ul>
 <p>When a simulation was started for a project with more than one problem, such as a
 solid with neither dimensions nor a material, the error named only the first problem
@@ -538,7 +538,7 @@ now says that the project cannot be saved, and lists every problem under <em>Det
 5·10⁻¹⁰ u in 2.0.0, and by less than 10⁻⁶ u in 1.1.0, far below anything a dose rate
 depends on.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commit ea3a5a3</li>
+<li><strong>Fixed in:</strong> 3.0.0, commit ea3a5a3</li>
 </ul>
 <p>The material editor shows an atomic mass with at most nine decimals, but thirteen
 isotopes in the default material library -- H1, D2, T3, He3, He4, C13, N14, N15, O16,
@@ -558,7 +558,7 @@ the fraction of its volume outside: half outside, it read half the dose rate in 
 part inside.  A dose map wholly outside read zero.  Maps inside the world were not
 affected.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commit 575599a</li>
+<li><strong>Fixed in:</strong> 3.0.0, commit 575599a</li>
 </ul>
 <p>A dose map reads the dose rate averaged over its volume.  Nothing is simulated
 outside the world volume, so the part of a map outside it scored nothing, and its
@@ -577,7 +577,7 @@ composition was the same.  Otherwise it changed as far as those materials differ
 those elements, and so did every dose rate computed with it.  A mix holding a
 material that no element is named like was refused, as it should be.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commit c68d378</li>
+<li><strong>Fixed in:</strong> 3.0.0, commit c68d378</li>
 </ul>
 <p>RadMap 2.0.0 lets a material be a mix of other materials; 1.1.0 has no such mixes.  In
 the material editor, switching a saved material mix -- one just applied, or chosen
@@ -596,7 +596,7 @@ every result was computed with it; a solid left without a material cannot be sav
 or simulated until it is given one.  What was missing was being told, before the
 change, which of the project's materials and solids it would change.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commits de8118a and f3ec278</li>
+<li><strong>Fixed in:</strong> 3.0.0, commits de8118a and f3ec278</li>
 </ul>
 <p><em>Import material library</em> and <em>Reset to default library</em> replace the whole project
 library.  Their confirmation named none of the materials the project uses that the new
@@ -618,7 +618,7 @@ became 1000 mm.  Such values come only from files RadMap's fields did not write:
 2.0's own verification samples, and projects a script built through the API.  A
 project whose every value was typed into RadMap was not affected.</li>
 <li><strong>Users told:</strong> on this errata page</li>
-<li><strong>Fixed in:</strong> the next release, commit 83a109c; since RadMap 3.0 by opening no file
+<li><strong>Fixed in:</strong> 3.0.0, commit 83a109c; since RadMap 3.0 by opening no file
 of 2.0 (D-0031 to D-0033)</li>
 </ul>
 <p>A number field took values within its range, 0 to 1000 for a dimension, and showed
@@ -648,7 +648,7 @@ them SODIUM_IODIDE, CESIUM_IODIDE, POTASSIUM_IODIDE, CADMIUM_TELLURIDE,
 URANIUM_OXIDE, PLUTONIUM_DIOXIDE and STAINLESS-STEEL.  A material's density is not
 affected.</li>
 <li><strong>Users told:</strong> on this errata page, and in the release notes of 3.0.0</li>
-<li><strong>Fixed in:</strong> the next release</li>
+<li><strong>Fixed in:</strong> 3.0.0</li>
 </ul>
 <p>These are the pairs whose order by atomic weight is the reverse of their order by
 atomic number, as is argon and potassium's, swapped the same way (D-0021): the library
@@ -667,7 +667,7 @@ behind it were too high -- for aluminium oxide, 3.97 g/cm³, by as much as its
 attenuation.  The material editor showed the density as 0.  A source in such a solid
 with its activity per mass resolved to no activity, and was refused.</li>
 <li><strong>Users told:</strong> on this errata page, and in the release notes of 3.0.0</li>
-<li><strong>Fixed in:</strong> the next release</li>
+<li><strong>Fixed in:</strong> 3.0.0</li>
 </ul>
 <p>The two entries held their chemical formula, Al_2O_3 and CO_2, where the density
 belongs: a column shifted when the library was built from Geant4's list of materials.
@@ -687,7 +687,7 @@ so dose rates behind it were too low there.  TERPHENYL, POLYCHLOROSTYRENE and
 POLYVINYL_BUTYRAL had the hydrogen content of another molecule: their attenuation is
 off by about 1 %.</li>
 <li><strong>Users told:</strong> on this errata page, and in the release notes of 3.0.0</li>
-<li><strong>Fixed in:</strong> the next release</li>
+<li><strong>Fixed in:</strong> 3.0.0</li>
 </ul>
 <p>The library's compositions were copied from Geant4 9.4, which defined stainless steel
 as 74 iron, 8 chromium and 18 nickel atoms, and the three plastics by weight fractions
